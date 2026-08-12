@@ -1,0 +1,48 @@
+name: Stage 2 Small-Scale Scan Test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    env:
+      FINMIND_TOKEN: ${{ secrets.FINMIND_TOKEN }}
+      TEST_LIMIT: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run scan.js (test mode, 20 stocks)
+        run: node scan.js
+
+      - name: Run build_report.js if scan completed
+        run: |
+          if grep -q '"complete": true' state.json; then
+            node build_report.js
+          else
+            echo "Scan did not complete in this run (unexpected for 20-stock test), skipping report"
+          fi
+
+      - name: Show results
+        run: |
+          echo "=== state.json ==="
+          cat state.json
+          echo ""
+          if [ -f report.json ]; then
+            echo "=== report.json (summary) ==="
+            node -e "const r=require('./report.json'); console.log('total_scanned:', r.total_scanned, 'total_golden_cross:', r.total_golden_cross, 'base_list:', r.base_list.length)"
+          fi
+
+      - name: Commit test results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add state.json report.json reports/ index.html 2>/dev/null || true
+          git commit -m "Stage 2 test run: $(date -u +%Y-%m-%dT%H:%M:%SZ)" || echo "nothing to commit"
+          git push
