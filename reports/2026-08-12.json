@@ -1,0 +1,29 @@
+{
+ "date": "2026-08-12",
+ "total_scanned": 20,
+ "total_golden_cross": 1,
+ "all_results": [
+  {
+   "stock_id": "8499",
+   "stock_name": "鼎炫-KY",
+   "type": "twse",
+   "date": "2026-08-12",
+   "close": 265.5,
+   "ma5": 260.4,
+   "ma20": 258.65,
+   "strength": 0.68,
+   "volume_lots": 46,
+   "volume_avg5_lots": 37,
+   "volume_ratio": 1.24,
+   "close_yday": 265,
+   "change_pct": 0.19,
+   "is_surge": false
+  }
+ ],
+ "base_list": [],
+ "validation_of_previous_signals": {
+  "based_on_date": null,
+  "count": 0,
+  "results": []
+ }
+}
