@@ -1,0 +1,219 @@
+{
+ "date": "2026-08-13",
+ "universe": [
+  {
+   "industry_category": "光電業",
+   "stock_id": "3629",
+   "stock_name": "地心引力",
+   "type": "tpex",
+   "date": "2020-06-03"
+  },
+  {
+   "industry_category": "文化創意業",
+   "stock_id": "3687",
+   "stock_name": "歐買尬",
+   "type": "tpex",
+   "date": "2020-06-03"
+  },
+  {
+   "industry_category": "電子零組件業",
+   "stock_id": "5481",
+   "stock_name": "新華",
+   "type": "tpex",
+   "date": "2020-06-03"
+  },
+  {
+   "industry_category": "電腦及週邊設備業",
+   "stock_id": "5450",
+   "stock_name": "寶聯通",
+   "type": "tpex",
+   "date": "2020-06-03"
+  },
+  {
+   "industry_category": "其他電子類",
+   "stock_id": "6238",
+   "stock_name": "勝麗",
+   "type": "tpex",
+   "date": "2020-06-13"
+  },
+  {
+   "industry_category": "生技醫療業",
+   "stock_id": "6497",
+   "stock_name": "亞獅康-KY",
+   "type": "tpex",
+   "date": "2020-08-27"
+  },
+  {
+   "industry_category": "電子零組件業",
+   "stock_id": "5349",
+   "stock_name": "先豐",
+   "type": "tpex",
+   "date": "2020-10-31"
+  },
+  {
+   "industry_category": "其他",
+   "stock_id": "8934",
+   "stock_name": "衡平",
+   "type": "tpex",
+   "date": "2020-11-20"
+  },
+  {
+   "industry_category": "電腦及週邊設備業",
+   "stock_id": "5304",
+   "stock_name": "鼎創達",
+   "type": "tpex",
+   "date": "2020-11-22"
+  },
+  {
+   "industry_category": "其他電子類",
+   "stock_id": "6438",
+   "stock_name": "迅得",
+   "type": "tpex",
+   "date": "2021-01-21"
+  },
+  {
+   "industry_category": "通信網路業",
+   "stock_id": "6426",
+   "stock_name": "統新",
+   "type": "tpex",
+   "date": "2021-03-26"
+  },
+  {
+   "industry_category": "電子零組件業",
+   "stock_id": "3092",
+   "stock_name": "鴻碩",
+   "type": "tpex",
+   "date": "2021-05-15"
+  },
+  {
+   "industry_category": "電子零組件業",
+   "stock_id": "6165",
+   "stock_name": "浪凡",
+   "type": "twse",
+   "date": "2021-06-01"
+  },
+  {
+   "industry_category": "紡織纖維",
+   "stock_id": "1456",
+   "stock_name": "怡華",
+   "type": "twse",
+   "date": "2021-06-01"
+  },
+  {
+   "industry_category": "其他",
+   "stock_id": "8499",
+   "stock_name": "鼎炫-KY",
+   "type": "twse",
+   "date": "2021-06-01"
+  },
+  {
+   "industry_category": "電子通路業",
+   "stock_id": "2459",
+   "stock_name": "敦吉",
+   "type": "twse",
+   "date": "2021-06-01"
+  },
+  {
+   "industry_category": "貿易百貨",
+   "stock_id": "2614",
+   "stock_name": "東森",
+   "type": "twse",
+   "date": "2021-06-01"
+  },
+  {
+   "industry_category": "紡織纖維",
+   "stock_id": "1453",
+   "stock_name": "大將",
+   "type": "twse",
+   "date": "2021-06-01"
+  },
+  {
+   "industry_category": "光電業",
+   "stock_id": "3669",
+   "stock_name": "圓展",
+   "type": "twse",
+   "date": "2021-06-01"
+  },
+  {
+   "industry_category": "電機機械",
+   "stock_id": "2241",
+   "stock_name": "艾姆勒",
+   "type": "twse",
+   "date": "2021-06-01"
+  },
+  {
+   "industry_category": "其他電子業",
+   "stock_id": "3450",
+   "stock_name": "聯鈞",
+   "type": "twse",
+   "date": "2021-06-01"
+  },
+  {
+   "industry_category": "紡織纖維",
+   "stock_id": "1443",
+   "stock_name": "立益",
+   "type": "twse",
+   "date": "2021-06-01"
+  },
+  {
+   "industry_category": "電子零組件業",
+   "stock_id": "2429",
+   "stock_name": "銘旺科",
+   "type": "twse",
+   "date": "2021-06-01"
+  },
+  {
+   "industry_category": "電子零組件業",
+   "stock_id": "3313",
+   "stock_name": "斐成",
+   "type": "tpex",
+   "date": "2021-06-12"
+  },
+  {
+   "industry_category": "電子零組件業",
+   "stock_id": "5345",
+   "stock_name": "天揚",
+   "type": "tpex",
+   "date": "2021-06-12"
+  },
+  {
+   "industry_category": "文化創意業",
+   "stock_id": "8489",
+   "stock_name": "三貝德",
+   "type": "tpex",
+   "date": "2021-06-12"
+  },
+  {
+   "industry_category": "塑膠工業",
+   "stock_id": "8354",
+   "stock_name": "冠好",
+   "type": "tpex",
+   "date": "2021-06-12"
+  },
+  {
+   "industry_category": "航運業",
+   "stock_id": "5604",
+   "stock_name": "中連貨",
+   "type": "tpex",
+   "date": "2021-06-12"
+  },
+  {
+   "industry_category": "光電業",
+   "stock_id": "3685",
+   "stock_name": "元創精密",
+   "type": "tpex",
+   "date": "2021-06-12"
+  },
+  {
+   "industry_category": "半導體業",
+   "stock_id": "3219",
+   "stock_name": "倚強股份",
+   "type": "tpex",
+   "date": "2021-06-12"
+  }
+ ],
+ "processedIds": [],
+ "results": [],
+ "complete": false,
+ "reported": false
+}
