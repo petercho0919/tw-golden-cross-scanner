@@ -15136,9 +15136,82 @@
    "date": "2026-08-13"
   }
  ],
- "processedIds": [],
- "results": [],
- "priceExtremes": [],
+ "processedIds": [
+  "3629",
+  "3687",
+  "5481",
+  "5450",
+  "6238",
+  "6497",
+  "5349",
+  "8934",
+  "5304",
+  "6438",
+  "6426",
+  "3092",
+  "6165",
+  "1456",
+  "8499",
+  "2459",
+  "2614",
+  "1453",
+  "3669",
+  "2241",
+  "3450",
+  "1443",
+  "2429",
+  "3313",
+  "5345"
+ ],
+ "results": [
+  {
+   "stock_id": "3092",
+   "stock_name": "鴻碩",
+   "type": "tpex",
+   "date": "2026-08-13",
+   "close": 23.95,
+   "close_yday": 23.95,
+   "change_pct": 0,
+   "volume_lots": 177,
+   "volume_avg5_lots": 104,
+   "volume_ratio": 1.7,
+   "is_surge": true,
+   "ma5": 23.74,
+   "ma20": 23.62
+  },
+  {
+   "stock_id": "1453",
+   "stock_name": "大將",
+   "type": "twse",
+   "date": "2026-08-13",
+   "close": 11.4,
+   "close_yday": 11.25,
+   "change_pct": 1.33,
+   "volume_lots": 81,
+   "volume_avg5_lots": 74,
+   "volume_ratio": 1.09,
+   "is_surge": false,
+   "ma5": 11.17,
+   "ma20": 11.14
+  }
+ ],
+ "priceExtremes": [
+  {
+   "stock_id": "3450",
+   "stock_name": "聯鈞",
+   "type": "twse",
+   "date": "2026-08-13",
+   "close": 527,
+   "close_yday": 507,
+   "change_pct": 3.94,
+   "volume_lots": 2550,
+   "volume_avg5_lots": 11718,
+   "volume_ratio": 0.22,
+   "highPeriod": "1個月",
+   "lowPeriod": null,
+   "is_surge": false
+  }
+ ],
  "complete": false,
  "reported": false
 }
