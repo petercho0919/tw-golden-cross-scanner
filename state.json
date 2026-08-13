@@ -15211,7 +15211,32 @@
   "3252",
   "6195",
   "9960",
-  "5278"
+  "5278",
+  "8462",
+  "5287",
+  "2947",
+  "5301",
+  "9943",
+  "2756",
+  "2734",
+  "2755",
+  "2754",
+  "2753",
+  "8472",
+  "2752",
+  "2748",
+  "2712",
+  "2745",
+  "3171",
+  "2743",
+  "8477",
+  "2740",
+  "2739",
+  "8066",
+  "6763",
+  "2707",
+  "2916",
+  "2924"
  ],
  "results": [
   {
@@ -15288,6 +15313,36 @@
    "is_surge": true,
    "ma5": 45.62,
    "ma20": 45.01
+  },
+  {
+   "stock_id": "2755",
+   "stock_name": "揚秦",
+   "type": "tpex",
+   "date": "2026-08-13",
+   "close": 104.5,
+   "close_yday": 104.5,
+   "change_pct": 0,
+   "volume_lots": 44,
+   "volume_avg5_lots": 48,
+   "volume_ratio": 0.92,
+   "is_surge": false,
+   "ma5": 103.6,
+   "ma20": 103.45
+  },
+  {
+   "stock_id": "8472",
+   "stock_name": "夠麻吉",
+   "type": "tpex",
+   "date": "2026-08-13",
+   "close": 69.2,
+   "close_yday": 70.5,
+   "change_pct": -1.84,
+   "volume_lots": 15,
+   "volume_avg5_lots": 11,
+   "volume_ratio": 1.36,
+   "is_surge": true,
+   "ma5": 70.32,
+   "ma20": 70.16
   }
  ],
  "priceExtremes": [
@@ -15365,6 +15420,21 @@
    "highPeriod": null,
    "lowPeriod": "1個月",
    "is_surge": true
+  },
+  {
+   "stock_id": "8462",
+   "stock_name": "柏文",
+   "type": "twse",
+   "date": "2026-08-13",
+   "close": 179.5,
+   "close_yday": 179,
+   "change_pct": 0.28,
+   "volume_lots": 193,
+   "volume_avg5_lots": 207,
+   "volume_ratio": 0.93,
+   "highPeriod": "12個月",
+   "lowPeriod": null,
+   "is_surge": false
   }
  ],
  "complete": false,
