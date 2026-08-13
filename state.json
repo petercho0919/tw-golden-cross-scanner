@@ -16661,7 +16661,32 @@
   "1414",
   "1416",
   "1417",
-  "1418"
+  "1418",
+  "1419",
+  "1423",
+  "1434",
+  "1435",
+  "1436",
+  "1437",
+  "1438",
+  "1440",
+  "1441",
+  "1442",
+  "1444",
+  "1445",
+  "1446",
+  "1447",
+  "1449",
+  "1402",
+  "1342",
+  "1341",
+  "1295",
+  "1301",
+  "1303",
+  "1304",
+  "1305",
+  "1307",
+  "1308"
  ],
  "results": [
   {
@@ -18238,6 +18263,21 @@
    "is_surge": true,
    "ma5": 37.63,
    "ma20": 37.38
+  },
+  {
+   "stock_id": "1308",
+   "stock_name": "亞聚",
+   "type": "twse",
+   "date": "2026-08-13",
+   "close": 13.6,
+   "close_yday": 13.7,
+   "change_pct": -0.73,
+   "volume_lots": 1428,
+   "volume_avg5_lots": 1585,
+   "volume_ratio": 0.9,
+   "is_surge": false,
+   "ma5": 13.59,
+   "ma20": 13.44
   }
  ],
  "priceExtremes": [
@@ -20054,6 +20094,21 @@
    "volume_ratio": 1.15,
    "highPeriod": "1個月",
    "lowPeriod": null,
+   "is_surge": false
+  },
+  {
+   "stock_id": "1307",
+   "stock_name": "三芳",
+   "type": "twse",
+   "date": "2026-08-13",
+   "close": 30.55,
+   "close_yday": 30.9,
+   "change_pct": -1.13,
+   "volume_lots": 949,
+   "volume_avg5_lots": 893,
+   "volume_ratio": 1.06,
+   "highPeriod": null,
+   "lowPeriod": "6個月",
    "is_surge": false
   }
  ],
