@@ -16286,7 +16286,32 @@
   "6877",
   "6881",
   "6884",
-  "6885"
+  "6885",
+  "6887",
+  "6890",
+  "6919",
+  "6921",
+  "6944",
+  "6945",
+  "6947",
+  "6952",
+  "6953",
+  "6955",
+  "6957",
+  "6958",
+  "6961",
+  "6962",
+  "6937",
+  "6922",
+  "6923",
+  "6925",
+  "6928",
+  "6929",
+  "6931",
+  "6933",
+  "6934",
+  "6936",
+  "4951"
  ],
  "results": [
   {
@@ -17548,6 +17573,21 @@
    "is_surge": true,
    "ma5": 78.24,
    "ma20": 77.99
+  },
+  {
+   "stock_id": "6929",
+   "stock_name": "佑全",
+   "type": "tpex",
+   "date": "2026-08-13",
+   "close": 22.45,
+   "close_yday": 22.75,
+   "change_pct": -1.32,
+   "volume_lots": 13,
+   "volume_avg5_lots": 8,
+   "volume_ratio": 1.63,
+   "is_surge": true,
+   "ma5": 23.02,
+   "ma20": 19.49
   }
  ],
  "priceExtremes": [
@@ -18780,6 +18820,36 @@
    "highPeriod": "6個月",
    "lowPeriod": null,
    "is_surge": false
+  },
+  {
+   "stock_id": "6937",
+   "stock_name": "天虹",
+   "type": "twse",
+   "date": "2026-08-13",
+   "close": 293.5,
+   "close_yday": 291.5,
+   "change_pct": 0.69,
+   "volume_lots": 803,
+   "volume_avg5_lots": 586,
+   "volume_ratio": 1.37,
+   "highPeriod": "1個月",
+   "lowPeriod": null,
+   "is_surge": true
+  },
+  {
+   "stock_id": "6933",
+   "stock_name": "AMAX-KY",
+   "type": "twse",
+   "date": "2026-08-13",
+   "close": 197.5,
+   "close_yday": 194,
+   "change_pct": 1.8,
+   "volume_lots": 1068,
+   "volume_avg5_lots": 737,
+   "volume_ratio": 1.45,
+   "highPeriod": "6個月",
+   "lowPeriod": null,
+   "is_surge": true
   }
  ],
  "complete": false,
