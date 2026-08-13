@@ -15311,7 +15311,32 @@
   "3551",
   "3073",
   "8440",
-  "8924"
+  "8924",
+  "6616",
+  "8423",
+  "6804",
+  "8928",
+  "6629",
+  "3713",
+  "8933",
+  "8171",
+  "1593",
+  "4530",
+  "8476",
+  "3178",
+  "6803",
+  "2640",
+  "6811",
+  "6690",
+  "8938",
+  "4154",
+  "6624",
+  "6123",
+  "3089",
+  "5281",
+  "4944",
+  "6404",
+  "6472"
  ],
  "results": [
   {
@@ -15508,6 +15533,36 @@
    "is_surge": false,
    "ma5": 4.82,
    "ma20": 4.21
+  },
+  {
+   "stock_id": "2640",
+   "stock_name": "大車隊",
+   "type": "tpex",
+   "date": "2026-08-13",
+   "close": 148,
+   "close_yday": 149,
+   "change_pct": -0.67,
+   "volume_lots": 39,
+   "volume_avg5_lots": 21,
+   "volume_ratio": 1.86,
+   "is_surge": true,
+   "ma5": 147.4,
+   "ma20": 146.97
+  },
+  {
+   "stock_id": "6811",
+   "stock_name": "宏碁資訊",
+   "type": "tpex",
+   "date": "2026-08-13",
+   "close": 237.5,
+   "close_yday": 227.5,
+   "change_pct": 4.4,
+   "volume_lots": 218,
+   "volume_avg5_lots": 194,
+   "volume_ratio": 1.12,
+   "is_surge": false,
+   "ma5": 232.2,
+   "ma20": 231.6
   }
  ],
  "priceExtremes": [
@@ -15659,6 +15714,21 @@
    "volume_ratio": 0.95,
    "highPeriod": null,
    "lowPeriod": "12個月",
+   "is_surge": false
+  },
+  {
+   "stock_id": "8938",
+   "stock_name": "明安",
+   "type": "tpex",
+   "date": "2026-08-13",
+   "close": 52.5,
+   "close_yday": 52.6,
+   "change_pct": -0.19,
+   "volume_lots": 88,
+   "volume_avg5_lots": 113,
+   "volume_ratio": 0.78,
+   "highPeriod": null,
+   "lowPeriod": "1個月",
    "is_surge": false
   }
  ],
