@@ -15636,7 +15636,32 @@
   "6482",
   "6485",
   "6486",
-  "6488"
+  "6488",
+  "6491",
+  "6492",
+  "6494",
+  "6496",
+  "6498",
+  "6499",
+  "6504",
+  "6505",
+  "6158",
+  "6279",
+  "5410",
+  "5425",
+  "5426",
+  "5434",
+  "5438",
+  "5439",
+  "5452",
+  "5455",
+  "5457",
+  "5460",
+  "5464",
+  "5465",
+  "5468",
+  "5469",
+  "5471"
  ],
  "results": [
   {
@@ -16118,6 +16143,36 @@
    "is_surge": true,
    "ma5": 142.3,
    "ma20": 139.95
+  },
+  {
+   "stock_id": "6499",
+   "stock_name": "益安",
+   "type": "tpex",
+   "date": "2026-08-13",
+   "close": 61.2,
+   "close_yday": 63.3,
+   "change_pct": -3.32,
+   "volume_lots": 217,
+   "volume_avg5_lots": 201,
+   "volume_ratio": 1.08,
+   "is_surge": false,
+   "ma5": 60.8,
+   "ma20": 60.71
+  },
+  {
+   "stock_id": "5460",
+   "stock_name": "同協",
+   "type": "tpex",
+   "date": "2026-08-13",
+   "close": 16.15,
+   "close_yday": 16.05,
+   "change_pct": 0.62,
+   "volume_lots": 40,
+   "volume_avg5_lots": 206,
+   "volume_ratio": 0.19,
+   "is_surge": false,
+   "ma5": 16.1,
+   "ma20": 16.1
   }
  ],
  "priceExtremes": [
@@ -16510,6 +16565,21 @@
    "highPeriod": "1個月",
    "lowPeriod": null,
    "is_surge": true
+  },
+  {
+   "stock_id": "5469",
+   "stock_name": "瀚宇博",
+   "type": "twse",
+   "date": "2026-08-13",
+   "close": 76.9,
+   "close_yday": 76.7,
+   "change_pct": 0.26,
+   "volume_lots": 1571,
+   "volume_avg5_lots": 2272,
+   "volume_ratio": 0.69,
+   "highPeriod": "1個月",
+   "lowPeriod": null,
+   "is_surge": false
   }
  ],
  "complete": false,
