@@ -15936,7 +15936,32 @@
   "8048",
   "8049",
   "8050",
-  "8054"
+  "8054",
+  "8059",
+  "8064",
+  "8045",
+  "8068",
+  "8069",
+  "8070",
+  "8071",
+  "8072",
+  "8074",
+  "8076",
+  "8067",
+  "8043",
+  "8011",
+  "8016",
+  "8021",
+  "8024",
+  "8027",
+  "8028",
+  "8032",
+  "8033",
+  "8034",
+  "8038",
+  "8039",
+  "8040",
+  "8042"
  ],
  "results": [
   {
@@ -16793,6 +16818,21 @@
    "is_surge": false,
    "ma5": 156.6,
    "ma20": 154.03
+  },
+  {
+   "stock_id": "8064",
+   "stock_name": "東捷",
+   "type": "tpex",
+   "date": "2026-08-13",
+   "close": 105.5,
+   "close_yday": 105.5,
+   "change_pct": 0,
+   "volume_lots": 2824,
+   "volume_avg5_lots": 2745,
+   "volume_ratio": 1.03,
+   "is_surge": false,
+   "ma5": 103.5,
+   "ma20": 102.83
   }
  ],
  "priceExtremes": [
@@ -17679,6 +17719,36 @@
    "volume_ratio": 1.26,
    "highPeriod": null,
    "lowPeriod": "12個月",
+   "is_surge": false
+  },
+  {
+   "stock_id": "8045",
+   "stock_name": "達運光電",
+   "type": "twse",
+   "date": "2026-08-13",
+   "close": 51.9,
+   "close_yday": 52.9,
+   "change_pct": -1.89,
+   "volume_lots": 109,
+   "volume_avg5_lots": 193,
+   "volume_ratio": 0.56,
+   "highPeriod": null,
+   "lowPeriod": "12個月",
+   "is_surge": false
+  },
+  {
+   "stock_id": "8016",
+   "stock_name": "矽創",
+   "type": "twse",
+   "date": "2026-08-13",
+   "close": 315.5,
+   "close_yday": 311.5,
+   "change_pct": 1.28,
+   "volume_lots": 1498,
+   "volume_avg5_lots": 1350,
+   "volume_ratio": 1.11,
+   "highPeriod": "1個月",
+   "lowPeriod": null,
    "is_surge": false
   }
  ],
