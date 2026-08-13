@@ -15986,7 +15986,32 @@
   "7811",
   "7839",
   "7842",
-  "7855"
+  "7855",
+  "7835",
+  "7814",
+  "7818",
+  "7819",
+  "7820",
+  "7821",
+  "7822",
+  "7823",
+  "7827",
+  "7828",
+  "7753",
+  "8081",
+  "8083",
+  "8488",
+  "8905",
+  "8906",
+  "8908",
+  "8916",
+  "8917",
+  "8921",
+  "8923",
+  "8926",
+  "8927",
+  "8929",
+  "8930"
  ],
  "results": [
   {
@@ -16873,6 +16898,21 @@
    "is_surge": false,
    "ma5": 92.4,
    "ma20": 92.23
+  },
+  {
+   "stock_id": "8923",
+   "stock_name": "時報",
+   "type": "tpex",
+   "date": "2026-08-13",
+   "close": 18.85,
+   "close_yday": 18.8,
+   "change_pct": 0.27,
+   "volume_lots": 9,
+   "volume_avg5_lots": 2,
+   "volume_ratio": 4.5,
+   "is_surge": true,
+   "ma5": 15.09,
+   "ma20": 12.34
   }
  ],
  "priceExtremes": [
@@ -17835,6 +17875,36 @@
    "highPeriod": "1個月",
    "lowPeriod": null,
    "is_surge": true
+  },
+  {
+   "stock_id": "7821",
+   "stock_name": "神數",
+   "type": "twse",
+   "date": "2026-08-13",
+   "close": 39.4,
+   "close_yday": 39.7,
+   "change_pct": -0.76,
+   "volume_lots": 205,
+   "volume_avg5_lots": 186,
+   "volume_ratio": 1.1,
+   "highPeriod": null,
+   "lowPeriod": "12個月",
+   "is_surge": false
+  },
+  {
+   "stock_id": "8926",
+   "stock_name": "台汽電",
+   "type": "twse",
+   "date": "2026-08-13",
+   "close": 55.8,
+   "close_yday": 56.8,
+   "change_pct": -1.76,
+   "volume_lots": 4075,
+   "volume_avg5_lots": 7109,
+   "volume_ratio": 0.57,
+   "highPeriod": null,
+   "lowPeriod": "3個月",
+   "is_surge": false
   }
  ],
  "complete": false,
