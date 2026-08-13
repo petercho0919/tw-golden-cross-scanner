@@ -17136,7 +17136,32 @@
   "2509",
   "2511",
   "2514",
-  "2641"
+  "2641",
+  "2515",
+  "2520",
+  "2524",
+  "2527",
+  "2528",
+  "2530",
+  "2534",
+  "2535",
+  "2536",
+  "2537",
+  "2538",
+  "2539",
+  "2540",
+  "2516",
+  "3004",
+  "2929",
+  "3005",
+  "3176",
+  "3188",
+  "3189",
+  "3191",
+  "3205",
+  "3206",
+  "3207",
+  "3209"
  ],
  "results": [
   {
@@ -19118,6 +19143,36 @@
    "is_surge": false,
    "ma5": 22.57,
    "ma20": 22.4
+  },
+  {
+   "stock_id": "2537",
+   "stock_name": "聯上發",
+   "type": "twse",
+   "date": "2026-08-13",
+   "close": 11,
+   "close_yday": 11.05,
+   "change_pct": -0.45,
+   "volume_lots": 2143,
+   "volume_avg5_lots": 590,
+   "volume_ratio": 3.63,
+   "is_surge": true,
+   "ma5": 11.01,
+   "ma20": 11
+  },
+  {
+   "stock_id": "3188",
+   "stock_name": "鑫龍騰",
+   "type": "tpex",
+   "date": "2026-08-13",
+   "close": 23.3,
+   "close_yday": 23.55,
+   "change_pct": -1.06,
+   "volume_lots": 238,
+   "volume_avg5_lots": 189,
+   "volume_ratio": 1.26,
+   "is_surge": false,
+   "ma5": 23.23,
+   "ma20": 23.21
   }
  ],
  "priceExtremes": [
@@ -21670,6 +21725,21 @@
    "highPeriod": "1個月",
    "lowPeriod": null,
    "is_surge": false
+  },
+  {
+   "stock_id": "2536",
+   "stock_name": "宏普",
+   "type": "twse",
+   "date": "2026-08-13",
+   "close": 21.45,
+   "close_yday": 21.25,
+   "change_pct": 0.94,
+   "volume_lots": 2524,
+   "volume_avg5_lots": 1875,
+   "volume_ratio": 1.35,
+   "highPeriod": "1個月",
+   "lowPeriod": null,
+   "is_surge": true
   }
  ],
  "complete": false,
