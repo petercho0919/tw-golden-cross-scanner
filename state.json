@@ -15261,7 +15261,32 @@
   "6741",
   "8464",
   "8467",
-  "3130"
+  "3130",
+  "1736",
+  "3557",
+  "9910",
+  "5306",
+  "9911",
+  "6670",
+  "6689",
+  "6807",
+  "9904",
+  "1439",
+  "1598",
+  "8454",
+  "6671",
+  "6806",
+  "6754",
+  "8422",
+  "9955",
+  "8438",
+  "9802",
+  "6768",
+  "8341",
+  "8473",
+  "8478",
+  "9935",
+  "1432"
  ],
  "results": [
   {
@@ -15428,6 +15453,21 @@
    "is_surge": true,
    "ma5": 205.3,
    "ma20": 204.47
+  },
+  {
+   "stock_id": "8473",
+   "stock_name": "山林水",
+   "type": "twse",
+   "date": "2026-08-13",
+   "close": 45.55,
+   "close_yday": 42.85,
+   "change_pct": 6.3,
+   "volume_lots": 1935,
+   "volume_avg5_lots": 780,
+   "volume_ratio": 2.48,
+   "is_surge": true,
+   "ma5": 42.73,
+   "ma20": 42.51
   }
  ],
  "priceExtremes": [
@@ -15549,6 +15589,21 @@
    "volume_ratio": 0.86,
    "highPeriod": null,
    "lowPeriod": "1個月",
+   "is_surge": false
+  },
+  {
+   "stock_id": "8478",
+   "stock_name": "東哥遊艇",
+   "type": "twse",
+   "date": "2026-08-13",
+   "close": 146,
+   "close_yday": 146,
+   "change_pct": 0,
+   "volume_lots": 125,
+   "volume_avg5_lots": 165,
+   "volume_ratio": 0.76,
+   "highPeriod": null,
+   "lowPeriod": "12個月",
    "is_surge": false
   }
  ],
