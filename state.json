@@ -16086,7 +16086,32 @@
   "8096",
   "8097",
   "8099",
-  "8101"
+  "8101",
+  "8102",
+  "8103",
+  "8104",
+  "8105",
+  "8107",
+  "8183",
+  "8201",
+  "8210",
+  "8349",
+  "8358",
+  "8367",
+  "8374",
+  "8401",
+  "8403",
+  "8404",
+  "8409",
+  "8410",
+  "8411",
+  "8415",
+  "8416",
+  "8421",
+  "8424",
+  "8426",
+  "8342",
+  "8299"
  ],
  "results": [
   {
@@ -17093,6 +17118,36 @@
    "is_surge": false,
    "ma5": 11.38,
    "ma20": 11.36
+  },
+  {
+   "stock_id": "8201",
+   "stock_name": "無敵",
+   "type": "twse",
+   "date": "2026-08-13",
+   "close": 11.95,
+   "close_yday": 11.9,
+   "change_pct": 0.42,
+   "volume_lots": 10,
+   "volume_avg5_lots": 31,
+   "volume_ratio": 0.32,
+   "is_surge": false,
+   "ma5": 11.95,
+   "ma20": 11.91
+  },
+  {
+   "stock_id": "8403",
+   "stock_name": "盛弘",
+   "type": "tpex",
+   "date": "2026-08-13",
+   "close": 19.2,
+   "close_yday": 19.3,
+   "change_pct": -0.52,
+   "volume_lots": 119,
+   "volume_avg5_lots": 146,
+   "volume_ratio": 0.82,
+   "is_surge": false,
+   "ma5": 19.15,
+   "ma20": 19.11
   }
  ],
  "priceExtremes": [
@@ -18205,6 +18260,21 @@
    "highPeriod": null,
    "lowPeriod": "3個月",
    "is_surge": false
+  },
+  {
+   "stock_id": "8299",
+   "stock_name": "群聯",
+   "type": "tpex",
+   "date": "2026-08-13",
+   "close": 2280,
+   "close_yday": 2210,
+   "change_pct": 3.17,
+   "volume_lots": 7344,
+   "volume_avg5_lots": 5266,
+   "volume_ratio": 1.39,
+   "highPeriod": "1個月",
+   "lowPeriod": null,
+   "is_surge": true
   }
  ],
  "complete": false,
