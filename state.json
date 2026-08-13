@@ -16886,7 +16886,32 @@
   "4584",
   "4585",
   "4588",
-  "4590"
+  "4590",
+  "4706",
+  "4707",
+  "4714",
+  "4755",
+  "4760",
+  "4916",
+  "4919",
+  "4923",
+  "4927",
+  "4930",
+  "4931",
+  "4933",
+  "4934",
+  "4935",
+  "4938",
+  "4939",
+  "4942",
+  "4943",
+  "4946",
+  "4915",
+  "4912",
+  "4763",
+  "4764",
+  "4766",
+  "4767"
  ],
  "results": [
   {
@@ -18658,6 +18683,21 @@
    "is_surge": false,
    "ma5": 39.31,
    "ma20": 33.48
+  },
+  {
+   "stock_id": "4714",
+   "stock_name": "永捷",
+   "type": "tpex",
+   "date": "2026-08-13",
+   "close": 10.55,
+   "close_yday": 10.65,
+   "change_pct": -0.94,
+   "volume_lots": 600,
+   "volume_avg5_lots": 1252,
+   "volume_ratio": 0.48,
+   "is_surge": false,
+   "ma5": 10.53,
+   "ma20": 10.53
   }
  ],
  "priceExtremes": [
@@ -20820,6 +20860,21 @@
    "highPeriod": null,
    "lowPeriod": "1個月",
    "is_surge": false
+  },
+  {
+   "stock_id": "4938",
+   "stock_name": "和碩",
+   "type": "twse",
+   "date": "2026-08-13",
+   "close": 94.8,
+   "close_yday": 91.4,
+   "change_pct": 3.72,
+   "volume_lots": 66787,
+   "volume_avg5_lots": 9438,
+   "volume_ratio": 7.08,
+   "highPeriod": "1個月",
+   "lowPeriod": null,
+   "is_surge": true
   }
  ],
  "complete": false,
