@@ -15436,7 +15436,32 @@
   "6988",
   "3214",
   "3573",
-  "2807"
+  "2807",
+  "8162",
+  "0080",
+  "0081",
+  "2827",
+  "2831",
+  "3584",
+  "2847",
+  "2384",
+  "8078",
+  "2854",
+  "6924",
+  "8487",
+  "6534",
+  "3474",
+  "3534",
+  "2446",
+  "6457",
+  "3202",
+  "2437",
+  "5314",
+  "8383",
+  "6208",
+  "5348",
+  "6187",
+  "3521"
  ],
  "results": [
   {
@@ -15753,6 +15778,36 @@
    "is_surge": true,
    "ma5": 13.43,
    "ma20": 13.42
+  },
+  {
+   "stock_id": "8162",
+   "stock_name": "微矽電子-創",
+   "type": "twse",
+   "date": "2026-08-13",
+   "close": 59.5,
+   "close_yday": 57.8,
+   "change_pct": 2.94,
+   "volume_lots": 175,
+   "volume_avg5_lots": 177,
+   "volume_ratio": 0.99,
+   "is_surge": false,
+   "ma5": 56.08,
+   "ma20": 55.82
+  },
+  {
+   "stock_id": "3521",
+   "stock_name": "鴻翊",
+   "type": "tpex",
+   "date": "2026-08-13",
+   "close": 12.65,
+   "close_yday": 12.25,
+   "change_pct": 3.27,
+   "volume_lots": 39,
+   "volume_avg5_lots": 12,
+   "volume_ratio": 3.25,
+   "is_surge": true,
+   "ma5": 12.33,
+   "ma20": 12.33
   }
  ],
  "priceExtremes": [
@@ -15950,6 +16005,21 @@
    "highPeriod": null,
    "lowPeriod": "1個月",
    "is_surge": false
+  },
+  {
+   "stock_id": "6187",
+   "stock_name": "萬潤",
+   "type": "tpex",
+   "date": "2026-08-13",
+   "close": 1270,
+   "close_yday": 1155,
+   "change_pct": 9.96,
+   "volume_lots": 6275,
+   "volume_avg5_lots": 4281,
+   "volume_ratio": 1.47,
+   "highPeriod": "3個月",
+   "lowPeriod": null,
+   "is_surge": true
   }
  ],
  "complete": false,
