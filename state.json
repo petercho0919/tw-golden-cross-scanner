@@ -16161,7 +16161,32 @@
   "6859",
   "6862",
   "6835",
-  "6834"
+  "6834",
+  "6821",
+  "6823",
+  "6830",
+  "6831",
+  "6743",
+  "6657",
+  "6658",
+  "6661",
+  "6662",
+  "6664",
+  "6666",
+  "6655",
+  "6668",
+  "6669",
+  "6672",
+  "6674",
+  "6667",
+  "6654",
+  "6651",
+  "6615",
+  "6617",
+  "6620",
+  "6625",
+  "6637",
+  "6640"
  ],
  "results": [
   {
@@ -17258,6 +17283,36 @@
    "is_surge": false,
    "ma5": 31.12,
    "ma20": 31.12
+  },
+  {
+   "stock_id": "6821",
+   "stock_name": "聯寶",
+   "type": "tpex",
+   "date": "2026-08-13",
+   "close": 43,
+   "close_yday": 42.75,
+   "change_pct": 0.58,
+   "volume_lots": 199,
+   "volume_avg5_lots": 111,
+   "volume_ratio": 1.79,
+   "is_surge": true,
+   "ma5": 41.99,
+   "ma20": 41.81
+  },
+  {
+   "stock_id": "6664",
+   "stock_name": "群翊",
+   "type": "tpex",
+   "date": "2026-08-13",
+   "close": 358.5,
+   "close_yday": 366.5,
+   "change_pct": -2.18,
+   "volume_lots": 242,
+   "volume_avg5_lots": 287,
+   "volume_ratio": 0.84,
+   "is_surge": false,
+   "ma5": 351.4,
+   "ma20": 347.77
   }
  ],
  "priceExtremes": [
@@ -18413,6 +18468,21 @@
    "volume_avg5_lots": 105,
    "volume_ratio": 11.32,
    "highPeriod": "6個月",
+   "lowPeriod": null,
+   "is_surge": true
+  },
+  {
+   "stock_id": "6651",
+   "stock_name": "全宇昕",
+   "type": "tpex",
+   "date": "2026-08-13",
+   "close": 142,
+   "close_yday": 138,
+   "change_pct": 2.9,
+   "volume_lots": 456,
+   "volume_avg5_lots": 274,
+   "volume_ratio": 1.66,
+   "highPeriod": "1個月",
    "lowPeriod": null,
    "is_surge": true
   }
