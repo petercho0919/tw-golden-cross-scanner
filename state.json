@@ -16386,7 +16386,32 @@
   "2002",
   "2006",
   "2007",
-  "2008"
+  "2008",
+  "2009",
+  "2010",
+  "2012",
+  "2013",
+  "2014",
+  "2017",
+  "2020",
+  "2022",
+  "2023",
+  "2024",
+  "2025",
+  "2027",
+  "2028",
+  "2029",
+  "2030",
+  "2031",
+  "2032",
+  "2015",
+  "2115",
+  "1723",
+  "1722",
+  "1517",
+  "1519",
+  "1521",
+  "1522"
  ],
  "results": [
   {
@@ -17708,6 +17733,21 @@
    "is_surge": false,
    "ma5": 13.46,
    "ma20": 13.45
+  },
+  {
+   "stock_id": "1519",
+   "stock_name": "華城",
+   "type": "twse",
+   "date": "2026-08-13",
+   "close": 720,
+   "close_yday": 720,
+   "change_pct": 0,
+   "volume_lots": 1696,
+   "volume_avg5_lots": 1449,
+   "volume_ratio": 1.17,
+   "is_surge": false,
+   "ma5": 693.4,
+   "ma20": 688.05
   }
  ],
  "priceExtremes": [
@@ -18983,6 +19023,36 @@
    "volume_avg5_lots": 859,
    "volume_ratio": 0.86,
    "highPeriod": "1個月",
+   "lowPeriod": null,
+   "is_surge": false
+  },
+  {
+   "stock_id": "2027",
+   "stock_name": "大成鋼",
+   "type": "twse",
+   "date": "2026-08-13",
+   "close": 50.4,
+   "close_yday": 46.85,
+   "change_pct": 7.58,
+   "volume_lots": 58731,
+   "volume_avg5_lots": 20030,
+   "volume_ratio": 2.93,
+   "highPeriod": "12個月",
+   "lowPeriod": null,
+   "is_surge": true
+  },
+  {
+   "stock_id": "2030",
+   "stock_name": "彰源",
+   "type": "twse",
+   "date": "2026-08-13",
+   "close": 21.75,
+   "close_yday": 21.55,
+   "change_pct": 0.93,
+   "volume_lots": 3703,
+   "volume_avg5_lots": 5198,
+   "volume_ratio": 0.71,
+   "highPeriod": "12個月",
    "lowPeriod": null,
    "is_surge": false
   }
