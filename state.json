@@ -15186,7 +15186,32 @@
   "3652",
   "5820",
   "3642",
-  "6247"
+  "6247",
+  "6873",
+  "6869",
+  "6594",
+  "2432",
+  "1258",
+  "2732",
+  "2718",
+  "2937",
+  "2729",
+  "2727",
+  "2726",
+  "2724",
+  "2723",
+  "2719",
+  "3522",
+  "2722",
+  "2731",
+  "8077",
+  "5364",
+  "2736",
+  "8433",
+  "3252",
+  "6195",
+  "9960",
+  "5278"
  ],
  "results": [
   {
@@ -15248,6 +15273,21 @@
    "is_surge": true,
    "ma5": 27.89,
    "ma20": 27.87
+  },
+  {
+   "stock_id": "2718",
+   "stock_name": "晶悅",
+   "type": "tpex",
+   "date": "2026-08-13",
+   "close": 48.6,
+   "close_yday": 45.55,
+   "change_pct": 6.7,
+   "volume_lots": 184,
+   "volume_avg5_lots": 19,
+   "volume_ratio": 9.68,
+   "is_surge": true,
+   "ma5": 45.62,
+   "ma20": 45.01
   }
  ],
  "priceExtremes": [
@@ -15295,6 +15335,36 @@
    "highPeriod": "1個月",
    "lowPeriod": null,
    "is_surge": false
+  },
+  {
+   "stock_id": "6873",
+   "stock_name": "泓德能源-創",
+   "type": "twse",
+   "date": "2026-08-13",
+   "close": 70.6,
+   "close_yday": 74.9,
+   "change_pct": -5.74,
+   "volume_lots": 1586,
+   "volume_avg5_lots": 493,
+   "volume_ratio": 3.22,
+   "highPeriod": null,
+   "lowPeriod": "12個月",
+   "is_surge": true
+  },
+  {
+   "stock_id": "2723",
+   "stock_name": "美食-KY",
+   "type": "twse",
+   "date": "2026-08-13",
+   "close": 61.1,
+   "close_yday": 61.6,
+   "change_pct": -0.81,
+   "volume_lots": 368,
+   "volume_avg5_lots": 227,
+   "volume_ratio": 1.62,
+   "highPeriod": null,
+   "lowPeriod": "1個月",
+   "is_surge": true
   }
  ],
  "complete": false,
