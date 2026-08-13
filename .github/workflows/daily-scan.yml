@@ -1,0 +1,44 @@
+name: Daily Golden Cross Scan
+
+on:
+  schedule:
+    # 17:45 台北時間 = 09:45 UTC，每天
+    - cron: '45 9 * * *'
+  workflow_dispatch:
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    permissions:
+      contents: write
+    env:
+      FINMIND_TOKEN: ${{ secrets.FINMIND_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Configure git identity
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Run full-market scan
+        run: node scan.js
+
+      - name: Build report if scan completed
+        run: |
+          if grep -q '"complete": true' state.json; then
+            node build_report.js
+          else
+            echo "掃描未完成（遇到錯誤提早停止），略過報告產生"
+          fi
+
+      - name: Commit report
+        run: |
+          git add report.json reports/ index.html state.json 2>/dev/null || true
+          git commit -m "daily report: $(date -u +%Y-%m-%dT%H:%M:%SZ)" || echo "nothing to commit"
+          git push

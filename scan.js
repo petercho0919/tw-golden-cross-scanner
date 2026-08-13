@@ -1,15 +1,16 @@
-// 台股全市場 MA5/MA20 黃金交叉掃描 — 雲端 routine 用，每次呼叫做「一輪」（約585次API呼叫）
-// 進度存在 state.json，由呼叫端（routine 的 agent）負責 git commit + push 讓進度跨次觸發延續。
+// 台股全市場 MA5/MA20 黃金交叉掃描 — GitHub Actions 用，單一次呼叫掃完全市場。
+// 呼叫間隔照 FinMind 600次/小時的額度節流（抓 590 次/小時的安全邊際），
+// 每處理 25 檔就存檔一次並 git commit+push，避免 job 中途被取消或超時而遺失進度。
 //
 // 用法: FINMIND_TOKEN=xxx node scan.js
-// 印出最後一行 "STATUS: xxx" 供呼叫端判斷下一步:
+// 印出最後一行 "STATUS: xxx"：
 //   STATUS: ALREADY_COMPLETE_TODAY  → 今天已經跑完且已產生報告網頁，什麼都不用做
-//   STATUS: COMPLETE                → 這輪跑完後全市場掃描完成，呼叫端接著跑 build_report.js
-//   STATUS: CONTINUE                → 還沒跑完，下次觸發會自動接著跑
-//   STATUS: ERROR                   → 遇到 API 錯誤，停止，下次觸發會重試
+//   STATUS: COMPLETE                → 全市場掃描完成，呼叫端接著跑 build_report.js
+//   STATUS: ERROR                   → 遇到 API 錯誤，停止（不重試）
 
 const fs = require('fs');
 const path = require('path');
+const { execSync } = require('child_process');
 
 const TOKEN = process.env.FINMIND_TOKEN;
 if (!TOKEN) {
@@ -19,11 +20,11 @@ if (!TOKEN) {
 }
 
 const STATE_FILE = path.join(__dirname, 'state.json');
-const ROUND_LIMIT = 585; // 留一點邊際給 universe 查詢那 1 次呼叫，總數不超過 590
-const INTERVAL_MS = Math.ceil((3600 * 1000) / 590);
+const INTERVAL_MS = Math.ceil((3600 * 1000) / 590); // 590次/小時的安全邊際
+const SAVE_EVERY = 25;
 
 function todayTaipei() {
-  const d = new Date(Date.now() + 8 * 3600 * 1000); // 轉成台北時間
+  const d = new Date(Date.now() + 8 * 3600 * 1000);
   return d.toISOString().slice(0, 10);
 }
 
@@ -40,8 +41,22 @@ function saveState(state) {
   fs.writeFileSync(STATE_FILE, JSON.stringify(state, null, 1));
 }
 
+// 進度存檔後順便 commit+push，避免 job 中途被取消或超時而整批遺失。
+// 失敗只印警告，不中斷掃描（掃描本身的資料還在記憶體/本機檔案裡，下次還能重新 push）。
+function checkpointCommit(message) {
+  try {
+    execSync('git add state.json', { cwd: __dirname, stdio: 'pipe' });
+    execSync(`git commit -m "${message}"`, { cwd: __dirname, stdio: 'pipe' });
+    execSync('git push', { cwd: __dirname, stdio: 'pipe' });
+  } catch (e) {
+    const msg = e.stdout ? e.stdout.toString() : e.message;
+    if (/nothing to commit/.test(msg)) return; // 正常情況，沒變化就跳過
+    console.error('[警告] checkpoint commit/push 失敗，繼續掃描但進度暫時沒存回 repo:', msg.slice(0, 300));
+  }
+}
+
 function freshState(date) {
-  return { date, universe: null, processedIds: [], results: [], complete: false, reported: false, rounds: 0 };
+  return { date, universe: null, processedIds: [], results: [], complete: false, reported: false };
 }
 
 async function fetchUniverse() {
@@ -114,19 +129,13 @@ async function main() {
     }
     state.universe = universe;
     saveState(state);
+    checkpointCommit(`scan: universe fetched (${state.universe.length} 檔)`);
     console.log(`股票清單: ${state.universe.length} 檔`);
   }
 
   const processedSet = new Set(state.processedIds);
   const remaining = state.universe.filter((s) => !processedSet.has(s.stock_id));
-
-  if (remaining.length === 0) {
-    state.complete = true;
-    saveState(state);
-    console.log('全市場已掃描完畢');
-    console.log('STATUS: COMPLETE');
-    return;
-  }
+  console.log(`還剩 ${remaining.length} / ${state.universe.length} 檔待處理`);
 
   const end = new Date();
   const start = new Date(end.getTime() - 40 * 24 * 3600 * 1000);
@@ -134,47 +143,41 @@ async function main() {
   const endDate = fmtDate(end);
 
   let calls = 0;
-  let errored = false;
 
   for (const s of remaining) {
-    if (calls >= ROUND_LIMIT) break;
     const json = await fetchStock(s.stock_id, startDate, endDate);
     calls++;
 
     if (json.status !== 200) {
-      console.error(`遇到錯誤 status=${json.status} msg=${json.msg}，停止本輪`);
-      errored = true;
-      break;
+      console.error(`遇到錯誤 status=${json.status} msg=${json.msg}，立刻停止，不重試`);
+      saveState(state);
+      checkpointCommit(`scan: stopped on error (${state.processedIds.length}/${state.universe.length})`);
+      console.log('STATUS: ERROR');
+      process.exit(1);
     }
 
     state.processedIds.push(s.stock_id);
     const cross = computeCrossover(json.data || []);
     if (cross && cross.close > 0) {
       state.results.push({ stock_id: s.stock_id, stock_name: s.stock_name, type: s.type, ...cross });
+      console.log(`黃金交叉: ${s.type} ${s.stock_id} ${s.stock_name} close=${cross.close}`);
     }
 
-    if (calls % 25 === 0) saveState(state);
+    if (calls % SAVE_EVERY === 0) {
+      saveState(state);
+      checkpointCommit(`scan progress: ${state.processedIds.length}/${state.universe.length}`);
+      console.log(`進度: ${state.processedIds.length}/${state.universe.length}`);
+    }
+
     await new Promise((r) => setTimeout(r, INTERVAL_MS));
   }
 
-  state.rounds++;
-  const doneCount = state.processedIds.length;
-  const stillRemaining = state.universe.length - doneCount;
-
-  if (stillRemaining === 0) {
-    state.complete = true;
-  }
+  state.complete = true;
   saveState(state);
+  checkpointCommit(`scan: complete (${state.results.length} 檔黃金交叉)`);
 
-  console.log(`本輪呼叫 ${calls} 次，累計處理 ${doneCount}/${state.universe.length} 檔，發現 ${state.results.length} 檔黃金交叉`);
-
-  if (state.complete) {
-    console.log('STATUS: COMPLETE');
-  } else if (errored) {
-    console.log('STATUS: ERROR');
-  } else {
-    console.log('STATUS: CONTINUE');
-  }
+  console.log(`全市場掃描完成: 共處理 ${state.processedIds.length} 檔，發現 ${state.results.length} 檔黃金交叉`);
+  console.log('STATUS: COMPLETE');
 }
 
 main().catch((e) => {
