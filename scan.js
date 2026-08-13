@@ -11,6 +11,7 @@
 const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
+const { renderProgressHTML } = require('./render_progress');
 
 const TOKEN = process.env.FINMIND_TOKEN;
 if (!TOKEN) {
@@ -20,8 +21,14 @@ if (!TOKEN) {
 }
 
 const STATE_FILE = path.join(__dirname, 'state.json');
+const HTML_FILE = path.join(__dirname, 'index.html');
 const INTERVAL_MS = Math.ceil((3600 * 1000) / 590); // 590次/小時的安全邊際
 const SAVE_EVERY = 25;
+
+// 掃描還沒完成時，先寫一版「進行中」的網頁，讓 Vercel 有東西可以部署
+function writeProgressPage(state) {
+  fs.writeFileSync(HTML_FILE, renderProgressHTML(state, INTERVAL_MS));
+}
 
 function todayTaipei() {
   const d = new Date(Date.now() + 8 * 3600 * 1000);
@@ -45,7 +52,7 @@ function saveState(state) {
 // 失敗只印警告，不中斷掃描（掃描本身的資料還在記憶體/本機檔案裡，下次還能重新 push）。
 function checkpointCommit(message) {
   try {
-    execSync('git add state.json', { cwd: __dirname, stdio: 'pipe' });
+    execSync('git add state.json index.html', { cwd: __dirname, stdio: 'pipe' });
     execSync(`git commit -m "${message}"`, { cwd: __dirname, stdio: 'pipe' });
     execSync('git push', { cwd: __dirname, stdio: 'pipe' });
   } catch (e) {
@@ -129,6 +136,7 @@ async function main() {
     }
     state.universe = universe;
     saveState(state);
+    writeProgressPage(state);
     checkpointCommit(`scan: universe fetched (${state.universe.length} 檔)`);
     console.log(`股票清單: ${state.universe.length} 檔`);
   }
@@ -151,6 +159,7 @@ async function main() {
     if (json.status !== 200) {
       console.error(`遇到錯誤 status=${json.status} msg=${json.msg}，立刻停止，不重試`);
       saveState(state);
+      writeProgressPage(state);
       checkpointCommit(`scan: stopped on error (${state.processedIds.length}/${state.universe.length})`);
       console.log('STATUS: ERROR');
       process.exit(1);
@@ -165,6 +174,7 @@ async function main() {
 
     if (calls % SAVE_EVERY === 0) {
       saveState(state);
+      writeProgressPage(state);
       checkpointCommit(`scan progress: ${state.processedIds.length}/${state.universe.length}`);
       console.log(`進度: ${state.processedIds.length}/${state.universe.length}`);
     }
@@ -174,6 +184,7 @@ async function main() {
 
   state.complete = true;
   saveState(state);
+  writeProgressPage(state);
   checkpointCommit(`scan: complete (${state.results.length} 檔黃金交叉)`);
 
   console.log(`全市場掃描完成: 共處理 ${state.processedIds.length} 檔，發現 ${state.results.length} 檔黃金交叉`);
