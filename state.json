@@ -15286,7 +15286,32 @@
   "8473",
   "8478",
   "9935",
-  "1432"
+  "1432",
+  "3054",
+  "3708",
+  "1472",
+  "6581",
+  "9921",
+  "9934",
+  "9930",
+  "2442",
+  "2424",
+  "9914",
+  "8482",
+  "4536",
+  "2062",
+  "6641",
+  "9924",
+  "8087",
+  "5205",
+  "8420",
+  "8390",
+  "4702",
+  "4609",
+  "3551",
+  "3073",
+  "8440",
+  "8924"
  ],
  "results": [
   {
@@ -15468,6 +15493,21 @@
    "is_surge": true,
    "ma5": 42.73,
    "ma20": 42.51
+  },
+  {
+   "stock_id": "4609",
+   "stock_name": "唐鋒",
+   "type": "tpex",
+   "date": "2026-08-13",
+   "close": 4.78,
+   "close_yday": 4.78,
+   "change_pct": 0,
+   "volume_lots": 1,
+   "volume_avg5_lots": 11,
+   "volume_ratio": 0.09,
+   "is_surge": false,
+   "ma5": 4.82,
+   "ma20": 4.21
   }
  ],
  "priceExtremes": [
@@ -15602,6 +15642,21 @@
    "volume_lots": 125,
    "volume_avg5_lots": 165,
    "volume_ratio": 0.76,
+   "highPeriod": null,
+   "lowPeriod": "12個月",
+   "is_surge": false
+  },
+  {
+   "stock_id": "9924",
+   "stock_name": "福興",
+   "type": "twse",
+   "date": "2026-08-13",
+   "close": 38.35,
+   "close_yday": 38.45,
+   "change_pct": -0.26,
+   "volume_lots": 208,
+   "volume_avg5_lots": 220,
+   "volume_ratio": 0.95,
    "highPeriod": null,
    "lowPeriod": "12個月",
    "is_surge": false
