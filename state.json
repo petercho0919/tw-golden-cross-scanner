@@ -16736,7 +16736,32 @@
   "3623",
   "3624",
   "3625",
-  "3628"
+  "3628",
+  "3630",
+  "3632",
+  "3686",
+  "3716",
+  "3717",
+  "4102",
+  "4104",
+  "4105",
+  "4106",
+  "4107",
+  "4108",
+  "4109",
+  "4111",
+  "4113",
+  "4114",
+  "4116",
+  "4119",
+  "4120",
+  "4121",
+  "4123",
+  "4126",
+  "3715",
+  "3714",
+  "3689",
+  "3691"
  ],
  "results": [
   {
@@ -18403,6 +18428,21 @@
    "is_surge": true,
    "ma5": 65.76,
    "ma20": 65.74
+  },
+  {
+   "stock_id": "4114",
+   "stock_name": "健喬",
+   "type": "tpex",
+   "date": "2026-08-13",
+   "close": 30,
+   "close_yday": 29.8,
+   "change_pct": 0.67,
+   "volume_lots": 900,
+   "volume_avg5_lots": 1047,
+   "volume_ratio": 0.86,
+   "is_surge": false,
+   "ma5": 29.72,
+   "ma20": 29.38
   }
  ],
  "priceExtremes": [
@@ -20385,6 +20425,36 @@
    "highPeriod": "1個月",
    "lowPeriod": null,
    "is_surge": false
+  },
+  {
+   "stock_id": "4119",
+   "stock_name": "旭富",
+   "type": "twse",
+   "date": "2026-08-13",
+   "close": 55.1,
+   "close_yday": 55.1,
+   "change_pct": 0,
+   "volume_lots": 364,
+   "volume_avg5_lots": 325,
+   "volume_ratio": 1.12,
+   "highPeriod": "6個月",
+   "lowPeriod": null,
+   "is_surge": false
+  },
+  {
+   "stock_id": "4123",
+   "stock_name": "晟德",
+   "type": "tpex",
+   "date": "2026-08-13",
+   "close": 34.7,
+   "close_yday": 35.1,
+   "change_pct": -1.14,
+   "volume_lots": 10478,
+   "volume_avg5_lots": 2452,
+   "volume_ratio": 4.27,
+   "highPeriod": null,
+   "lowPeriod": "6個月",
+   "is_surge": true
   }
  ],
  "complete": false,
