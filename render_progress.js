@@ -1,5 +1,9 @@
 // 掃描進行中的網頁版本 — scan.js 每次 checkpoint 都會呼叫這個，讓網頁在掃描完成前
-// 也能看到目前進度、預估剩餘時間、以及目前已經找到的黃金交叉（尚未經過成交量/驗證補查）。
+// 也能看到目前進度、預估剩餘時間、以及目前為止的黃金交叉與創新高/創新低結果。
+
+const PERIODS = ['12個月', '6個月', '3個月', '1個月'];
+const SURGE_LEGEND =
+  '量增 &gt; 前5日均量 1.3倍者已 <span style="background:var(--surge-soft);box-shadow:inset 3px 0 0 var(--surge-border);padding:1px 6px;">highlight</span>';
 
 function esc(s) {
   return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -17,6 +21,68 @@ function fmtDuration(seconds) {
   return `約 ${h} 小時 ${m} 分鐘`;
 }
 
+function fmtNum(v) {
+  if (v == null) return '—';
+  return v.toLocaleString('en-US');
+}
+
+function pctClass(v) {
+  if (v == null) return 'dash';
+  if (v > 0) return 'pos';
+  if (v < 0) return 'neg';
+  return 'zero';
+}
+
+function fmtPct(v) {
+  if (v == null) return '—';
+  return (v > 0 ? '+' : '') + v.toFixed(2) + '%';
+}
+
+function fmtPct1(v) {
+  if (v == null) return '—';
+  return (v > 0 ? '+' : '') + v.toFixed(1) + '%';
+}
+
+// r.volume_ratio 是倍數（例如1.35），畫面上換算成百分比顯示（+35.0%）
+function volChangePct(r) {
+  return r.volume_ratio != null ? +((r.volume_ratio - 1) * 100).toFixed(1) : null;
+}
+
+function extremeRows(list) {
+  if (list.length === 0) return '<tr class="empty-row"><td colspan="9">目前還沒掃到符合的標的</td></tr>';
+  return list
+    .map((r) => {
+      const cls = r.is_surge ? ' class="surge"' : '';
+      return `<tr${cls}><td class="market">${marketLabel(r.type)}</td><td class="num">${esc(r.stock_id)}</td><td class="name">${esc(r.stock_name)}</td><td class="num">${r.close_yday}</td><td class="num">${r.close}</td><td class="${pctClass(r.change_pct)}">${fmtPct(r.change_pct)}</td><td class="num">${fmtNum(r.volume_lots)}</td><td class="num">${fmtNum(r.volume_avg5_lots)}</td><td class="${pctClass(volChangePct(r))}">${fmtPct1(volChangePct(r))}</td></tr>`;
+    })
+    .join('\n');
+}
+
+function subtable(title, list) {
+  return `<div class="subtable">
+  <h3>${esc(title)}</h3>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>市場</th><th>代號</th><th>名稱</th><th>前日收盤</th><th>今日收盤</th><th>漲跌幅</th><th>今日成交量</th><th>5日均量</th><th>成交量漲幅</th></tr></thead>
+      <tbody>
+${extremeRows(list)}
+      </tbody>
+    </table>
+  </div>
+</div>`;
+}
+
+function extremeGroup(heading, priceExtremes, key) {
+  const byPeriod = {};
+  PERIODS.forEach((p) => (byPeriod[p] = []));
+  priceExtremes.forEach((r) => {
+    const period = r[key];
+    if (period) byPeriod[period].push(r);
+  });
+  const tables = PERIODS.map((p) => subtable(`${p}新${key === 'highPeriod' ? '高' : '低'}`, byPeriod[p])).join('\n');
+  return `<div class="group"><h2>${esc(heading)}</h2><p class="legend">${SURGE_LEGEND}</p>${tables}</div>`;
+}
+
 // intervalMs: 每次 API 呼叫的節流間隔（跟 scan.js 用同一個值），用來估算剩餘時間
 function renderProgressHTML(state, intervalMs) {
   const total = state.universe.length;
@@ -25,78 +91,131 @@ function renderProgressHTML(state, intervalMs) {
   const pct = total > 0 ? Math.round((done / total) * 100) : 0;
   const etaSeconds = (remaining * intervalMs) / 1000;
 
-  const sorted = [...state.results].sort((a, b) => {
+  const sortedCross = [...state.results].sort((a, b) => {
     const sa = ((a.ma5 - a.ma20) / a.ma20) * 100;
     const sb = ((b.ma5 - b.ma20) / b.ma20) * 100;
     return sb - sa;
   });
 
-  const rows = sorted
+  const crossRows = sortedCross
     .map((r) => {
+      const cls = r.is_surge ? ' class="surge"' : '';
       const strength = (((r.ma5 - r.ma20) / r.ma20) * 100).toFixed(2);
-      return `<tr><td class="market">${marketLabel(r.type)}</td><td class="num">${esc(r.stock_id)}</td><td class="name">${esc(r.stock_name)}</td><td class="num">${r.close}</td><td class="num">+${strength}%</td></tr>`;
+      return `<tr${cls}><td class="market">${marketLabel(r.type)}</td><td class="num">${esc(r.stock_id)}</td><td class="name">${esc(r.stock_name)}</td><td class="num">${r.close_yday}</td><td class="num">${r.close}</td><td class="${pctClass(r.change_pct)}">${fmtPct(r.change_pct)}</td><td class="num">${fmtNum(r.volume_lots)}</td><td class="num">${fmtNum(r.volume_avg5_lots)}</td><td class="${pctClass(volChangePct(r))}">${fmtPct1(volChangePct(r))}</td><td class="num">+${strength}%</td></tr>`;
     })
     .join('\n');
 
-  return `<title>台股黃金交叉每日掃描 — 進行中</title>
+  const priceExtremes = state.priceExtremes || [];
+
+  return `<title>台股每日掃描 — 進行中</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="refresh" content="180">
 <style>
-:root { --paper: #F6F7F9; --paper-raised: #FFFFFF; --ink: #171B23; --muted: #5B6472; --faint: #E4E7EC; --accent: #2E3F6B; --accent-soft: #E8ECF5; --up: #B23A3A; }
+:root {
+  --paper: #F6F7F9; --paper-raised: #FFFFFF; --ink: #171B23; --muted: #5B6472; --faint: #E4E7EC;
+  --accent: #2E3F6B; --accent-soft: #E8ECF5; --up: #B23A3A; --down: #2E7D5C;
+  --surge: #97701E; --surge-soft: #FBF1DC; --surge-border: #D9B463;
+}
 @media (prefers-color-scheme: dark) {
-  :root { --paper: #14171D; --paper-raised: #1C2028; --ink: #E9EBEF; --muted: #9198A6; --faint: #2B303B; --accent: #8FA3D6; --accent-soft: #232B42; --up: #E08585; }
+  :root { --paper: #14171D; --paper-raised: #1C2028; --ink: #E9EBEF; --muted: #9198A6; --faint: #2B303B; --accent: #8FA3D6; --accent-soft: #232B42; --up: #E08585; --down: #7FCBA6;
+    --surge: #E0BD6E; --surge-soft: #3A2F14; --surge-border: #7A5F27;
+  }
 }
 * { box-sizing: border-box; }
 body { margin: 0; background: var(--paper); color: var(--ink); font-family: 'IBM Plex Sans', -apple-system, sans-serif; line-height: 1.5; }
-.wrap { max-width: 640px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
-h1 { font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 24px; margin: 0 0 0.4rem; }
-.sub { color: var(--muted); font-size: 13px; margin: 0 0 1.75rem; font-family: 'IBM Plex Mono', monospace; }
-.badge { display: inline-block; background: var(--accent-soft); color: var(--accent); font-size: 12px; padding: 3px 10px; border-radius: 20px; font-family: 'IBM Plex Mono', monospace; margin-bottom: 1rem; }
+.wrap { max-width: 960px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+.masthead h1 { font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 26px; margin: 0 0 0.4rem; }
+.sub { color: var(--muted); font-size: 13px; margin: 0 0 1.5rem; font-family: 'IBM Plex Mono', monospace; }
+.badge { display: inline-block; background: var(--accent-soft); color: var(--accent); font-size: 12px; padding: 3px 10px; border-radius: 20px; font-family: 'IBM Plex Mono', monospace; margin-bottom: 0.9rem; }
 .progress-track { background: var(--faint); border-radius: 8px; height: 10px; overflow: hidden; margin-bottom: 0.6rem; }
 .progress-fill { background: var(--accent); height: 100%; }
-.progress-label { display: flex; justify-content: space-between; font-size: 13px; color: var(--muted); font-family: 'IBM Plex Mono', monospace; margin-bottom: 2rem; }
-.stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--faint); border: 1px solid var(--faint); border-radius: 10px; overflow: hidden; margin-bottom: 2rem; }
-.stat { background: var(--paper-raised); padding: 0.9rem 1rem; }
-.stat .n { font-family: 'IBM Plex Mono', monospace; font-size: 20px; font-weight: 600; }
+.progress-label { display: flex; justify-content: space-between; font-size: 13px; color: var(--muted); font-family: 'IBM Plex Mono', monospace; margin-bottom: 1.75rem; }
+.tabs { display: flex; gap: 4px; margin-bottom: 1.75rem; border-bottom: 1px solid var(--faint); }
+.tab { font-size: 14px; font-weight: 500; color: var(--muted); background: none; border: none; padding: 10px 4px; margin-right: 1.5rem; cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -1px; }
+.tab:hover { color: var(--ink); }
+.tab:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.tab[aria-selected="true"] { color: var(--accent); border-bottom-color: var(--accent); }
+.panel { display: none; }
+.panel.active { display: block; }
+.stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--faint); border: 1px solid var(--faint); border-radius: 10px; overflow: hidden; margin-bottom: 1.75rem; }
+.stat { background: var(--paper-raised); padding: 0.85rem 1rem; }
+.stat .n { font-family: 'IBM Plex Mono', monospace; font-size: 19px; font-weight: 600; }
 .stat .l { font-size: 12px; color: var(--muted); margin-top: 2px; }
-h2 { font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 17px; border-bottom: 1px solid var(--faint); padding-bottom: 0.6rem; margin: 0 0 0.9rem; }
+.group { margin-bottom: 2rem; }
+h2 { font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 18px; margin: 0 0 0.8rem; }
+.subtable { margin-bottom: 1.2rem; }
+.subtable h3 { font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; font-weight: 500; color: var(--accent); background: var(--accent-soft); display: inline-block; padding: 3px 9px; border-radius: 5px; margin: 0 0 0.5rem; }
 .tablewrap { overflow-x: auto; border: 1px solid var(--faint); border-radius: 10px; }
-table { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 420px; }
-thead th { text-align: right; font-family: 'IBM Plex Mono', monospace; font-weight: 500; font-size: 11px; color: var(--muted); padding: 8px 10px; background: var(--accent-soft); }
+table { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 700px; }
+thead th { text-align: right; font-family: 'IBM Plex Mono', monospace; font-weight: 500; font-size: 10.5px; color: var(--muted); padding: 8px 11px; background: var(--paper-raised); border-bottom: 1px solid var(--faint); white-space: nowrap; }
 thead th:first-child, thead th:nth-child(2), thead th:nth-child(3) { text-align: left; }
-tbody td { padding: 7px 10px; text-align: right; border-top: 1px solid var(--faint); font-variant-numeric: tabular-nums; }
+tbody td { padding: 7px 11px; text-align: right; border-top: 1px solid var(--faint); font-variant-numeric: tabular-nums; background: var(--paper-raised); }
 tbody td:first-child, tbody td:nth-child(2), tbody td:nth-child(3) { text-align: left; }
+tbody tr.surge td { background: var(--surge-soft); }
+tbody tr.surge td:first-child { box-shadow: inset 3px 0 0 var(--surge-border); }
 .name { font-weight: 500; }
 .market { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--muted); }
-.num { font-family: 'IBM Plex Mono', monospace; color: var(--up); }
-.empty { color: var(--muted); font-size: 13px; padding: 1.5rem; text-align: center; }
+.num { font-family: 'IBM Plex Mono', monospace; }
+.pos { color: var(--up); font-family: 'IBM Plex Mono', monospace; }
+.neg { color: var(--down); font-family: 'IBM Plex Mono', monospace; }
+.zero, .dash { color: var(--muted); font-family: 'IBM Plex Mono', monospace; }
+.empty-row td { color: var(--muted); font-size: 12.5px; padding: 12px; text-align: center; }
+.legend { font-size: 12px; color: var(--muted); margin: -0.4rem 0 0.9rem; }
 .note { margin-top: 2rem; font-size: 12px; color: var(--muted); font-family: 'IBM Plex Mono', monospace; }
+@media (max-width: 640px) {
+  .wrap { padding: 1.5rem 1rem 3rem; }
+  .tabs { overflow-x: auto; }
+}
 </style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <div class="wrap">
-  <span class="badge">● 掃描進行中</span>
-  <h1>台股 MA5/MA20 黃金交叉日報</h1>
-  <p class="sub">資料日期 ${esc(state.date)} · 頁面每 3 分鐘自動重新整理</p>
+  <header class="masthead">
+    <span class="badge">● 掃描進行中</span>
+    <h1>台股每日掃描</h1>
+    <p class="sub">資料日期 ${esc(state.date)} · 頁面每 3 分鐘自動重新整理</p>
+  </header>
 
   <div class="progress-track"><div class="progress-fill" style="width:${pct}%"></div></div>
   <div class="progress-label"><span>${done} / ${total} 檔（${pct}%）</span><span>預估剩餘 ${fmtDuration(etaSeconds)}</span></div>
 
-  <div class="stats">
-    <div class="stat"><div class="n">${done}</div><div class="l">已掃描</div></div>
-    <div class="stat"><div class="n">${state.results.length}</div><div class="l">目前發現黃金交叉</div></div>
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" id="tab-cross" aria-selected="true" aria-controls="panel-cross" onclick="switchTab('cross')">黃金交叉（目前${state.results.length}檔）</button>
+    <button class="tab" role="tab" id="tab-extreme" aria-selected="false" aria-controls="panel-extreme" onclick="switchTab('extreme')">創新高 / 創新低</button>
   </div>
 
-  <h2>目前為止的黃金交叉（依幅度排序，尚未補查成交量）</h2>
-  <div class="tablewrap">
-    <table>
-      <thead><tr><th>市場</th><th>代號</th><th>名稱</th><th>收盤</th><th>幅度</th></tr></thead>
-      <tbody>
-${rows || '<tr><td colspan="5" class="empty">目前還沒掃到黃金交叉標的</td></tr>'}
-      </tbody>
-    </table>
+  <div class="panel active" id="panel-cross" role="tabpanel" aria-labelledby="tab-cross">
+    <div class="stats">
+      <div class="stat"><div class="n">${done}</div><div class="l">已掃描</div></div>
+      <div class="stat"><div class="n">${state.results.length}</div><div class="l">目前發現黃金交叉</div></div>
+    </div>
+    <p class="legend">${SURGE_LEGEND}</p>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>市場</th><th>代號</th><th>名稱</th><th>前日收盤</th><th>今日收盤</th><th>漲跌幅</th><th>今日成交量</th><th>5日均量</th><th>成交量漲幅</th><th>幅度</th></tr></thead>
+        <tbody>
+${crossRows || '<tr class="empty-row"><td colspan="10">目前還沒掃到黃金交叉標的</td></tr>'}
+        </tbody>
+      </table>
+    </div>
   </div>
 
-  <p class="note">這是掃描過程中的即時進度頁，完成後會自動換成含成交量篩選與隔日驗證的完整報告。</p>
+  <div class="panel" id="panel-extreme" role="tabpanel" aria-labelledby="tab-extreme">
+${extremeGroup('創新高（目前為止）', priceExtremes, 'highPeriod')}
+${extremeGroup('創新低（目前為止）', priceExtremes, 'lowPeriod')}
+  </div>
+
+  <p class="note">這是掃描過程中的即時進度頁，完成後會自動換成含 base 清單篩選與隔日驗證的完整報告。</p>
 </div>
+<script>
+function switchTab(name) {
+  document.querySelectorAll('.tab').forEach((t) => t.setAttribute('aria-selected', 'false'));
+  document.querySelectorAll('.panel').forEach((p) => p.classList.remove('active'));
+  document.getElementById('tab-' + name).setAttribute('aria-selected', 'true');
+  document.getElementById('panel-' + name).classList.add('active');
+}
+</script>
 `;
 }
 

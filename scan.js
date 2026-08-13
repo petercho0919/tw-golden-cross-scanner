@@ -56,14 +56,16 @@ function checkpointCommit(message) {
     execSync(`git commit -m "${message}"`, { cwd: __dirname, stdio: 'pipe' });
     execSync('git push', { cwd: __dirname, stdio: 'pipe' });
   } catch (e) {
-    const msg = e.stdout ? e.stdout.toString() : e.message;
+    const stdout = e.stdout ? e.stdout.toString() : '';
+    const stderr = e.stderr ? e.stderr.toString() : '';
+    const msg = (stdout + stderr).trim() || e.message || '(無錯誤訊息)';
     if (/nothing to commit/.test(msg)) return; // 正常情況，沒變化就跳過
     console.error('[警告] checkpoint commit/push 失敗，繼續掃描但進度暫時沒存回 repo:', msg.slice(0, 300));
   }
 }
 
 function freshState(date) {
-  return { date, universe: null, processedIds: [], results: [], complete: false, reported: false };
+  return { date, universe: null, processedIds: [], results: [], priceExtremes: [], complete: false, reported: false };
 }
 
 async function fetchUniverse() {
@@ -90,6 +92,10 @@ async function fetchStock(stockId, startDate, endDate) {
   return res.json();
 }
 
+const SURGE_RATIO = 1.3; // 今日量 > 前5日均量的幾倍才算量增，黃金交叉跟創新高/創新低共用同一個門檻
+
+// 除了判斷 MA5/MA20 交叉，順便算好前日收盤/漲跌幅/成交量/5日均量/量增判斷，
+// 全部都用同一批已經抓到的 rows，不用等 build_report.js 再重查一次。
 function computeCrossover(rows) {
   if (rows.length < 21) return null;
   const closes = rows.map((r) => r.close);
@@ -99,15 +105,83 @@ function computeCrossover(rows) {
   const ma20Today = ma(n, 20);
   const ma5Yday = ma(n - 1, 5);
   const ma20Yday = ma(n - 1, 20);
-  if (ma5Yday < ma20Yday && ma5Today >= ma20Today) {
-    return {
-      date: rows[n - 1].date,
-      close: rows[n - 1].close,
-      ma5: +ma5Today.toFixed(2),
-      ma20: +ma20Today.toFixed(2),
-    };
+  if (!(ma5Yday < ma20Yday && ma5Today >= ma20Today)) return null;
+
+  const today = rows[n - 1];
+  const yday = rows[n - 2];
+  const prior5 = rows.slice(n - 6, n - 1);
+  const volumeLots = Math.round(today.Trading_Volume / 1000);
+  const volumeAvg5Lots = Math.round(prior5.reduce((s, r) => s + r.Trading_Volume, 0) / 5 / 1000);
+  const volumeRatio = volumeAvg5Lots > 0 ? +(volumeLots / volumeAvg5Lots).toFixed(2) : null;
+  const changePct = +(((today.close - yday.close) / yday.close) * 100).toFixed(2);
+  const isSurge = volumeRatio !== null && volumeRatio > SURGE_RATIO;
+
+  return {
+    date: today.date,
+    close: today.close,
+    close_yday: yday.close,
+    change_pct: changePct,
+    volume_lots: volumeLots,
+    volume_avg5_lots: volumeAvg5Lots,
+    volume_ratio: volumeRatio,
+    is_surge: isSurge,
+    ma5: +ma5Today.toFixed(2),
+    ma20: +ma20Today.toFixed(2),
+  };
+}
+
+const EXTREME_WINDOWS = [
+  { period: '12個月', days: 365 },
+  { period: '6個月', days: 180 },
+  { period: '3個月', days: 90 },
+  { period: '1個月', days: 30 },
+];
+const MIN_AVG5_VOLUME_LOTS = 100;
+
+// 檢查今天收盤價是否創各區間新高/新低（只標最長符合的區間），
+// 並算出前5個交易日均量（不含今天）。rows 需要涵蓋足夠長的歷史（scan.js 已抓約13個月）。
+function computePriceExtreme(rows) {
+  if (rows.length < 6) return null; // 至少要有5個交易日+今天才能算均量
+  const n = rows.length;
+  const today = rows[n - 1];
+  const yday = rows[n - 2];
+  const todayDate = new Date(today.date);
+
+  let highPeriod = null;
+  let lowPeriod = null;
+  for (const w of EXTREME_WINDOWS) {
+    const cutoff = new Date(todayDate.getTime() - w.days * 24 * 3600 * 1000);
+    const windowRows = rows.filter((r) => new Date(r.date) >= cutoff);
+    if (windowRows.length === 0) continue;
+    const maxClose = Math.max(...windowRows.map((r) => r.close));
+    const minClose = Math.min(...windowRows.map((r) => r.close));
+    if (highPeriod === null && today.close >= maxClose) highPeriod = w.period;
+    if (lowPeriod === null && today.close <= minClose) lowPeriod = w.period;
   }
-  return null;
+
+  if (!highPeriod && !lowPeriod) return null;
+
+  const prior5 = rows.slice(n - 6, n - 1);
+  const volumeAvg5Lots = Math.round(prior5.reduce((s, r) => s + r.Trading_Volume, 0) / 5 / 1000);
+  if (volumeAvg5Lots < MIN_AVG5_VOLUME_LOTS) return null; // 5日均量太小，剔除
+
+  const volumeLots = Math.round(today.Trading_Volume / 1000);
+  const volumeRatio = volumeAvg5Lots > 0 ? +(volumeLots / volumeAvg5Lots).toFixed(2) : null;
+  const isSurge = volumeRatio !== null && volumeRatio > SURGE_RATIO; // 今日量 > 前5日均量的1.3倍，跟黃金交叉那邊同一套規則
+  const changePct = +(((today.close - yday.close) / yday.close) * 100).toFixed(2);
+
+  return {
+    date: today.date,
+    close: today.close,
+    close_yday: yday.close,
+    change_pct: changePct,
+    volume_lots: volumeLots,
+    volume_avg5_lots: volumeAvg5Lots,
+    volume_ratio: volumeRatio,
+    highPeriod,
+    lowPeriod,
+    is_surge: isSurge,
+  };
 }
 
 async function main() {
@@ -146,7 +220,7 @@ async function main() {
   console.log(`還剩 ${remaining.length} / ${state.universe.length} 檔待處理`);
 
   const end = new Date();
-  const start = new Date(end.getTime() - 40 * 24 * 3600 * 1000);
+  const start = new Date(end.getTime() - 400 * 24 * 3600 * 1000); // 約13個月，含緩衝天數
   const startDate = fmtDate(start);
   const endDate = fmtDate(end);
 
@@ -166,10 +240,18 @@ async function main() {
     }
 
     state.processedIds.push(s.stock_id);
-    const cross = computeCrossover(json.data || []);
+    const rows = json.data || [];
+    const cross = computeCrossover(rows);
     if (cross && cross.close > 0) {
       state.results.push({ stock_id: s.stock_id, stock_name: s.stock_name, type: s.type, ...cross });
       console.log(`黃金交叉: ${s.type} ${s.stock_id} ${s.stock_name} close=${cross.close}`);
+    }
+
+    const extreme = computePriceExtreme(rows);
+    if (extreme && extreme.close > 0) {
+      state.priceExtremes.push({ stock_id: s.stock_id, stock_name: s.stock_name, type: s.type, ...extreme });
+      const tags = [extreme.highPeriod ? `${extreme.highPeriod}新高` : null, extreme.lowPeriod ? `${extreme.lowPeriod}新低` : null].filter(Boolean).join('/');
+      console.log(`${tags}: ${s.type} ${s.stock_id} ${s.stock_name} close=${extreme.close} 5日均量=${extreme.avg5VolumeLots}張`);
     }
 
     if (calls % SAVE_EVERY === 0) {
@@ -187,7 +269,7 @@ async function main() {
   writeProgressPage(state);
   checkpointCommit(`scan: complete (${state.results.length} 檔黃金交叉)`);
 
-  console.log(`全市場掃描完成: 共處理 ${state.processedIds.length} 檔，發現 ${state.results.length} 檔黃金交叉`);
+  console.log(`全市場掃描完成: 共處理 ${state.processedIds.length} 檔，發現 ${state.results.length} 檔黃金交叉、${state.priceExtremes.length} 檔創新高/新低`);
   console.log('STATUS: COMPLETE');
 }
 
