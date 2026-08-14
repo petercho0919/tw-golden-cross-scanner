@@ -16811,7 +16811,32 @@
   "3430",
   "3432",
   "3434",
-  "3437"
+  "3437",
+  "3438",
+  "3441",
+  "3444",
+  "3511",
+  "3515",
+  "3548",
+  "3550",
+  "3552",
+  "3555",
+  "3556",
+  "3558",
+  "3563",
+  "3564",
+  "3567",
+  "3570",
+  "3576",
+  "3577",
+  "3580",
+  "3581",
+  "3583",
+  "3587",
+  "3588",
+  "3546",
+  "3545",
+  "3543"
  ],
  "results": [
   {
@@ -17803,6 +17828,21 @@
    "is_surge": true,
    "ma5": 39.59,
    "ma20": 39.55
+  },
+  {
+   "stock_id": "3576",
+   "stock_name": "聯合再生",
+   "type": "twse",
+   "date": "2026-08-14",
+   "close": 17.75,
+   "close_yday": 17.9,
+   "change_pct": -0.84,
+   "volume_lots": 10629,
+   "volume_avg5_lots": 10138,
+   "volume_ratio": 1.05,
+   "is_surge": false,
+   "ma5": 17.48,
+   "ma20": 17.48
   }
  ],
  "priceExtremes": [
@@ -18840,6 +18880,21 @@
    "highPeriod": "1個月",
    "lowPeriod": null,
    "is_surge": true
+  },
+  {
+   "stock_id": "3543",
+   "stock_name": "州巧",
+   "type": "twse",
+   "date": "2026-08-14",
+   "close": 40.1,
+   "close_yday": 40.1,
+   "change_pct": 0,
+   "volume_lots": 1250,
+   "volume_avg5_lots": 2862,
+   "volume_ratio": 0.44,
+   "highPeriod": "3個月",
+   "lowPeriod": null,
+   "is_surge": false
   }
  ],
  "complete": false,
