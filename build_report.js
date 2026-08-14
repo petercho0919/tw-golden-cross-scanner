@@ -114,6 +114,9 @@ async function main() {
     .filter((r) => r.volume_lots > VOLUME_THRESHOLD_LOTS && r.volume_avg5_lots !== null && r.volume_avg5_lots >= MIN_AVG5_VOLUME_LOTS)
     .sort((a, b) => b.change_pct - a.change_pct);
 
+  // 完整清單只顯示本日成交量>1000張的標的（total_golden_cross 仍是不篩選的真實黃金交叉檔數）
+  const allResults = enriched.filter((r) => r.volume_lots > VOLUME_THRESHOLD_LOTS);
+
   console.log('驗證前一個交易日的訊號...');
   const validation = await buildValidation(effectiveDate);
 
@@ -121,7 +124,7 @@ async function main() {
     date: effectiveDate,
     total_scanned: state.universe.length,
     total_golden_cross: enriched.length,
-    all_results: enriched, // 依 strength 排序的完整清單（含 is_surge 標記）
+    all_results: allResults, // 依 strength 排序，本日成交量>1000張的清單（含 is_surge 標記）
     base_list: baseList, // 成交量>1000張 且 5日均量>=100張，依當日漲跌幅排序，is_surge=true 代表量增>前5日均量1.3倍
     validation_of_previous_signals: validation, // 驗證前一交易日 base_list 全部標的在今天的表現，含 is_surge 標記可對照
     price_extremes: state.priceExtremes || [], // scan.js 已經算好的創新高/創新低清單（共用同一次資料抓取，這裡不用再補查）

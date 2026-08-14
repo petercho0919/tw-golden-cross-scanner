@@ -80,7 +80,7 @@ function extremeGroup(heading, priceExtremes, key) {
     if (period) byPeriod[period].push(r);
   });
   const tables = PERIODS.map((p) => subtable(`${p}新${key === 'highPeriod' ? '高' : '低'}`, byPeriod[p])).join('\n');
-  return `<div class="group"><h2>${esc(heading)}</h2><p class="legend">${SURGE_LEGEND}</p>${tables}</div>`;
+  return `<div class="group"><h2>${esc(heading)}</h2><p class="legend">5日均量 &ge; 100張 且 本日成交量 &gt; 1000張，只標最長符合區間</p><p class="legend">${SURGE_LEGEND}</p>${tables}</div>`;
 }
 
 // intervalMs: 每次 API 呼叫的節流間隔（跟 scan.js 用同一個值），用來估算剩餘時間
@@ -91,11 +91,13 @@ function renderProgressHTML(state, intervalMs) {
   const pct = total > 0 ? Math.round((done / total) * 100) : 0;
   const etaSeconds = (remaining * intervalMs) / 1000;
 
-  const sortedCross = [...state.results].sort((a, b) => {
-    const sa = ((a.ma5 - a.ma20) / a.ma20) * 100;
-    const sb = ((b.ma5 - b.ma20) / b.ma20) * 100;
-    return sb - sa;
-  });
+  const sortedCross = [...state.results]
+    .filter((r) => r.volume_lots > 1000)
+    .sort((a, b) => {
+      const sa = ((a.ma5 - a.ma20) / a.ma20) * 100;
+      const sb = ((b.ma5 - b.ma20) / b.ma20) * 100;
+      return sb - sa;
+    });
 
   const crossRows = sortedCross
     .map((r) => {
@@ -190,6 +192,7 @@ tbody tr.surge td:first-child { box-shadow: inset 3px 0 0 var(--surge-border); }
       <div class="stat"><div class="n">${done}</div><div class="l">已掃描</div></div>
       <div class="stat"><div class="n">${state.results.length}</div><div class="l">目前發現黃金交叉</div></div>
     </div>
+    <p class="legend">本日成交量 &gt; 1000張才會顯示</p>
     <p class="legend">${SURGE_LEGEND}</p>
     <div class="tablewrap">
       <table>

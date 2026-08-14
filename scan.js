@@ -149,6 +149,7 @@ const EXTREME_WINDOWS = [
   { period: '1個月', days: 30 },
 ];
 const MIN_AVG5_VOLUME_LOTS = 100;
+const MIN_TODAY_VOLUME_LOTS = 1000; // 本日成交量門檻，跟 build_report.js 的 VOLUME_THRESHOLD_LOTS 用同一個數字
 
 // 檢查今天收盤價是否創各區間新高/新低（只標最長符合的區間），
 // 並算出前5個交易日均量（不含今天）。rows 需要涵蓋足夠長的歷史（scan.js 已抓約13個月）。
@@ -178,6 +179,8 @@ function computePriceExtreme(rows) {
   if (volumeAvg5Lots < MIN_AVG5_VOLUME_LOTS) return null; // 5日均量太小，剔除
 
   const volumeLots = Math.round(today.Trading_Volume / 1000);
+  if (volumeLots <= MIN_TODAY_VOLUME_LOTS) return null; // 本日成交量太小，剔除
+
   const volumeRatio = volumeAvg5Lots > 0 ? +(volumeLots / volumeAvg5Lots).toFixed(2) : null;
   const isSurge = volumeRatio !== null && volumeRatio > SURGE_RATIO; // 今日量 > 前5日均量的1.3倍，跟黃金交叉那邊同一套規則
   const changePct = +(((today.close - yday.close) / yday.close) * 100).toFixed(2);

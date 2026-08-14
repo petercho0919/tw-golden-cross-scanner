@@ -262,7 +262,7 @@ ${baseListRows(report.base_list)}
     <section>
       <div class="section-head">
         <h2>完整清單 — 全部黃金交叉標的</h2>
-        <p>不限成交量，依 MA5 超越 MA20 幅度排序，共 ${fmtNum(report.all_results.length, 0)} 檔</p>
+        <p>本日成交量 &gt; 1000張，依 MA5 超越 MA20 幅度排序，共 ${fmtNum(report.all_results.length, 0)} 檔</p>
       </div>
       <div class="legend">
         <span><span class="badge" style="background:var(--surge-soft)">&nbsp;</span>&nbsp;量增 &gt; 前5日均量 1.3倍</span>
@@ -279,8 +279,8 @@ ${baseListRows(report.all_results)}
   </div>
 
   <div class="panel" id="panel-extreme" role="tabpanel" aria-labelledby="tab-extreme">
-${extremeGroup('創新高', '今日收盤價創各區間新高，5日均量 ≥ 100張，只標最長符合區間', priceExtremes, 'highPeriod', '高')}
-${extremeGroup('創新低', '今日收盤價創各區間新低，5日均量 ≥ 100張，只標最長符合區間', priceExtremes, 'lowPeriod', '低')}
+${extremeGroup('創新高', '今日收盤價創各區間新高，5日均量 ≥ 100張 且 本日成交量 > 1000張，只標最長符合區間', priceExtremes, 'highPeriod', '高')}
+${extremeGroup('創新低', '今日收盤價創各區間新低，5日均量 ≥ 100張 且 本日成交量 > 1000張，只標最長符合區間', priceExtremes, 'lowPeriod', '低')}
   </div>
 
   <p class="note">tw-golden-cross-scanner · 自動產生 · 最後更新 ${esc(report.date)} · 資料來源 FinMind</p>
