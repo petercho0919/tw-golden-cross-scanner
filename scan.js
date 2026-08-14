@@ -68,10 +68,22 @@ function freshState(date) {
   return { date, universe: null, processedIds: [], results: [], priceExtremes: [], complete: false, reported: false };
 }
 
+// FinMind 偶爾會回傳非 JSON 的錯誤頁（例如上游 502 Bad Gateway），直接 res.json() 會丟出
+// 沒被攔截的例外讓整個程式崩潰。這裡把它轉成跟 FinMind 自己回傳的錯誤格式一致的物件，
+// 讓呼叫端既有的「status 不是200就停止」邏輯可以正常接手，不新增任何重試。
+async function parseJsonResponse(res) {
+  const text = await res.text();
+  try {
+    return JSON.parse(text);
+  } catch (e) {
+    return { status: res.status, msg: `非JSON回應: ${text.slice(0, 200)}` };
+  }
+}
+
 async function fetchUniverse() {
   const url = 'https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockInfo';
   const res = await fetch(url, { headers: { Authorization: `Bearer ${TOKEN}` } });
-  const json = await res.json();
+  const json = await parseJsonResponse(res);
   if (json.status !== 200) throw new Error(`universe fetch failed: ${json.status} ${json.msg}`);
 
   const seen = new Set();
@@ -89,7 +101,7 @@ async function fetchStock(stockId, startDate, endDate) {
     `https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPrice` +
     `&data_id=${stockId}&start_date=${startDate}&end_date=${endDate}`;
   const res = await fetch(url, { headers: { Authorization: `Bearer ${TOKEN}` } });
-  return res.json();
+  return parseJsonResponse(res);
 }
 
 const SURGE_RATIO = 1.3; // 今日量 > 前5日均量的幾倍才算量增，黃金交叉跟創新高/創新低共用同一個門檻
@@ -251,7 +263,7 @@ async function main() {
     if (extreme && extreme.close > 0) {
       state.priceExtremes.push({ stock_id: s.stock_id, stock_name: s.stock_name, type: s.type, ...extreme });
       const tags = [extreme.highPeriod ? `${extreme.highPeriod}新高` : null, extreme.lowPeriod ? `${extreme.lowPeriod}新低` : null].filter(Boolean).join('/');
-      console.log(`${tags}: ${s.type} ${s.stock_id} ${s.stock_name} close=${extreme.close} 5日均量=${extreme.avg5VolumeLots}張`);
+      console.log(`${tags}: ${s.type} ${s.stock_id} ${s.stock_name} close=${extreme.close} 5日均量=${extreme.volume_avg5_lots}張`);
     }
 
     if (calls % SAVE_EVERY === 0) {
