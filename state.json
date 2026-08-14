@@ -15886,7 +15886,32 @@
   "6028",
   "6101",
   "6103",
-  "6104"
+  "6104",
+  "6108",
+  "6109",
+  "6024",
+  "6134",
+  "6136",
+  "6164",
+  "6166",
+  "6167",
+  "6168",
+  "6169",
+  "6161",
+  "6170",
+  "6173",
+  "6174",
+  "6175",
+  "6177",
+  "6179",
+  "6180",
+  "6182",
+  "6183",
+  "6184",
+  "6171",
+  "5880",
+  "6160",
+  "6155"
  ],
  "results": [
   {
@@ -16233,6 +16258,36 @@
    "is_surge": false,
    "ma5": 51.64,
    "ma20": 50.83
+  },
+  {
+   "stock_id": "6164",
+   "stock_name": "華興",
+   "type": "twse",
+   "date": "2026-08-14",
+   "close": 12.1,
+   "close_yday": 11.9,
+   "change_pct": 1.68,
+   "volume_lots": 411,
+   "volume_avg5_lots": 404,
+   "volume_ratio": 1.02,
+   "is_surge": false,
+   "ma5": 11.89,
+   "ma20": 11.87
+  },
+  {
+   "stock_id": "6174",
+   "stock_name": "安碁",
+   "type": "tpex",
+   "date": "2026-08-14",
+   "close": 44.3,
+   "close_yday": 47.5,
+   "change_pct": -6.74,
+   "volume_lots": 2149,
+   "volume_avg5_lots": 1939,
+   "volume_ratio": 1.11,
+   "is_surge": false,
+   "ma5": 44.17,
+   "ma20": 43.1
   }
  ],
  "priceExtremes": [
@@ -16430,6 +16485,21 @@
    "highPeriod": null,
    "lowPeriod": "12個月",
    "is_surge": false
+  },
+  {
+   "stock_id": "6108",
+   "stock_name": "競國",
+   "type": "twse",
+   "date": "2026-08-14",
+   "close": 22.1,
+   "close_yday": 21.7,
+   "change_pct": 1.84,
+   "volume_lots": 3290,
+   "volume_avg5_lots": 2020,
+   "volume_ratio": 1.63,
+   "highPeriod": "3個月",
+   "lowPeriod": null,
+   "is_surge": true
   }
  ],
  "complete": false,
