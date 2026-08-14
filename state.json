@@ -15261,7 +15261,32 @@
   "9943",
   "9921",
   "9924",
-  "1598"
+  "1598",
+  "8467",
+  "6807",
+  "9930",
+  "5306",
+  "8464",
+  "1736",
+  "6670",
+  "3054",
+  "2424",
+  "9802",
+  "9904",
+  "2442",
+  "8454",
+  "9910",
+  "9911",
+  "6641",
+  "6671",
+  "9914",
+  "4536",
+  "9934",
+  "6806",
+  "6754",
+  "8473",
+  "6581",
+  "1439"
  ],
  "results": [
   {
@@ -15353,6 +15378,36 @@
    "is_surge": false,
    "ma5": 14.75,
    "ma20": 14.11
+  },
+  {
+   "stock_id": "9802",
+   "stock_name": "鈺齊-KY",
+   "type": "twse",
+   "date": "2026-08-14",
+   "close": 71.6,
+   "close_yday": 72.7,
+   "change_pct": -1.51,
+   "volume_lots": 723,
+   "volume_avg5_lots": 1153,
+   "volume_ratio": 0.63,
+   "is_surge": false,
+   "ma5": 72.66,
+   "ma20": 72.31
+  },
+  {
+   "stock_id": "9904",
+   "stock_name": "寶成",
+   "type": "twse",
+   "date": "2026-08-14",
+   "close": 25.25,
+   "close_yday": 23.9,
+   "change_pct": 5.65,
+   "volume_lots": 55097,
+   "volume_avg5_lots": 13192,
+   "volume_ratio": 4.18,
+   "is_surge": true,
+   "ma5": 24.25,
+   "ma20": 24.12
   }
  ],
  "priceExtremes": [
@@ -15370,6 +15425,21 @@
    "highPeriod": null,
    "lowPeriod": "12個月",
    "is_surge": false
+  },
+  {
+   "stock_id": "9904",
+   "stock_name": "寶成",
+   "type": "twse",
+   "date": "2026-08-14",
+   "close": 25.25,
+   "close_yday": 23.9,
+   "change_pct": 5.65,
+   "volume_lots": 55097,
+   "volume_avg5_lots": 13192,
+   "volume_ratio": 4.18,
+   "highPeriod": "1個月",
+   "lowPeriod": null,
+   "is_surge": true
   }
  ],
  "complete": false,
