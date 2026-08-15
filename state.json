@@ -15936,7 +15936,32 @@
   "8048",
   "8049",
   "8050",
-  "8054"
+  "8054",
+  "8059",
+  "8064",
+  "8045",
+  "8068",
+  "8069",
+  "8070",
+  "8071",
+  "8072",
+  "8074",
+  "8076",
+  "8067",
+  "8043",
+  "8011",
+  "8016",
+  "8021",
+  "8024",
+  "8027",
+  "8028",
+  "8032",
+  "8033",
+  "8034",
+  "8038",
+  "8039",
+  "8040",
+  "8042"
  ],
  "results": [
   {
@@ -16328,6 +16353,36 @@
    "is_surge": false,
    "ma5": 35.57,
    "ma20": 35.14
+  },
+  {
+   "stock_id": "8027",
+   "stock_name": "鈦昇",
+   "type": "tpex",
+   "date": "2026-08-14",
+   "close": 186.5,
+   "close_yday": 190,
+   "change_pct": -1.84,
+   "volume_lots": 1770,
+   "volume_avg5_lots": 2302,
+   "volume_ratio": 0.77,
+   "is_surge": false,
+   "ma5": 186.4,
+   "ma20": 182.45
+  },
+  {
+   "stock_id": "8033",
+   "stock_name": "雷虎",
+   "type": "twse",
+   "date": "2026-08-14",
+   "close": 201.5,
+   "close_yday": 183.5,
+   "change_pct": 9.81,
+   "volume_lots": 16898,
+   "volume_avg5_lots": 7756,
+   "volume_ratio": 2.18,
+   "is_surge": true,
+   "ma5": 183.8,
+   "ma20": 182.93
   }
  ],
  "priceExtremes": [
@@ -16538,6 +16593,21 @@
    "volume_avg5_lots": 2020,
    "volume_ratio": 1.63,
    "highPeriod": "3個月",
+   "lowPeriod": null,
+   "is_surge": true
+  },
+  {
+   "stock_id": "8039",
+   "stock_name": "台虹",
+   "type": "twse",
+   "date": "2026-08-14",
+   "close": 272.5,
+   "close_yday": 249.5,
+   "change_pct": 9.22,
+   "volume_lots": 55937,
+   "volume_avg5_lots": 23685,
+   "volume_ratio": 2.36,
+   "highPeriod": "12個月",
    "lowPeriod": null,
    "is_surge": true
   }
