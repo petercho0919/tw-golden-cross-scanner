@@ -17111,7 +17111,32 @@
   "2609",
   "2610",
   "2611",
-  "2612"
+  "2612",
+  "2613",
+  "2615",
+  "2616",
+  "2617",
+  "2618",
+  "2630",
+  "2633",
+  "2634",
+  "2636",
+  "2637",
+  "2546",
+  "2545",
+  "2543",
+  "2542",
+  "2496",
+  "2497",
+  "2498",
+  "2501",
+  "2504",
+  "2505",
+  "2506",
+  "2509",
+  "2511",
+  "2514",
+  "2641"
  ],
  "results": [
   {
@@ -18313,6 +18338,21 @@
    "is_surge": false,
    "ma5": 246.6,
    "ma20": 245.07
+  },
+  {
+   "stock_id": "2634",
+   "stock_name": "漢翔",
+   "type": "twse",
+   "date": "2026-08-14",
+   "close": 70.6,
+   "close_yday": 64.2,
+   "change_pct": 9.97,
+   "volume_lots": 79395,
+   "volume_avg5_lots": 20376,
+   "volume_ratio": 3.9,
+   "is_surge": true,
+   "ma5": 64.06,
+   "ma20": 63.05
   }
  ],
  "priceExtremes": [
@@ -19709,6 +19749,36 @@
    "volume_ratio": 4.93,
    "highPeriod": "3個月",
    "lowPeriod": null,
+   "is_surge": true
+  },
+  {
+   "stock_id": "2615",
+   "stock_name": "萬海",
+   "type": "twse",
+   "date": "2026-08-14",
+   "close": 90.6,
+   "close_yday": 87.5,
+   "change_pct": 3.54,
+   "volume_lots": 27863,
+   "volume_avg5_lots": 11031,
+   "volume_ratio": 2.53,
+   "highPeriod": "12個月",
+   "lowPeriod": null,
+   "is_surge": true
+  },
+  {
+   "stock_id": "2618",
+   "stock_name": "長榮航",
+   "type": "twse",
+   "date": "2026-08-14",
+   "close": 39.9,
+   "close_yday": 41,
+   "change_pct": -2.68,
+   "volume_lots": 55534,
+   "volume_avg5_lots": 33824,
+   "volume_ratio": 1.64,
+   "highPeriod": null,
+   "lowPeriod": "1個月",
    "is_surge": true
   }
  ],
