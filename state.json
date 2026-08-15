@@ -15961,7 +15961,32 @@
   "8038",
   "8039",
   "8040",
-  "8042"
+  "8042",
+  "7786",
+  "7788",
+  "7791",
+  "7792",
+  "7794",
+  "7795",
+  "7799",
+  "7803",
+  "7805",
+  "7782",
+  "7780",
+  "7757",
+  "7760",
+  "7765",
+  "7767",
+  "7768",
+  "7769",
+  "7770",
+  "7772",
+  "7777",
+  "7810",
+  "7811",
+  "7839",
+  "7842",
+  "7855"
  ],
  "results": [
   {
@@ -16383,6 +16408,21 @@
    "is_surge": true,
    "ma5": 183.8,
    "ma20": 182.93
+  },
+  {
+   "stock_id": "7782",
+   "stock_name": "光速火箭",
+   "type": "tpex",
+   "date": "2026-08-14",
+   "close": 25.8,
+   "close_yday": 25.6,
+   "change_pct": 0.78,
+   "volume_lots": 36,
+   "volume_avg5_lots": 3,
+   "volume_ratio": 12,
+   "is_surge": true,
+   "ma5": 25.83,
+   "ma20": 20.8
   }
  ],
  "priceExtremes": [
@@ -16608,6 +16648,21 @@
    "volume_avg5_lots": 23685,
    "volume_ratio": 2.36,
    "highPeriod": "12個月",
+   "lowPeriod": null,
+   "is_surge": true
+  },
+  {
+   "stock_id": "7792",
+   "stock_name": "安葆",
+   "type": "tpex",
+   "date": "2026-08-14",
+   "close": 250,
+   "close_yday": 242.5,
+   "change_pct": 3.09,
+   "volume_lots": 1353,
+   "volume_avg5_lots": 627,
+   "volume_ratio": 2.16,
+   "highPeriod": "1個月",
    "lowPeriod": null,
    "is_surge": true
   }
