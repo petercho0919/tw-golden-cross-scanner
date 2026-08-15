@@ -16311,7 +16311,32 @@
   "6933",
   "6934",
   "6936",
-  "4951"
+  "4951",
+  "4162",
+  "4949",
+  "1776",
+  "1777",
+  "1780",
+  "1781",
+  "1783",
+  "1784",
+  "1785",
+  "1786",
+  "1788",
+  "1789",
+  "1795",
+  "1796",
+  "1799",
+  "1802",
+  "1805",
+  "1806",
+  "1808",
+  "1809",
+  "1810",
+  "1813",
+  "1815",
+  "1817",
+  "1773"
  ],
  "results": [
   {
@@ -17003,6 +17028,21 @@
    "is_surge": false,
    "ma5": 259.1,
    "ma20": 256.77
+  },
+  {
+   "stock_id": "1805",
+   "stock_name": "寶徠",
+   "type": "twse",
+   "date": "2026-08-14",
+   "close": 10,
+   "close_yday": 9.96,
+   "change_pct": 0.4,
+   "volume_lots": 29,
+   "volume_avg5_lots": 57,
+   "volume_ratio": 0.51,
+   "is_surge": false,
+   "ma5": 10,
+   "ma20": 9.99
   }
  ],
  "priceExtremes": [
@@ -17395,6 +17435,21 @@
    "highPeriod": "1個月",
    "lowPeriod": null,
    "is_surge": true
+  },
+  {
+   "stock_id": "1815",
+   "stock_name": "富喬",
+   "type": "tpex",
+   "date": "2026-08-14",
+   "close": 91.5,
+   "close_yday": 89.9,
+   "change_pct": 1.78,
+   "volume_lots": 7778,
+   "volume_avg5_lots": 19025,
+   "volume_ratio": 0.41,
+   "highPeriod": "1個月",
+   "lowPeriod": null,
+   "is_surge": false
   }
  ],
  "complete": false,
