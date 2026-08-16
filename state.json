@@ -17211,7 +17211,32 @@
   "3356",
   "3357",
   "3360",
-  "3362"
+  "3362",
+  "3308",
+  "3306",
+  "3305",
+  "3234",
+  "3236",
+  "3257",
+  "3259",
+  "3260",
+  "3264",
+  "3265",
+  "3266",
+  "3268",
+  "3272",
+  "3276",
+  "3285",
+  "3287",
+  "3288",
+  "3289",
+  "3290",
+  "3293",
+  "3294",
+  "3296",
+  "3297",
+  "3303",
+  "3284"
  ],
  "results": [
   {
@@ -18518,6 +18543,21 @@
    "is_surge": false,
    "ma5": 83.64,
    "ma20": 70.32
+  },
+  {
+   "stock_id": "3257",
+   "stock_name": "虹冠電",
+   "type": "twse",
+   "date": "2026-08-14",
+   "close": 50.7,
+   "close_yday": 51.3,
+   "change_pct": -1.17,
+   "volume_lots": 285,
+   "volume_avg5_lots": 232,
+   "volume_ratio": 1.23,
+   "is_surge": false,
+   "ma5": 51.44,
+   "ma20": 51.18
   }
  ],
  "priceExtremes": [
@@ -19988,6 +20028,21 @@
    "volume_avg5_lots": 609,
    "volume_ratio": 5.77,
    "highPeriod": "12個月",
+   "lowPeriod": null,
+   "is_surge": true
+  },
+  {
+   "stock_id": "3287",
+   "stock_name": "廣寰科",
+   "type": "tpex",
+   "date": "2026-08-14",
+   "close": 37.5,
+   "close_yday": 35.7,
+   "change_pct": 5.04,
+   "volume_lots": 2819,
+   "volume_avg5_lots": 453,
+   "volume_ratio": 6.22,
+   "highPeriod": "1個月",
    "lowPeriod": null,
    "is_surge": true
   }
