@@ -15836,7 +15836,32 @@
   "6277",
   "6278",
   "6279",
-  "6257"
+  "6257",
+  "6248",
+  "6246",
+  "6227",
+  "6228",
+  "6229",
+  "6230",
+  "6231",
+  "6233",
+  "6234",
+  "6235",
+  "6237",
+  "6239",
+  "6241",
+  "6242",
+  "6243",
+  "6244",
+  "6245",
+  "6186",
+  "6185",
+  "6114",
+  "6115",
+  "6116",
+  "6117",
+  "6118",
+  "6120"
  ],
  "results": [
   {
@@ -16153,6 +16178,21 @@
    "is_surge": true,
    "ma5": 31.5,
    "ma20": 31.02
+  },
+  {
+   "stock_id": "6242",
+   "stock_name": "立康",
+   "type": "tpex",
+   "date": "2026-08-14",
+   "close": 34.35,
+   "close_yday": 34,
+   "change_pct": 1.03,
+   "volume_lots": 6,
+   "volume_avg5_lots": 10,
+   "volume_ratio": 0.6,
+   "is_surge": false,
+   "ma5": 34.21,
+   "ma20": 27.84
   }
  ],
  "priceExtremes": [
@@ -16334,6 +16374,21 @@
    "volume_ratio": 0.88,
    "highPeriod": "1個月",
    "lowPeriod": null,
+   "is_surge": false
+  },
+  {
+   "stock_id": "6186",
+   "stock_name": "新潤",
+   "type": "tpex",
+   "date": "2026-08-14",
+   "close": 33.25,
+   "close_yday": 33.9,
+   "change_pct": -1.92,
+   "volume_lots": 1191,
+   "volume_avg5_lots": 913,
+   "volume_ratio": 1.3,
+   "highPeriod": null,
+   "lowPeriod": "12個月",
    "is_surge": false
   }
  ],
