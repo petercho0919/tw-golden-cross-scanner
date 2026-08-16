@@ -17286,7 +17286,19 @@
   "3057",
   "3055",
   "3056",
-  "3040"
+  "3040",
+  "3041",
+  "3042",
+  "3043",
+  "3044",
+  "3045",
+  "3046",
+  "3047",
+  "3052",
+  "3051",
+  "3050",
+  "3049",
+  "3048"
  ],
  "results": [
   {
@@ -20140,8 +20152,23 @@
    "highPeriod": "12個月",
    "lowPeriod": null,
    "is_surge": true
+  },
+  {
+   "stock_id": "3045",
+   "stock_name": "台灣大",
+   "type": "twse",
+   "date": "2026-08-14",
+   "close": 108,
+   "close_yday": 108.5,
+   "change_pct": -0.46,
+   "volume_lots": 9531,
+   "volume_avg5_lots": 10683,
+   "volume_ratio": 0.89,
+   "highPeriod": null,
+   "lowPeriod": "3個月",
+   "is_surge": false
   }
  ],
- "complete": false,
+ "complete": true,
  "reported": false
 }
