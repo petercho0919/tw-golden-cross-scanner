@@ -16936,7 +16936,32 @@
   "4188",
   "4190",
   "4192",
-  "4195"
+  "4195",
+  "4198",
+  "4205",
+  "4207",
+  "4303",
+  "4304",
+  "4305",
+  "4306",
+  "4401",
+  "4171",
+  "4402",
+  "4169",
+  "4133",
+  "4137",
+  "4138",
+  "4139",
+  "4142",
+  "4147",
+  "4148",
+  "4153",
+  "4155",
+  "4157",
+  "4160",
+  "4161",
+  "4163",
+  "4164"
  ],
  "results": [
   {
@@ -18003,6 +18028,21 @@
    "is_surge": true,
    "ma5": 26.78,
    "ma20": 26.69
+  },
+  {
+   "stock_id": "4205",
+   "stock_name": "中華食",
+   "type": "tpex",
+   "date": "2026-08-14",
+   "close": 70.1,
+   "close_yday": 70.1,
+   "change_pct": 0,
+   "volume_lots": 22,
+   "volume_avg5_lots": 21,
+   "volume_ratio": 1.05,
+   "is_surge": false,
+   "ma5": 69.98,
+   "ma20": 69.89
   }
  ],
  "priceExtremes": [
@@ -19084,6 +19124,21 @@
    "volume_ratio": 1.7,
    "highPeriod": null,
    "lowPeriod": "3個月",
+   "is_surge": true
+  },
+  {
+   "stock_id": "4306",
+   "stock_name": "炎洲",
+   "type": "twse",
+   "date": "2026-08-14",
+   "close": 15.5,
+   "close_yday": 14.5,
+   "change_pct": 6.9,
+   "volume_lots": 5020,
+   "volume_avg5_lots": 602,
+   "volume_ratio": 8.34,
+   "highPeriod": "1個月",
+   "lowPeriod": null,
    "is_surge": true
   }
  ],
