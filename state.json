@@ -16711,7 +16711,32 @@
   "3646",
   "3653",
   "3661",
-  "3663"
+  "3663",
+  "3664",
+  "3665",
+  "3666",
+  "3672",
+  "3673",
+  "3675",
+  "3679",
+  "3680",
+  "3684",
+  "3631",
+  "3593",
+  "3594",
+  "3596",
+  "3597",
+  "3605",
+  "3607",
+  "3609",
+  "3611",
+  "3615",
+  "3617",
+  "3622",
+  "3623",
+  "3624",
+  "3625",
+  "3628"
  ],
  "results": [
   {
@@ -17658,6 +17683,21 @@
    "is_surge": false,
    "ma5": 11.76,
    "ma20": 11.69
+  },
+  {
+   "stock_id": "3615",
+   "stock_name": "安可",
+   "type": "tpex",
+   "date": "2026-08-14",
+   "close": 38.65,
+   "close_yday": 37.05,
+   "change_pct": 4.32,
+   "volume_lots": 2032,
+   "volume_avg5_lots": 717,
+   "volume_ratio": 2.83,
+   "is_surge": true,
+   "ma5": 36.9,
+   "ma20": 36.18
   }
  ],
  "priceExtremes": [
@@ -18560,6 +18600,36 @@
    "highPeriod": "1個月",
    "lowPeriod": null,
    "is_surge": false
+  },
+  {
+   "stock_id": "3596",
+   "stock_name": "智易",
+   "type": "twse",
+   "date": "2026-08-14",
+   "close": 165,
+   "close_yday": 166,
+   "change_pct": -0.6,
+   "volume_lots": 1417,
+   "volume_avg5_lots": 1885,
+   "volume_ratio": 0.75,
+   "highPeriod": null,
+   "lowPeriod": "3個月",
+   "is_surge": false
+  },
+  {
+   "stock_id": "3617",
+   "stock_name": "碩天",
+   "type": "twse",
+   "date": "2026-08-14",
+   "close": 250,
+   "close_yday": 238,
+   "change_pct": 5.04,
+   "volume_lots": 3456,
+   "volume_avg5_lots": 408,
+   "volume_ratio": 8.47,
+   "highPeriod": "6個月",
+   "lowPeriod": null,
+   "is_surge": true
   }
  ],
  "complete": false,
