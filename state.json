@@ -16986,7 +16986,32 @@
   "4560",
   "4561",
   "4562",
-  "4563"
+  "4563",
+  "4564",
+  "4535",
+  "4534",
+  "4533",
+  "4416",
+  "4417",
+  "4420",
+  "4426",
+  "4430",
+  "4432",
+  "4433",
+  "4438",
+  "4439",
+  "4440",
+  "4566",
+  "4441",
+  "4502",
+  "4503",
+  "4506",
+  "4510",
+  "4513",
+  "4523",
+  "4526",
+  "4527",
+  "4528"
  ],
  "results": [
   {
@@ -18098,6 +18123,21 @@
    "is_surge": false,
    "ma5": 17.55,
    "ma20": 17.51
+  },
+  {
+   "stock_id": "4438",
+   "stock_name": "廣越",
+   "type": "twse",
+   "date": "2026-08-14",
+   "close": 61,
+   "close_yday": 60.8,
+   "change_pct": 0.33,
+   "volume_lots": 51,
+   "volume_avg5_lots": 109,
+   "volume_ratio": 0.47,
+   "is_surge": false,
+   "ma5": 61.06,
+   "ma20": 60.84
   }
  ],
  "priceExtremes": [
@@ -19192,6 +19232,21 @@
    "volume_lots": 5020,
    "volume_avg5_lots": 602,
    "volume_ratio": 8.34,
+   "highPeriod": "1個月",
+   "lowPeriod": null,
+   "is_surge": true
+  },
+  {
+   "stock_id": "4510",
+   "stock_name": "高鋒",
+   "type": "tpex",
+   "date": "2026-08-14",
+   "close": 46.45,
+   "close_yday": 45.7,
+   "change_pct": 1.64,
+   "volume_lots": 5689,
+   "volume_avg5_lots": 2597,
+   "volume_ratio": 2.19,
    "highPeriod": "1個月",
    "lowPeriod": null,
    "is_surge": true
