@@ -17286,7 +17286,19 @@
   "3057",
   "3055",
   "3056",
-  "3040"
+  "3040",
+  "3041",
+  "3042",
+  "3043",
+  "3044",
+  "3045",
+  "3046",
+  "3047",
+  "3052",
+  "3051",
+  "3050",
+  "3049",
+  "3048"
  ],
  "results": [
   {
@@ -19990,8 +20002,23 @@
    "highPeriod": "1個月",
    "lowPeriod": null,
    "is_surge": false
+  },
+  {
+   "stock_id": "3042",
+   "stock_name": "晶技",
+   "type": "twse",
+   "date": "2026-08-17",
+   "close": 195.5,
+   "close_yday": 180.5,
+   "change_pct": 8.31,
+   "volume_lots": 28327,
+   "volume_avg5_lots": 13572,
+   "volume_ratio": 2.09,
+   "highPeriod": "1個月",
+   "lowPeriod": null,
+   "is_surge": true
   }
  ],
- "complete": false,
+ "complete": true,
  "reported": false
 }
