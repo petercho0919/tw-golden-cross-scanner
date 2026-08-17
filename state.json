@@ -16761,7 +16761,32 @@
   "3715",
   "3714",
   "3689",
-  "3691"
+  "3691",
+  "3693",
+  "3694",
+  "3701",
+  "3702",
+  "3703",
+  "3704",
+  "3592",
+  "3705",
+  "3706",
+  "3707",
+  "3709",
+  "3710",
+  "3711",
+  "3712",
+  "4127",
+  "3591",
+  "3455",
+  "3466",
+  "3467",
+  "3479",
+  "3481",
+  "3483",
+  "3484",
+  "3485",
+  "3489"
  ],
  "results": [
   {
@@ -17363,6 +17388,21 @@
    "is_surge": false,
    "ma5": 31.04,
    "ma20": 30.84
+  },
+  {
+   "stock_id": "3485",
+   "stock_name": "敘豐",
+   "type": "tpex",
+   "date": "2026-08-17",
+   "close": 218.5,
+   "close_yday": 207,
+   "change_pct": 5.56,
+   "volume_lots": 156,
+   "volume_avg5_lots": 162,
+   "volume_ratio": 0.96,
+   "is_surge": false,
+   "ma5": 212.3,
+   "ma20": 211.95
   }
  ],
  "priceExtremes": [
@@ -18595,6 +18635,36 @@
    "highPeriod": "1個月",
    "lowPeriod": null,
    "is_surge": false
+  },
+  {
+   "stock_id": "3703",
+   "stock_name": "欣陸",
+   "type": "twse",
+   "date": "2026-08-17",
+   "close": 19.7,
+   "close_yday": 19.95,
+   "change_pct": -1.25,
+   "volume_lots": 2880,
+   "volume_avg5_lots": 2242,
+   "volume_ratio": 1.28,
+   "highPeriod": null,
+   "lowPeriod": "12個月",
+   "is_surge": false
+  },
+  {
+   "stock_id": "3455",
+   "stock_name": "由田",
+   "type": "tpex",
+   "date": "2026-08-17",
+   "close": 253,
+   "close_yday": 230,
+   "change_pct": 10,
+   "volume_lots": 3831,
+   "volume_avg5_lots": 1702,
+   "volume_ratio": 2.25,
+   "highPeriod": "1個月",
+   "lowPeriod": null,
+   "is_surge": true
   }
  ],
  "complete": false,
