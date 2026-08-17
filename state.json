@@ -15886,7 +15886,32 @@
   "6028",
   "6101",
   "6103",
-  "6104"
+  "6104",
+  "6108",
+  "6109",
+  "6024",
+  "6134",
+  "6136",
+  "6164",
+  "6166",
+  "6167",
+  "6168",
+  "6169",
+  "6161",
+  "6170",
+  "6173",
+  "6174",
+  "6175",
+  "6177",
+  "6179",
+  "6180",
+  "6182",
+  "6183",
+  "6184",
+  "6171",
+  "5880",
+  "6160",
+  "6155"
  ],
  "results": [
   {
@@ -16113,6 +16138,36 @@
    "is_surge": false,
    "ma5": 15.9,
    "ma20": 15.7
+  },
+  {
+   "stock_id": "6175",
+   "stock_name": "立敦",
+   "type": "tpex",
+   "date": "2026-08-17",
+   "close": 77.3,
+   "close_yday": 77.4,
+   "change_pct": -0.13,
+   "volume_lots": 594,
+   "volume_avg5_lots": 1824,
+   "volume_ratio": 0.33,
+   "is_surge": false,
+   "ma5": 78.24,
+   "ma20": 77.54
+  },
+  {
+   "stock_id": "6182",
+   "stock_name": "合晶",
+   "type": "tpex",
+   "date": "2026-08-17",
+   "close": 122.5,
+   "close_yday": 111.5,
+   "change_pct": 9.87,
+   "volume_lots": 84401,
+   "volume_avg5_lots": 62603,
+   "volume_ratio": 1.35,
+   "is_surge": true,
+   "ma5": 108.8,
+   "ma20": 106.14
   }
  ],
  "priceExtremes": [
@@ -16595,6 +16650,21 @@
    "highPeriod": "1個月",
    "lowPeriod": null,
    "is_surge": true
+  },
+  {
+   "stock_id": "6108",
+   "stock_name": "競國",
+   "type": "twse",
+   "date": "2026-08-17",
+   "close": 22.9,
+   "close_yday": 22.1,
+   "change_pct": 3.62,
+   "volume_lots": 3091,
+   "volume_avg5_lots": 2465,
+   "volume_ratio": 1.25,
+   "highPeriod": "3個月",
+   "lowPeriod": null,
+   "is_surge": false
   }
  ],
  "complete": false,
