@@ -17211,7 +17211,32 @@
   "3356",
   "3357",
   "3360",
-  "3362"
+  "3362",
+  "3308",
+  "3306",
+  "3305",
+  "3234",
+  "3236",
+  "3257",
+  "3259",
+  "3260",
+  "3264",
+  "3265",
+  "3266",
+  "3268",
+  "3272",
+  "3276",
+  "3285",
+  "3287",
+  "3288",
+  "3289",
+  "3290",
+  "3293",
+  "3294",
+  "3296",
+  "3297",
+  "3303",
+  "3284"
  ],
  "results": [
   {
@@ -18023,6 +18048,21 @@
    "is_surge": false,
    "ma5": 16.56,
    "ma20": 16.55
+  },
+  {
+   "stock_id": "3284",
+   "stock_name": "太普高",
+   "type": "tpex",
+   "date": "2026-08-17",
+   "close": 21,
+   "close_yday": 22.9,
+   "change_pct": -8.3,
+   "volume_lots": 516,
+   "volume_avg5_lots": 460,
+   "volume_ratio": 1.12,
+   "is_surge": false,
+   "ma5": 21.51,
+   "ma20": 21.34
   }
  ],
  "priceExtremes": [
@@ -19810,6 +19850,21 @@
    "highPeriod": null,
    "lowPeriod": "3個月",
    "is_surge": false
+  },
+  {
+   "stock_id": "3234",
+   "stock_name": "光環",
+   "type": "tpex",
+   "date": "2026-08-17",
+   "close": 150,
+   "close_yday": 136.5,
+   "change_pct": 9.89,
+   "volume_lots": 6043,
+   "volume_avg5_lots": 4548,
+   "volume_ratio": 1.33,
+   "highPeriod": "12個月",
+   "lowPeriod": null,
+   "is_surge": true
   }
  ],
  "complete": false,
