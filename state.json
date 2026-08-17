@@ -16611,7 +16611,32 @@
   "2338",
   "2342",
   "2344",
-  "2345"
+  "2345",
+  "2347",
+  "2348",
+  "2349",
+  "1452",
+  "1451",
+  "0050",
+  "0051",
+  "0052",
+  "0053",
+  "0055",
+  "0056",
+  "0057",
+  "0061",
+  "1201",
+  "1203",
+  "1210",
+  "1213",
+  "1215",
+  "1216",
+  "1217",
+  "1218",
+  "1219",
+  "1220",
+  "1225",
+  "1227"
  ],
  "results": [
   {
@@ -17168,6 +17193,36 @@
    "is_surge": false,
    "ma5": 250.8,
    "ma20": 250.1
+  },
+  {
+   "stock_id": "1216",
+   "stock_name": "統一",
+   "type": "twse",
+   "date": "2026-08-17",
+   "close": 75.2,
+   "close_yday": 75.8,
+   "change_pct": -0.79,
+   "volume_lots": 9455,
+   "volume_avg5_lots": 10741,
+   "volume_ratio": 0.88,
+   "is_surge": false,
+   "ma5": 75.9,
+   "ma20": 75.84
+  },
+  {
+   "stock_id": "1217",
+   "stock_name": "愛之味",
+   "type": "twse",
+   "date": "2026-08-17",
+   "close": 9.98,
+   "close_yday": 9.96,
+   "change_pct": 0.2,
+   "volume_lots": 483,
+   "volume_avg5_lots": 402,
+   "volume_ratio": 1.2,
+   "is_surge": false,
+   "ma5": 9.92,
+   "ma20": 9.91
   }
  ],
  "priceExtremes": [
@@ -18235,6 +18290,21 @@
    "highPeriod": "1個月",
    "lowPeriod": null,
    "is_surge": true
+  },
+  {
+   "stock_id": "2349",
+   "stock_name": "錸德",
+   "type": "twse",
+   "date": "2026-08-17",
+   "close": 11.6,
+   "close_yday": 11.6,
+   "change_pct": 0,
+   "volume_lots": 2904,
+   "volume_avg5_lots": 2235,
+   "volume_ratio": 1.3,
+   "highPeriod": "1個月",
+   "lowPeriod": null,
+   "is_surge": false
   }
  ],
  "complete": false,
