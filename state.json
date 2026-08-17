@@ -16986,7 +16986,32 @@
   "4560",
   "4561",
   "4562",
-  "4563"
+  "4563",
+  "4564",
+  "4535",
+  "4534",
+  "4533",
+  "4416",
+  "4417",
+  "4420",
+  "4426",
+  "4430",
+  "4432",
+  "4433",
+  "4438",
+  "4439",
+  "4440",
+  "4566",
+  "4441",
+  "4502",
+  "4503",
+  "4506",
+  "4510",
+  "4513",
+  "4523",
+  "4526",
+  "4527",
+  "4528"
  ],
  "results": [
   {
@@ -17663,6 +17688,21 @@
    "is_surge": false,
    "ma5": 50.84,
    "ma20": 50.59
+  },
+  {
+   "stock_id": "4564",
+   "stock_name": "元翎",
+   "type": "twse",
+   "date": "2026-08-17",
+   "close": 17.4,
+   "close_yday": 18.15,
+   "change_pct": -4.13,
+   "volume_lots": 2282,
+   "volume_avg5_lots": 1592,
+   "volume_ratio": 1.43,
+   "is_surge": true,
+   "ma5": 17.23,
+   "ma20": 17.06
   }
  ],
  "priceExtremes": [
@@ -19117,6 +19157,21 @@
    "volume_lots": 1853,
    "volume_avg5_lots": 850,
    "volume_ratio": 2.18,
+   "highPeriod": "1個月",
+   "lowPeriod": null,
+   "is_surge": true
+  },
+  {
+   "stock_id": "4416",
+   "stock_name": "三圓",
+   "type": "tpex",
+   "date": "2026-08-17",
+   "close": 11.15,
+   "close_yday": 10.85,
+   "change_pct": 2.76,
+   "volume_lots": 1196,
+   "volume_avg5_lots": 486,
+   "volume_ratio": 2.46,
    "highPeriod": "1個月",
    "lowPeriod": null,
    "is_surge": true
