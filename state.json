@@ -16361,7 +16361,32 @@
   "2064",
   "2065",
   "2066",
-  "2067"
+  "2067",
+  "2069",
+  "2070",
+  "2072",
+  "2073",
+  "2101",
+  "2102",
+  "2103",
+  "2104",
+  "2105",
+  "2106",
+  "2107",
+  "2108",
+  "2109",
+  "2114",
+  "2038",
+  "2035",
+  "2034",
+  "2033",
+  "1906",
+  "1907",
+  "1909",
+  "2002",
+  "2006",
+  "2007",
+  "2008"
  ],
  "results": [
   {
@@ -16813,6 +16838,21 @@
    "is_surge": false,
    "ma5": 23.4,
    "ma20": 23.4
+  },
+  {
+   "stock_id": "2035",
+   "stock_name": "唐榮",
+   "type": "tpex",
+   "date": "2026-08-17",
+   "close": 27.15,
+   "close_yday": 0,
+   "change_pct": null,
+   "volume_lots": 17,
+   "volume_avg5_lots": 7,
+   "volume_ratio": 2.43,
+   "is_surge": true,
+   "ma5": 16.21,
+   "ma20": 12.1
   }
  ],
  "priceExtremes": [
@@ -17518,6 +17558,21 @@
    "volume_avg5_lots": 2283,
    "volume_ratio": 2.2,
    "highPeriod": "1個月",
+   "lowPeriod": null,
+   "is_surge": true
+  },
+  {
+   "stock_id": "1909",
+   "stock_name": "榮成",
+   "type": "twse",
+   "date": "2026-08-17",
+   "close": 11.45,
+   "close_yday": 10.6,
+   "change_pct": 8.02,
+   "volume_lots": 18089,
+   "volume_avg5_lots": 4404,
+   "volume_ratio": 4.11,
+   "highPeriod": "12個月",
    "lowPeriod": null,
    "is_surge": true
   }
