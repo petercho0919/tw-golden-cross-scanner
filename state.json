@@ -15611,7 +15611,32 @@
   "6461",
   "6462",
   "6465",
-  "6469"
+  "6469",
+  "6470",
+  "6464",
+  "6443",
+  "6432",
+  "6441",
+  "6442",
+  "6435",
+  "6474",
+  "6477",
+  "6512",
+  "6516",
+  "6517",
+  "6523",
+  "6510",
+  "6525",
+  "6526",
+  "6527",
+  "6530",
+  "6531",
+  "6509",
+  "6508",
+  "6482",
+  "6485",
+  "6486",
+  "6488"
  ],
  "results": [
   {
@@ -15703,6 +15728,21 @@
    "is_surge": false,
    "ma5": 118.5,
    "ma20": 118.17
+  },
+  {
+   "stock_id": "6488",
+   "stock_name": "環球晶",
+   "type": "tpex",
+   "date": "2026-08-17",
+   "close": 1020,
+   "close_yday": 1010,
+   "change_pct": 0.99,
+   "volume_lots": 10932,
+   "volume_avg5_lots": 10493,
+   "volume_ratio": 1.04,
+   "is_surge": false,
+   "ma5": 967.4,
+   "ma20": 962.05
   }
  ],
  "priceExtremes": [
@@ -15897,6 +15937,21 @@
    "volume_lots": 1447,
    "volume_avg5_lots": 1793,
    "volume_ratio": 0.81,
+   "highPeriod": "1個月",
+   "lowPeriod": null,
+   "is_surge": false
+  },
+  {
+   "stock_id": "6442",
+   "stock_name": "光聖",
+   "type": "twse",
+   "date": "2026-08-17",
+   "close": 1630,
+   "close_yday": 1560,
+   "change_pct": 4.49,
+   "volume_lots": 2844,
+   "volume_avg5_lots": 3169,
+   "volume_ratio": 0.9,
    "highPeriod": "1個月",
    "lowPeriod": null,
    "is_surge": false
