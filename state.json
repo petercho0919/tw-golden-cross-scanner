@@ -15836,7 +15836,32 @@
   "6277",
   "6278",
   "6279",
-  "6257"
+  "6257",
+  "6248",
+  "6246",
+  "6227",
+  "6228",
+  "6229",
+  "6230",
+  "6231",
+  "6233",
+  "6234",
+  "6235",
+  "6237",
+  "6239",
+  "6241",
+  "6242",
+  "6243",
+  "6244",
+  "6245",
+  "6186",
+  "6185",
+  "6114",
+  "6115",
+  "6116",
+  "6117",
+  "6118",
+  "6120"
  ],
  "results": [
   {
@@ -16033,6 +16058,21 @@
    "is_surge": false,
    "ma5": 28.69,
    "ma20": 28.67
+  },
+  {
+   "stock_id": "6231",
+   "stock_name": "系微",
+   "type": "tpex",
+   "date": "2026-08-17",
+   "close": 220,
+   "close_yday": 223,
+   "change_pct": -1.35,
+   "volume_lots": 165,
+   "volume_avg5_lots": 280,
+   "volume_ratio": 0.59,
+   "is_surge": false,
+   "ma5": 221.5,
+   "ma20": 220.45
   }
  ],
  "priceExtremes": [
@@ -16500,6 +16540,21 @@
    "highPeriod": "1個月",
    "lowPeriod": null,
    "is_surge": false
+  },
+  {
+   "stock_id": "6244",
+   "stock_name": "茂迪",
+   "type": "tpex",
+   "date": "2026-08-17",
+   "close": 26.7,
+   "close_yday": 25.2,
+   "change_pct": 5.95,
+   "volume_lots": 4569,
+   "volume_avg5_lots": 2499,
+   "volume_ratio": 1.83,
+   "highPeriod": "1個月",
+   "lowPeriod": null,
+   "is_surge": true
   }
  ],
  "complete": false,
