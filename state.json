@@ -15136,9 +15136,82 @@
    "date": "2026-08-17"
   }
  ],
- "processedIds": [],
- "results": [],
- "priceExtremes": [],
+ "processedIds": [
+  "5481",
+  "3687",
+  "5450",
+  "3629",
+  "6238",
+  "6497",
+  "5349",
+  "8934",
+  "5304",
+  "6438",
+  "6426",
+  "3092",
+  "6165",
+  "1453",
+  "2459",
+  "2614",
+  "1456",
+  "3450",
+  "3669",
+  "2429",
+  "1443",
+  "8499",
+  "2241",
+  "5345",
+  "6275"
+ ],
+ "results": [
+  {
+   "stock_id": "5450",
+   "stock_name": "寶聯通",
+   "type": "tpex",
+   "date": "2026-08-17",
+   "close": 15.65,
+   "close_yday": 14.85,
+   "change_pct": 5.39,
+   "volume_lots": 262,
+   "volume_avg5_lots": 199,
+   "volume_ratio": 1.32,
+   "is_surge": true,
+   "ma5": 15.1,
+   "ma20": 15.06
+  }
+ ],
+ "priceExtremes": [
+  {
+   "stock_id": "6426",
+   "stock_name": "統新",
+   "type": "tpex",
+   "date": "2026-08-17",
+   "close": 239.5,
+   "close_yday": 219,
+   "change_pct": 9.36,
+   "volume_lots": 1020,
+   "volume_avg5_lots": 1599,
+   "volume_ratio": 0.64,
+   "highPeriod": "1個月",
+   "lowPeriod": null,
+   "is_surge": false
+  },
+  {
+   "stock_id": "3450",
+   "stock_name": "聯鈞",
+   "type": "twse",
+   "date": "2026-08-17",
+   "close": 550,
+   "close_yday": 510,
+   "change_pct": 7.84,
+   "volume_lots": 2057,
+   "volume_avg5_lots": 4570,
+   "volume_ratio": 0.45,
+   "highPeriod": "1個月",
+   "lowPeriod": null,
+   "is_surge": false
+  }
+ ],
  "complete": false,
  "reported": false
 }
