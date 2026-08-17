@@ -30,16 +30,20 @@ function yahooUrl(type, stockId) {
   return `https://tw.stock.yahoo.com/quote/${stockId}.${suffix}/technical-analysis`;
 }
 
-// HiStock不用分上市/上櫃，同一個網址格式，用來做滑鼠移過去的K線圖預覽
-function histockUrl(stockId) {
-  return `https://histock.tw/stock/tchart.aspx?no=${stockId}`;
+// TradingView官方嵌入式widget，用來做滑鼠移過去的K線圖預覽（只顯示圖表本身，
+// 沒有搜尋列/工具列這些多餘介面）。theme在頁尾script依當下亮/暗色模式動態補上。
+// 少數小型上櫃股TradingView自己查不到資料，會顯示查無此symbol，不影響點代號連結
+function tradingViewUrl(type, stockId) {
+  const exchange = type === 'twse' ? 'TWSE' : 'TPEX';
+  const symbol = encodeURIComponent(`${exchange}:${stockId}`);
+  return `https://s.tradingview.com/widgetembed/?symbol=${symbol}&interval=D&style=1&hidesidetoolbar=1&hidetoptoolbar=1&symboledit=0&saveimage=0&studies=%5B%5D&locale=zh_TW&timezone=Asia%2FTaipei`;
 }
 
 // 代號: 點了另開視窗到Yahoo奇摩股市的技術線圖頁
-// 名稱: 一樣可以點開Yahoo，另外滑鼠移過去會彈出HiStock的K線圖預覽（見頁尾script）
+// 名稱: 一樣可以點開Yahoo，另外滑鼠移過去會彈出TradingView的K線圖預覽（見頁尾script）
 function stockLinkCells(type, stockId, stockName) {
   const yahoo = yahooUrl(type, stockId);
-  const chart = histockUrl(stockId);
+  const chart = tradingViewUrl(type, stockId);
   return `<td class="num"><a class="stock-link" href="${yahoo}" target="_blank" rel="noopener noreferrer">${esc(stockId)}</a></td><td class="name"><a class="stock-link chart-hover" href="${yahoo}" target="_blank" rel="noopener noreferrer" data-chart-url="${esc(chart)}">${esc(stockName)}</a></td>`;
 }
 
@@ -371,12 +375,19 @@ function switchTab(name) {
     }
   }
 
+  function isDark() {
+    var explicit = document.documentElement.getAttribute('data-theme');
+    if (explicit === 'dark') return true;
+    if (explicit === 'light') return false;
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  }
+
   function showPreview(target, url) {
     hidePreview();
     previewEl = document.createElement('div');
     previewEl.className = 'chart-preview';
     var iframe = document.createElement('iframe');
-    iframe.src = url;
+    iframe.src = url + '&theme=' + (isDark() ? 'dark' : 'light');
     iframe.loading = 'lazy';
     previewEl.appendChild(iframe);
     document.body.appendChild(previewEl);
