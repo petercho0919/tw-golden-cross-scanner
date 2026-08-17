@@ -15961,7 +15961,32 @@
   "8038",
   "8039",
   "8040",
-  "8042"
+  "8042",
+  "7786",
+  "7788",
+  "7791",
+  "7792",
+  "7794",
+  "7795",
+  "7799",
+  "7803",
+  "7805",
+  "7782",
+  "7780",
+  "7757",
+  "7760",
+  "7765",
+  "7767",
+  "7768",
+  "7769",
+  "7770",
+  "7772",
+  "7777",
+  "7810",
+  "7811",
+  "7839",
+  "7842",
+  "7855"
  ],
  "results": [
   {
@@ -16233,6 +16258,21 @@
    "is_surge": false,
    "ma5": 21.85,
    "ma20": 21.82
+  },
+  {
+   "stock_id": "7768",
+   "stock_name": "頌勝科技",
+   "type": "twse",
+   "date": "2026-08-17",
+   "close": 272.5,
+   "close_yday": 267,
+   "change_pct": 2.06,
+   "volume_lots": 44,
+   "volume_avg5_lots": 94,
+   "volume_ratio": 0.47,
+   "is_surge": false,
+   "ma5": 269.2,
+   "ma20": 266.7
   }
  ],
  "priceExtremes": [
@@ -16744,6 +16784,36 @@
    "volume_ratio": 0.72,
    "highPeriod": null,
    "lowPeriod": "3個月",
+   "is_surge": false
+  },
+  {
+   "stock_id": "7788",
+   "stock_name": "松川精密",
+   "type": "twse",
+   "date": "2026-08-17",
+   "close": 280,
+   "close_yday": 268,
+   "change_pct": 4.48,
+   "volume_lots": 2098,
+   "volume_avg5_lots": 2109,
+   "volume_ratio": 0.99,
+   "highPeriod": "1個月",
+   "lowPeriod": null,
+   "is_surge": false
+  },
+  {
+   "stock_id": "7855",
+   "stock_name": "和運租車",
+   "type": "twse",
+   "date": "2026-08-17",
+   "close": 43.7,
+   "close_yday": 44.05,
+   "change_pct": -0.79,
+   "volume_lots": 2337,
+   "volume_avg5_lots": 5630,
+   "volume_ratio": 0.42,
+   "highPeriod": null,
+   "lowPeriod": "1個月",
    "is_surge": false
   }
  ],
