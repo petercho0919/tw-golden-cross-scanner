@@ -16661,7 +16661,32 @@
   "1414",
   "1416",
   "1417",
-  "1418"
+  "1418",
+  "1419",
+  "1423",
+  "1434",
+  "1435",
+  "1436",
+  "1437",
+  "1438",
+  "1440",
+  "1441",
+  "1442",
+  "1444",
+  "1445",
+  "1446",
+  "1447",
+  "1449",
+  "1402",
+  "1342",
+  "1341",
+  "1295",
+  "1301",
+  "1303",
+  "1304",
+  "1305",
+  "1307",
+  "1308"
  ],
  "results": [
   {
@@ -17248,6 +17273,21 @@
    "is_surge": false,
    "ma5": 9.92,
    "ma20": 9.91
+  },
+  {
+   "stock_id": "1437",
+   "stock_name": "勤益控",
+   "type": "twse",
+   "date": "2026-08-17",
+   "close": 31.5,
+   "close_yday": 31.4,
+   "change_pct": 0.32,
+   "volume_lots": 139,
+   "volume_avg5_lots": 222,
+   "volume_ratio": 0.63,
+   "is_surge": false,
+   "ma5": 31.04,
+   "ma20": 30.84
   }
  ],
  "priceExtremes": [
@@ -18342,6 +18382,21 @@
    "volume_lots": 8436,
    "volume_avg5_lots": 13152,
    "volume_ratio": 0.64,
+   "highPeriod": "1個月",
+   "lowPeriod": null,
+   "is_surge": false
+  },
+  {
+   "stock_id": "1402",
+   "stock_name": "遠東新",
+   "type": "twse",
+   "date": "2026-08-17",
+   "close": 27.55,
+   "close_yday": 27.1,
+   "change_pct": 1.66,
+   "volume_lots": 9076,
+   "volume_avg5_lots": 19015,
+   "volume_ratio": 0.48,
    "highPeriod": "1個月",
    "lowPeriod": null,
    "is_surge": false
