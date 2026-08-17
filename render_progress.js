@@ -13,6 +13,25 @@ function marketLabel(type) {
   return type === 'twse' ? '上市' : type === 'tpex' ? '上櫃' : type;
 }
 
+// Yahoo奇摩股市的代號後綴：上市是.TW，上櫃是.TWO
+function yahooUrl(type, stockId) {
+  const suffix = type === 'twse' ? 'TW' : 'TWO';
+  return `https://tw.stock.yahoo.com/quote/${stockId}.${suffix}/technical-analysis`;
+}
+
+// HiStock不用分上市/上櫃，同一個網址格式，用來做滑鼠移過去的K線圖預覽
+function histockUrl(stockId) {
+  return `https://histock.tw/stock/tchart.aspx?no=${stockId}`;
+}
+
+// 代號: 點了另開視窗到Yahoo奇摩股市的技術線圖頁
+// 名稱: 一樣可以點開Yahoo，另外滑鼠移過去會彈出HiStock的K線圖預覽（見頁尾script）
+function stockLinkCells(type, stockId, stockName) {
+  const yahoo = yahooUrl(type, stockId);
+  const chart = histockUrl(stockId);
+  return `<td class="num"><a class="stock-link" href="${yahoo}" target="_blank" rel="noopener noreferrer">${esc(stockId)}</a></td><td class="name"><a class="stock-link chart-hover" href="${yahoo}" target="_blank" rel="noopener noreferrer" data-chart-url="${esc(chart)}">${esc(stockName)}</a></td>`;
+}
+
 function fmtDuration(seconds) {
   if (seconds < 60) return `${Math.ceil(seconds)} 秒`;
   const h = Math.floor(seconds / 3600);
@@ -53,7 +72,7 @@ function extremeRows(list) {
   return list
     .map((r) => {
       const cls = r.is_surge ? ' class="surge"' : '';
-      return `<tr${cls}><td class="market">${marketLabel(r.type)}</td><td class="num">${esc(r.stock_id)}</td><td class="name">${esc(r.stock_name)}</td><td class="num">${r.close_yday}</td><td class="num">${r.close}</td><td class="${pctClass(r.change_pct)}">${fmtPct(r.change_pct)}</td><td class="num">${fmtNum(r.volume_lots)}</td><td class="num">${fmtNum(r.volume_avg5_lots)}</td><td class="${pctClass(volChangePct(r))}">${fmtPct1(volChangePct(r))}</td></tr>`;
+      return `<tr${cls}><td class="market">${marketLabel(r.type)}</td>${stockLinkCells(r.type, r.stock_id, r.stock_name)}<td class="num">${r.close_yday}</td><td class="num">${r.close}</td><td class="${pctClass(r.change_pct)}">${fmtPct(r.change_pct)}</td><td class="num">${fmtNum(r.volume_lots)}</td><td class="num">${fmtNum(r.volume_avg5_lots)}</td><td class="${pctClass(volChangePct(r))}">${fmtPct1(volChangePct(r))}</td></tr>`;
     })
     .join('\n');
 }
@@ -103,7 +122,7 @@ function renderProgressHTML(state, intervalMs) {
     .map((r) => {
       const cls = r.is_surge ? ' class="surge"' : '';
       const strength = (((r.ma5 - r.ma20) / r.ma20) * 100).toFixed(2);
-      return `<tr${cls}><td class="market">${marketLabel(r.type)}</td><td class="num">${esc(r.stock_id)}</td><td class="name">${esc(r.stock_name)}</td><td class="num">${r.close_yday}</td><td class="num">${r.close}</td><td class="${pctClass(r.change_pct)}">${fmtPct(r.change_pct)}</td><td class="num">${fmtNum(r.volume_lots)}</td><td class="num">${fmtNum(r.volume_avg5_lots)}</td><td class="${pctClass(volChangePct(r))}">${fmtPct1(volChangePct(r))}</td><td class="num">+${strength}%</td></tr>`;
+      return `<tr${cls}><td class="market">${marketLabel(r.type)}</td>${stockLinkCells(r.type, r.stock_id, r.stock_name)}<td class="num">${r.close_yday}</td><td class="num">${r.close}</td><td class="${pctClass(r.change_pct)}">${fmtPct(r.change_pct)}</td><td class="num">${fmtNum(r.volume_lots)}</td><td class="num">${fmtNum(r.volume_avg5_lots)}</td><td class="${pctClass(volChangePct(r))}">${fmtPct1(volChangePct(r))}</td><td class="num">+${strength}%</td></tr>`;
     })
     .join('\n');
 
@@ -156,6 +175,10 @@ tbody td:first-child, tbody td:nth-child(2), tbody td:nth-child(3) { text-align:
 tbody tr.surge td { background: var(--surge-soft); }
 tbody tr.surge td:first-child { box-shadow: inset 3px 0 0 var(--surge-border); }
 .name { font-weight: 500; }
+.stock-link { color: inherit; text-decoration: none; border-bottom: 1px dotted var(--muted); }
+.stock-link:hover { color: var(--accent); border-bottom-color: var(--accent); }
+.chart-preview { position: fixed; z-index: 1000; width: 360px; height: 260px; border: 1px solid var(--faint); border-radius: 8px; box-shadow: 0 8px 24px rgba(0,0,0,0.3); background: var(--paper-raised); overflow: hidden; }
+.chart-preview iframe { width: 100%; height: 100%; border: none; display: block; }
 .market { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--muted); }
 .num { font-family: 'IBM Plex Mono', monospace; }
 .pos { color: var(--up); font-family: 'IBM Plex Mono', monospace; }
@@ -218,6 +241,53 @@ function switchTab(name) {
   document.getElementById('tab-' + name).setAttribute('aria-selected', 'true');
   document.getElementById('panel-' + name).classList.add('active');
 }
+
+// 滑鼠移到股票名稱上，延遲一下再彈出HiStock的K線圖預覽（避免滑過一堆列時瘋狂載入iframe）；
+// 移開就整個拿掉iframe（不只是隱藏），確保沒在看的圖表不會繼續佔資源。
+(function () {
+  var previewEl = null;
+  var hoverTimer = null;
+
+  function hidePreview() {
+    if (previewEl) {
+      previewEl.remove();
+      previewEl = null;
+    }
+  }
+
+  function showPreview(target, url) {
+    hidePreview();
+    previewEl = document.createElement('div');
+    previewEl.className = 'chart-preview';
+    var iframe = document.createElement('iframe');
+    iframe.src = url;
+    iframe.loading = 'lazy';
+    previewEl.appendChild(iframe);
+    document.body.appendChild(previewEl);
+
+    var rect = target.getBoundingClientRect();
+    var w = 360, h = 260;
+    var left = Math.min(rect.left, window.innerWidth - w - 8);
+    var top = rect.bottom + 6;
+    if (top + h > window.innerHeight) top = rect.top - h - 6;
+    previewEl.style.left = Math.max(8, left) + 'px';
+    previewEl.style.top = Math.max(8, top) + 'px';
+  }
+
+  document.querySelectorAll('.chart-hover').forEach(function (el) {
+    el.addEventListener('mouseenter', function () {
+      clearTimeout(hoverTimer);
+      var url = el.getAttribute('data-chart-url');
+      hoverTimer = setTimeout(function () {
+        showPreview(el, url);
+      }, 250);
+    });
+    el.addEventListener('mouseleave', function () {
+      clearTimeout(hoverTimer);
+      hidePreview();
+    });
+  });
+})();
 </script>
 `;
 }
