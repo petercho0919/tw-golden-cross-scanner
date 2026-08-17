@@ -19,21 +19,20 @@ function yahooUrl(type, stockId) {
   return `https://tw.stock.yahoo.com/quote/${stockId}.${suffix}/technical-analysis`;
 }
 
-// TradingView官方嵌入式widget，用來做滑鼠移過去的K線圖預覽（只顯示圖表本身，
-// 沒有搜尋列/工具列這些多餘介面）。theme在頁尾script依當下亮/暗色模式動態補上。
-// 少數小型上櫃股TradingView自己查不到資料，會顯示查無此symbol，不影響點代號連結
-function tradingViewUrl(type, stockId) {
+// TradingView的股票代號格式，用來做滑鼠移過去的K線圖預覽。實際widget是用官方的
+// script+JSON設定方式動態建立（見頁尾script），不是直接連去內部網址——直接打內部
+// 網址會被判定成未授權嵌入，跳出「此商品僅在TradingView上可用」的擋牆
+function tradingViewSymbol(type, stockId) {
   const exchange = type === 'twse' ? 'TWSE' : 'TPEX';
-  const symbol = encodeURIComponent(`${exchange}:${stockId}`);
-  return `https://s.tradingview.com/widgetembed/?symbol=${symbol}&interval=D&style=1&hidesidetoolbar=1&hidetoptoolbar=1&symboledit=0&saveimage=0&studies=%5B%5D&locale=zh_TW&timezone=Asia%2FTaipei`;
+  return `${exchange}:${stockId}`;
 }
 
 // 代號: 點了另開視窗到Yahoo奇摩股市的技術線圖頁
 // 名稱: 一樣可以點開Yahoo，另外滑鼠移過去會彈出TradingView的K線圖預覽（見頁尾script）
 function stockLinkCells(type, stockId, stockName) {
   const yahoo = yahooUrl(type, stockId);
-  const chart = tradingViewUrl(type, stockId);
-  return `<td class="num"><a class="stock-link" href="${yahoo}" target="_blank" rel="noopener noreferrer">${esc(stockId)}</a></td><td class="name"><a class="stock-link chart-hover" href="${yahoo}" target="_blank" rel="noopener noreferrer" data-chart-url="${esc(chart)}">${esc(stockName)}</a></td>`;
+  const symbol = tradingViewSymbol(type, stockId);
+  return `<td class="num"><a class="stock-link" href="${yahoo}" target="_blank" rel="noopener noreferrer">${esc(stockId)}</a></td><td class="name"><a class="stock-link chart-hover" href="${yahoo}" target="_blank" rel="noopener noreferrer" data-chart-symbol="${esc(symbol)}">${esc(stockName)}</a></td>`;
 }
 
 function fmtDuration(seconds) {
@@ -266,14 +265,44 @@ function switchTab(name) {
     return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
   }
 
-  function showPreview(target, url) {
+  // 用TradingView官方的script+JSON設定方式動態建立widget，不是直接組iframe網址
+  function showPreview(target, symbol) {
     hidePreview();
     previewEl = document.createElement('div');
     previewEl.className = 'chart-preview';
-    var iframe = document.createElement('iframe');
-    iframe.src = url + '&theme=' + (isDark() ? 'dark' : 'light');
-    iframe.loading = 'lazy';
-    previewEl.appendChild(iframe);
+
+    var container = document.createElement('div');
+    container.className = 'tradingview-widget-container';
+    container.style.height = '100%';
+    container.style.width = '100%';
+    var widgetDiv = document.createElement('div');
+    widgetDiv.className = 'tradingview-widget-container__widget';
+    widgetDiv.style.height = '100%';
+    widgetDiv.style.width = '100%';
+    container.appendChild(widgetDiv);
+
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js';
+    script.async = true;
+    script.text = JSON.stringify({
+      autosize: true,
+      symbol: symbol,
+      interval: 'D',
+      timezone: 'Asia/Taipei',
+      theme: isDark() ? 'dark' : 'light',
+      style: '1',
+      locale: 'zh_TW',
+      hide_top_toolbar: true,
+      hide_side_toolbar: true,
+      allow_symbol_change: false,
+      save_image: false,
+      calendar: false,
+      support_host: 'https://www.tradingview.com',
+    });
+    container.appendChild(script);
+
+    previewEl.appendChild(container);
     document.body.appendChild(previewEl);
 
     var rect = target.getBoundingClientRect();
@@ -288,9 +317,9 @@ function switchTab(name) {
   document.querySelectorAll('.chart-hover').forEach(function (el) {
     el.addEventListener('mouseenter', function () {
       clearTimeout(hoverTimer);
-      var url = el.getAttribute('data-chart-url');
+      var symbol = el.getAttribute('data-chart-symbol');
       hoverTimer = setTimeout(function () {
-        showPreview(el, url);
+        showPreview(el, symbol);
       }, 250);
     });
     el.addEventListener('mouseleave', function () {
