@@ -15586,7 +15586,32 @@
   "6574",
   "6576",
   "6593",
-  "6596"
+  "6596",
+  "6597",
+  "6598",
+  "6603",
+  "6605",
+  "6606",
+  "6609",
+  "6592",
+  "6591",
+  "6577",
+  "6578",
+  "6579",
+  "6582",
+  "6584",
+  "6585",
+  "6588",
+  "6590",
+  "6533",
+  "6532",
+  "6449",
+  "6451",
+  "6456",
+  "6461",
+  "6462",
+  "6465",
+  "6469"
  ],
  "results": [
   {
@@ -15663,6 +15688,21 @@
    "is_surge": false,
    "ma5": 13.39,
    "ma20": 13.37
+  },
+  {
+   "stock_id": "6585",
+   "stock_name": "鼎基",
+   "type": "twse",
+   "date": "2026-08-17",
+   "close": 120,
+   "close_yday": 117.5,
+   "change_pct": 2.13,
+   "volume_lots": 252,
+   "volume_avg5_lots": 401,
+   "volume_ratio": 0.63,
+   "is_surge": false,
+   "ma5": 118.5,
+   "ma20": 118.17
   }
  ],
  "priceExtremes": [
@@ -15828,6 +15868,36 @@
    "volume_avg5_lots": 2940,
    "volume_ratio": 0.78,
    "highPeriod": "12個月",
+   "lowPeriod": null,
+   "is_surge": false
+  },
+  {
+   "stock_id": "6603",
+   "stock_name": "富強鑫",
+   "type": "tpex",
+   "date": "2026-08-17",
+   "close": 29.95,
+   "close_yday": 28,
+   "change_pct": 6.96,
+   "volume_lots": 5146,
+   "volume_avg5_lots": 3695,
+   "volume_ratio": 1.39,
+   "highPeriod": "6個月",
+   "lowPeriod": null,
+   "is_surge": true
+  },
+  {
+   "stock_id": "6451",
+   "stock_name": "訊芯-KY",
+   "type": "twse",
+   "date": "2026-08-17",
+   "close": 458.5,
+   "close_yday": 425.5,
+   "change_pct": 7.76,
+   "volume_lots": 1447,
+   "volume_avg5_lots": 1793,
+   "volume_ratio": 0.81,
+   "highPeriod": "1個月",
    "lowPeriod": null,
    "is_surge": false
   }
