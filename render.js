@@ -53,6 +53,16 @@ function validationRows(results) {
     .join('\n');
 }
 
+function priceExtremeValidationRows(results) {
+  return results
+    .map((r) => {
+      const cls = r.is_surge ? ' class="surge"' : '';
+      const badge = r.is_surge ? '<span class="badge">量增</span>' : '<span class="dash">—</span>';
+      return `<tr${cls}><td class="market">${marketLabel(r.type)}</td><td class="num">${esc(r.stock_id)}</td><td class="name">${esc(r.stock_name)}</td><td>${esc(r.signal_type)}</td><td class="num">${fmtNum(r.signal_close, 2)}</td><td class="num">${fmtNum(r.today_close, 2)}</td><td class="${pctClass(r.forward_return_pct)}">${fmtPct(r.forward_return_pct)}</td><td>${badge}</td></tr>`;
+    })
+    .join('\n');
+}
+
 const PERIODS = ['12個月', '6個月', '3個月', '1個月'];
 
 function extremeRows(list) {
@@ -131,6 +141,37 @@ ${validationRows(report.validation_of_previous_signals.results)}
       <p>無前一交易日存檔資料</p>
     </div>
     <p style="color:var(--muted);font-size:13px;">找不到前一個交易日的報告存檔（可能是第一次執行，或該日 base 清單為空），明天開始會自動累積。</p>
+  </section>`;
+
+  const priceExtremeValidation = report.price_extreme_validation || { count: 0, based_on_date: null, results: [] };
+  const hasPriceExtremeValidation = priceExtremeValidation.count > 0;
+
+  const priceExtremeValidationSection = hasPriceExtremeValidation
+    ? `
+  <section>
+    <div class="section-head">
+      <h2>前一交易日創新高/創新低驗證</h2>
+      <p>${esc(priceExtremeValidation.based_on_date)} 創新高/創新低全部標的，對照 ${esc(report.date)} 收盤的隔日報酬</p>
+    </div>
+    <div class="legend">
+      <span><span class="badge">量增</span>該標的當時被標記為量增</span>
+    </div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>市場</th><th>代號</th><th>名稱</th><th>訊號類型</th><th>訊號日收盤</th><th>今收盤</th><th>隔日報酬</th><th>標記</th></tr></thead>
+        <tbody>
+${priceExtremeValidationRows(priceExtremeValidation.results)}
+        </tbody>
+      </table>
+    </div>
+  </section>`
+    : `
+  <section>
+    <div class="section-head">
+      <h2>前一交易日創新高/創新低驗證</h2>
+      <p>無前一交易日存檔資料</p>
+    </div>
+    <p style="color:var(--muted);font-size:13px;">找不到前一個交易日的報告存檔（可能是第一次執行，或該日創新高/創新低清單為空），明天開始會自動累積。</p>
   </section>`;
 
   return `<title>台股每日掃描 — ${esc(report.date)}</title>
@@ -281,6 +322,7 @@ ${baseListRows(report.all_results)}
   <div class="panel" id="panel-extreme" role="tabpanel" aria-labelledby="tab-extreme">
 ${extremeGroup('創新高', '今日收盤價創各區間新高，5日均量 ≥ 100張 且 本日成交量 > 1000張，只標最長符合區間', priceExtremes, 'highPeriod', '高')}
 ${extremeGroup('創新低', '今日收盤價創各區間新低，5日均量 ≥ 100張 且 本日成交量 > 1000張，只標最長符合區間', priceExtremes, 'lowPeriod', '低')}
+    ${priceExtremeValidationSection}
   </div>
 
   <p class="note">tw-golden-cross-scanner · 自動產生 · 最後更新 ${esc(report.date)} · 資料來源 FinMind</p>

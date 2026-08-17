@@ -85,6 +85,53 @@ async function buildValidation(todayDateStr) {
   return { based_on_date: prevReport.date, count: results.length, results };
 }
 
+// 驗證「前一個交易日創新高/創新低全部標的」在今天的表現，邏輯跟 buildValidation 一樣，
+// 只是資料來源換成 price_extremes，另外保留當初標記的區間(創X個月新高/新低)供對照
+async function buildPriceExtremeValidation(todayDateStr) {
+  const prevReport = findPreviousReport(todayDateStr);
+  if (!prevReport || !prevReport.price_extremes || prevReport.price_extremes.length === 0) {
+    return { based_on_date: prevReport ? prevReport.date : null, count: 0, results: [] };
+  }
+
+  const results = [];
+  for (const item of prevReport.price_extremes) {
+    const signalType = item.highPeriod ? `${item.highPeriod}新高` : `${item.lowPeriod}新低`;
+    const json = await fetchCloseOn(item.stock_id, todayDateStr);
+    if (json.status === 200 && json.data && json.data.length > 0) {
+      const todayClose = json.data[0].close;
+      const forwardReturn = +(((todayClose - item.close) / item.close) * 100).toFixed(2);
+      results.push({
+        stock_id: item.stock_id,
+        stock_name: item.stock_name,
+        type: item.type,
+        is_surge: item.is_surge,
+        signal_type: signalType,
+        signal_date: item.date,
+        signal_close: item.close,
+        today_close: todayClose,
+        forward_return_pct: forwardReturn,
+      });
+    } else {
+      results.push({
+        stock_id: item.stock_id,
+        stock_name: item.stock_name,
+        type: item.type,
+        is_surge: item.is_surge,
+        signal_type: signalType,
+        signal_date: item.date,
+        signal_close: item.close,
+        today_close: null,
+        forward_return_pct: null,
+        note: '查無今日收盤資料（可能停牌或當天非交易日）',
+      });
+    }
+    await new Promise((r) => setTimeout(r, INTERVAL_MS));
+  }
+
+  results.sort((a, b) => (b.forward_return_pct ?? -999) - (a.forward_return_pct ?? -999));
+  return { based_on_date: prevReport.date, count: results.length, results };
+}
+
 async function main() {
   const state = JSON.parse(fs.readFileSync(STATE_FILE, 'utf-8'));
   if (!state.complete) {
@@ -120,6 +167,9 @@ async function main() {
   console.log('驗證前一個交易日的訊號...');
   const validation = await buildValidation(effectiveDate);
 
+  console.log('驗證前一個交易日的創新高/創新低...');
+  const priceExtremeValidation = await buildPriceExtremeValidation(effectiveDate);
+
   const report = {
     date: effectiveDate,
     total_scanned: state.universe.length,
@@ -128,6 +178,7 @@ async function main() {
     base_list: baseList, // 成交量>1000張 且 5日均量>=100張，依當日漲跌幅排序，is_surge=true 代表量增>前5日均量1.3倍
     validation_of_previous_signals: validation, // 驗證前一交易日 base_list 全部標的在今天的表現，含 is_surge 標記可對照
     price_extremes: state.priceExtremes || [], // scan.js 已經算好的創新高/創新低清單（共用同一次資料抓取，這裡不用再補查）
+    price_extreme_validation: priceExtremeValidation, // 驗證前一交易日創新高/創新低全部標的在今天的表現
   };
 
   if (!fs.existsSync(REPORTS_DIR)) fs.mkdirSync(REPORTS_DIR);
@@ -143,6 +194,7 @@ async function main() {
   const surgeCount = baseList.filter((r) => r.is_surge).length;
   console.log(`報告完成: 共 ${enriched.length} 檔黃金交叉，base清單 ${baseList.length} 檔(其中 ${surgeCount} 檔量增highlight)，創新高/創新低 ${report.price_extremes.length} 檔`);
   console.log(`前一交易日驗證: 基準日=${validation.based_on_date ?? '無'}，驗證 ${validation.count} 檔`);
+  console.log(`前一交易日創新高/創新低驗證: 基準日=${priceExtremeValidation.based_on_date ?? '無'}，驗證 ${priceExtremeValidation.count} 檔`);
   console.log('STATUS: REPORT_READY');
 }
 
