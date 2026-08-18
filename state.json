@@ -16836,7 +16836,32 @@
   "3588",
   "3546",
   "3545",
-  "3543"
+  "3543",
+  "3516",
+  "3518",
+  "3520",
+  "3523",
+  "3526",
+  "3527",
+  "3528",
+  "3529",
+  "3530",
+  "3531",
+  "3532",
+  "3533",
+  "3535",
+  "3537",
+  "3540",
+  "3541",
+  "3374",
+  "4128",
+  "4131",
+  "4720",
+  "4721",
+  "4722",
+  "4726",
+  "4728",
+  "4729"
  ],
  "results": [
   {
@@ -17468,6 +17493,21 @@
    "is_surge": true,
    "ma5": 10.11,
    "ma20": 10.1
+  },
+  {
+   "stock_id": "3532",
+   "stock_name": "台勝科",
+   "type": "twse",
+   "date": "2026-08-18",
+   "close": 369,
+   "close_yday": 371.5,
+   "change_pct": -0.67,
+   "volume_lots": 19319,
+   "volume_avg5_lots": 10093,
+   "volume_ratio": 1.91,
+   "is_surge": true,
+   "ma5": 350.3,
+   "ma20": 333.38
   }
  ],
  "priceExtremes": [
@@ -18280,6 +18320,21 @@
    "highPeriod": "1個月",
    "lowPeriod": null,
    "is_surge": true
+  },
+  {
+   "stock_id": "3533",
+   "stock_name": "嘉澤",
+   "type": "twse",
+   "date": "2026-08-18",
+   "close": 1625,
+   "close_yday": 1700,
+   "change_pct": -4.41,
+   "volume_lots": 1893,
+   "volume_avg5_lots": 2960,
+   "volume_ratio": 0.64,
+   "highPeriod": null,
+   "lowPeriod": "3個月",
+   "is_surge": false
   }
  ],
  "complete": false,
