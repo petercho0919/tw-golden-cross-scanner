@@ -17011,7 +17011,32 @@
   "4523",
   "4526",
   "4527",
-  "4528"
+  "4528",
+  "4529",
+  "4532",
+  "4442",
+  "3373",
+  "3363",
+  "2751",
+  "2762",
+  "2801",
+  "2812",
+  "2816",
+  "2820",
+  "2832",
+  "2834",
+  "2836",
+  "2838",
+  "2845",
+  "2849",
+  "2850",
+  "2851",
+  "2852",
+  "2855",
+  "2645",
+  "2646",
+  "2867",
+  "2880"
  ],
  "results": [
   {
@@ -17703,6 +17728,21 @@
    "is_surge": false,
    "ma5": 18.94,
    "ma20": 18.73
+  },
+  {
+   "stock_id": "2845",
+   "stock_name": "遠東銀",
+   "type": "twse",
+   "date": "2026-08-18",
+   "close": 13.45,
+   "close_yday": 13.6,
+   "change_pct": -1.1,
+   "volume_lots": 5617,
+   "volume_avg5_lots": 8586,
+   "volume_ratio": 0.65,
+   "is_surge": false,
+   "ma5": 13.31,
+   "ma20": 13.3
   }
  ],
  "priceExtremes": [
@@ -18590,6 +18630,21 @@
    "highPeriod": "1個月",
    "lowPeriod": null,
    "is_surge": true
+  },
+  {
+   "stock_id": "2851",
+   "stock_name": "中再保",
+   "type": "twse",
+   "date": "2026-08-18",
+   "close": 39.3,
+   "close_yday": 38.95,
+   "change_pct": 0.9,
+   "volume_lots": 2603,
+   "volume_avg5_lots": 2207,
+   "volume_ratio": 1.18,
+   "highPeriod": "1個月",
+   "lowPeriod": null,
+   "is_surge": false
   }
  ],
  "complete": false,
