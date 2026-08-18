@@ -17061,7 +17061,32 @@
   "2901",
   "2882",
   "2883",
-  "2884"
+  "2884",
+  "2885",
+  "2886",
+  "2887",
+  "2643",
+  "2889",
+  "2890",
+  "2891",
+  "2892",
+  "2897",
+  "2642",
+  "2477",
+  "2478",
+  "2480",
+  "2481",
+  "2482",
+  "2483",
+  "2484",
+  "2485",
+  "2486",
+  "2488",
+  "2489",
+  "2491",
+  "2492",
+  "2476",
+  "2474"
  ],
  "results": [
   {
@@ -17768,6 +17793,36 @@
    "is_surge": false,
    "ma5": 13.31,
    "ma20": 13.3
+  },
+  {
+   "stock_id": "2889",
+   "stock_name": "國票金",
+   "type": "twse",
+   "date": "2026-08-18",
+   "close": 15.6,
+   "close_yday": 15.65,
+   "change_pct": -0.32,
+   "volume_lots": 4230,
+   "volume_avg5_lots": 6285,
+   "volume_ratio": 0.67,
+   "is_surge": false,
+   "ma5": 15.55,
+   "ma20": 15.51
+  },
+  {
+   "stock_id": "2483",
+   "stock_name": "百容",
+   "type": "twse",
+   "date": "2026-08-18",
+   "close": 37.6,
+   "close_yday": 37.65,
+   "change_pct": -0.13,
+   "volume_lots": 1253,
+   "volume_avg5_lots": 2347,
+   "volume_ratio": 0.53,
+   "is_surge": false,
+   "ma5": 37.97,
+   "ma20": 37.41
   }
  ],
  "priceExtremes": [
@@ -18685,6 +18740,21 @@
    "highPeriod": "12個月",
    "lowPeriod": null,
    "is_surge": false
+  },
+  {
+   "stock_id": "2491",
+   "stock_name": "吉祥全",
+   "type": "twse",
+   "date": "2026-08-18",
+   "close": 39.2,
+   "close_yday": 37.8,
+   "change_pct": 3.7,
+   "volume_lots": 2485,
+   "volume_avg5_lots": 504,
+   "volume_ratio": 4.93,
+   "highPeriod": "1個月",
+   "lowPeriod": null,
+   "is_surge": true
   }
  ],
  "complete": false,
