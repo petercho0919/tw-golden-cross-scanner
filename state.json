@@ -15286,7 +15286,32 @@
   "6754",
   "8473",
   "6581",
-  "1439"
+  "1439",
+  "2062",
+  "3130",
+  "9955",
+  "1432",
+  "8482",
+  "8422",
+  "1472",
+  "3708",
+  "9935",
+  "6689",
+  "8341",
+  "6768",
+  "3557",
+  "8478",
+  "8438",
+  "8423",
+  "8087",
+  "8933",
+  "4702",
+  "8440",
+  "8924",
+  "6690",
+  "3551",
+  "4609",
+  "4530"
  ],
  "results": [
   {
@@ -15333,6 +15358,21 @@
    "is_surge": true,
    "ma5": 57.72,
    "ma20": 57.53
+  },
+  {
+   "stock_id": "4530",
+   "stock_name": "宏易",
+   "type": "tpex",
+   "date": "2026-08-18",
+   "close": 26.25,
+   "close_yday": 0,
+   "change_pct": null,
+   "volume_lots": 8,
+   "volume_avg5_lots": 4,
+   "volume_ratio": 2,
+   "is_surge": true,
+   "ma5": 21.03,
+   "ma20": 17.67
   }
  ],
  "priceExtremes": [
@@ -15363,6 +15403,21 @@
    "volume_avg5_lots": 773,
    "volume_ratio": 1.97,
    "highPeriod": "12個月",
+   "lowPeriod": null,
+   "is_surge": true
+  },
+  {
+   "stock_id": "8422",
+   "stock_name": "可寧衛",
+   "type": "twse",
+   "date": "2026-08-18",
+   "close": 27.1,
+   "close_yday": 26.45,
+   "change_pct": 2.46,
+   "volume_lots": 9578,
+   "volume_avg5_lots": 3474,
+   "volume_ratio": 2.76,
+   "highPeriod": "1個月",
    "lowPeriod": null,
    "is_surge": true
   }
