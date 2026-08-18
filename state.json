@@ -15711,7 +15711,32 @@
   "5508",
   "5478",
   "5511",
-  "5514"
+  "5514",
+  "5515",
+  "5516",
+  "5519",
+  "5520",
+  "5521",
+  "5522",
+  "5523",
+  "5525",
+  "5529",
+  "5512",
+  "5302",
+  "5299",
+  "4989",
+  "4991",
+  "4994",
+  "4995",
+  "4999",
+  "5007",
+  "5009",
+  "5011",
+  "5013",
+  "5014",
+  "5015",
+  "5016",
+  "5201"
  ],
  "results": [
   {
@@ -15893,6 +15918,21 @@
    "is_surge": false,
    "ma5": 42.88,
    "ma20": 42.7
+  },
+  {
+   "stock_id": "5512",
+   "stock_name": "力麒",
+   "type": "tpex",
+   "date": "2026-08-18",
+   "close": 7.8,
+   "close_yday": 7.73,
+   "change_pct": 0.91,
+   "volume_lots": 444,
+   "volume_avg5_lots": 587,
+   "volume_ratio": 0.76,
+   "is_surge": false,
+   "ma5": 7.77,
+   "ma20": 7.77
   }
  ],
  "priceExtremes": [
@@ -16105,6 +16145,21 @@
    "highPeriod": "3個月",
    "lowPeriod": null,
    "is_surge": true
+  },
+  {
+   "stock_id": "5515",
+   "stock_name": "建國",
+   "type": "twse",
+   "date": "2026-08-18",
+   "close": 54.2,
+   "close_yday": 53.2,
+   "change_pct": 1.88,
+   "volume_lots": 1741,
+   "volume_avg5_lots": 1428,
+   "volume_ratio": 1.22,
+   "highPeriod": "12個月",
+   "lowPeriod": null,
+   "is_surge": false
   }
  ],
  "complete": false,
