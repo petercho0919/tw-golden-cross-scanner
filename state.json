@@ -17186,7 +17186,32 @@
   "3149",
   "3152",
   "3158",
-  "3162"
+  "3162",
+  "3163",
+  "3164",
+  "3167",
+  "3105",
+  "3231",
+  "3232",
+  "3310",
+  "3311",
+  "3312",
+  "3317",
+  "3321",
+  "3322",
+  "3323",
+  "3324",
+  "3325",
+  "3332",
+  "3338",
+  "3339",
+  "3346",
+  "3349",
+  "3354",
+  "3356",
+  "3357",
+  "3360",
+  "3362"
  ],
  "results": [
   {
@@ -17953,6 +17978,21 @@
    "is_surge": true,
    "ma5": 59.4,
    "ma20": 59.34
+  },
+  {
+   "stock_id": "3332",
+   "stock_name": "幸康",
+   "type": "tpex",
+   "date": "2026-08-18",
+   "close": 61.7,
+   "close_yday": 62,
+   "change_pct": -0.48,
+   "volume_lots": 5,
+   "volume_avg5_lots": 3,
+   "volume_ratio": 1.67,
+   "is_surge": true,
+   "ma5": 62.54,
+   "ma20": 56.83
   }
  ],
  "priceExtremes": [
@@ -19125,6 +19165,21 @@
    "highPeriod": null,
    "lowPeriod": "3個月",
    "is_surge": false
+  },
+  {
+   "stock_id": "3167",
+   "stock_name": "大量",
+   "type": "twse",
+   "date": "2026-08-18",
+   "close": 770,
+   "close_yday": 700,
+   "change_pct": 10,
+   "volume_lots": 5863,
+   "volume_avg5_lots": 445,
+   "volume_ratio": 13.18,
+   "highPeriod": "1個月",
+   "lowPeriod": null,
+   "is_surge": true
   }
  ],
  "complete": false,
