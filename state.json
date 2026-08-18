@@ -17211,7 +17211,32 @@
   "3356",
   "3357",
   "3360",
-  "3362"
+  "3362",
+  "3308",
+  "3306",
+  "3305",
+  "3234",
+  "3236",
+  "3257",
+  "3259",
+  "3260",
+  "3264",
+  "3265",
+  "3266",
+  "3268",
+  "3272",
+  "3276",
+  "3285",
+  "3287",
+  "3288",
+  "3289",
+  "3290",
+  "3293",
+  "3294",
+  "3296",
+  "3297",
+  "3303",
+  "3284"
  ],
  "results": [
   {
@@ -17993,6 +18018,21 @@
    "is_surge": true,
    "ma5": 62.54,
    "ma20": 56.83
+  },
+  {
+   "stock_id": "3308",
+   "stock_name": "聯德",
+   "type": "twse",
+   "date": "2026-08-18",
+   "close": 20.1,
+   "close_yday": 20.45,
+   "change_pct": -1.71,
+   "volume_lots": 49,
+   "volume_avg5_lots": 52,
+   "volume_ratio": 0.94,
+   "is_surge": false,
+   "ma5": 19.8,
+   "ma20": 19.74
   }
  ],
  "priceExtremes": [
@@ -19180,6 +19220,21 @@
    "highPeriod": "1個月",
    "lowPeriod": null,
    "is_surge": true
+  },
+  {
+   "stock_id": "3287",
+   "stock_name": "廣寰科",
+   "type": "tpex",
+   "date": "2026-08-18",
+   "close": 38.5,
+   "close_yday": 37.6,
+   "change_pct": 2.39,
+   "volume_lots": 1027,
+   "volume_avg5_lots": 1145,
+   "volume_ratio": 0.9,
+   "highPeriod": "12個月",
+   "lowPeriod": null,
+   "is_surge": false
   }
  ],
  "complete": false,
