@@ -15836,7 +15836,32 @@
   "6277",
   "6278",
   "6279",
-  "6257"
+  "6257",
+  "6248",
+  "6246",
+  "6227",
+  "6228",
+  "6229",
+  "6230",
+  "6231",
+  "6233",
+  "6234",
+  "6235",
+  "6237",
+  "6239",
+  "6241",
+  "6242",
+  "6243",
+  "6244",
+  "6245",
+  "6186",
+  "6185",
+  "6114",
+  "6115",
+  "6116",
+  "6117",
+  "6118",
+  "6120"
  ],
  "results": [
   {
@@ -16063,6 +16088,21 @@
    "is_surge": false,
    "ma5": 6.04,
    "ma20": 5.74
+  },
+  {
+   "stock_id": "6246",
+   "stock_name": "臺龍",
+   "type": "tpex",
+   "date": "2026-08-18",
+   "close": 12.3,
+   "close_yday": 12.35,
+   "change_pct": -0.4,
+   "volume_lots": 280,
+   "volume_avg5_lots": 115,
+   "volume_ratio": 2.43,
+   "is_surge": true,
+   "ma5": 12.67,
+   "ma20": 12.6
   }
  ],
  "priceExtremes": [
@@ -16334,6 +16374,21 @@
    "volume_ratio": 0.87,
    "highPeriod": "12個月",
    "lowPeriod": null,
+   "is_surge": false
+  },
+  {
+   "stock_id": "6243",
+   "stock_name": "迅杰",
+   "type": "twse",
+   "date": "2026-08-18",
+   "close": 42.85,
+   "close_yday": 45.7,
+   "change_pct": -6.24,
+   "volume_lots": 1634,
+   "volume_avg5_lots": 2649,
+   "volume_ratio": 0.62,
+   "highPeriod": null,
+   "lowPeriod": "1個月",
    "is_surge": false
   }
  ],
