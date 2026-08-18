@@ -15686,7 +15686,32 @@
   "5536",
   "5538",
   "5543",
-  "5546"
+  "5546",
+  "5547",
+  "5548",
+  "5601",
+  "5603",
+  "5607",
+  "5608",
+  "5609",
+  "5864",
+  "5871",
+  "5534",
+  "5533",
+  "5531",
+  "5530",
+  "5483",
+  "5484",
+  "5487",
+  "5488",
+  "5489",
+  "5490",
+  "5493",
+  "5498",
+  "5508",
+  "5478",
+  "5511",
+  "5514"
  ],
  "results": [
   {
@@ -15838,6 +15863,36 @@
    "is_surge": false,
    "ma5": 35.71,
    "ma20": 35.71
+  },
+  {
+   "stock_id": "5483",
+   "stock_name": "中美晶",
+   "type": "tpex",
+   "date": "2026-08-18",
+   "close": 185,
+   "close_yday": 186.5,
+   "change_pct": -0.8,
+   "volume_lots": 29223,
+   "volume_avg5_lots": 34092,
+   "volume_ratio": 0.86,
+   "is_surge": false,
+   "ma5": 186.4,
+   "ma20": 183.13
+  },
+  {
+   "stock_id": "5489",
+   "stock_name": "彩富",
+   "type": "tpex",
+   "date": "2026-08-18",
+   "close": 44.4,
+   "close_yday": 43.2,
+   "change_pct": 2.78,
+   "volume_lots": 112,
+   "volume_avg5_lots": 92,
+   "volume_ratio": 1.22,
+   "is_surge": false,
+   "ma5": 42.88,
+   "ma20": 42.7
   }
  ],
  "priceExtremes": [
@@ -16034,6 +16089,21 @@
    "volume_ratio": 1.73,
    "highPeriod": null,
    "lowPeriod": "3個月",
+   "is_surge": true
+  },
+  {
+   "stock_id": "5608",
+   "stock_name": "四維航",
+   "type": "twse",
+   "date": "2026-08-18",
+   "close": 15.95,
+   "close_yday": 14.5,
+   "change_pct": 10,
+   "volume_lots": 14629,
+   "volume_avg5_lots": 1519,
+   "volume_ratio": 9.63,
+   "highPeriod": "3個月",
+   "lowPeriod": null,
    "is_surge": true
   }
  ],
