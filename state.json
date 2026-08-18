@@ -16411,7 +16411,32 @@
   "1517",
   "1519",
   "1521",
-  "1522"
+  "1522",
+  "1524",
+  "1525",
+  "1526",
+  "1527",
+  "1528",
+  "1529",
+  "1530",
+  "1531",
+  "1532",
+  "1533",
+  "1535",
+  "1536",
+  "1537",
+  "1538",
+  "1539",
+  "1540",
+  "1541",
+  "1558",
+  "1560",
+  "1563",
+  "1516",
+  "1565",
+  "1515",
+  "1513",
+  "1455"
  ],
  "results": [
   {
@@ -16878,6 +16903,36 @@
    "is_surge": false,
    "ma5": 84.86,
    "ma20": 84.78
+  },
+  {
+   "stock_id": "1538",
+   "stock_name": "正峰",
+   "type": "twse",
+   "date": "2026-08-18",
+   "close": 9.16,
+   "close_yday": 9.2,
+   "change_pct": -0.43,
+   "volume_lots": 1,
+   "volume_avg5_lots": 1,
+   "volume_ratio": 1,
+   "is_surge": false,
+   "ma5": 5.51,
+   "ma20": 4.85
+  },
+  {
+   "stock_id": "1541",
+   "stock_name": "錩泰",
+   "type": "twse",
+   "date": "2026-08-18",
+   "close": 22.25,
+   "close_yday": 21.85,
+   "change_pct": 1.83,
+   "volume_lots": 14,
+   "volume_avg5_lots": 19,
+   "volume_ratio": 0.74,
+   "is_surge": false,
+   "ma5": 21.8,
+   "ma20": 21.68
   }
  ],
  "priceExtremes": [
@@ -17404,6 +17459,21 @@
    "volume_ratio": 1.17,
    "highPeriod": null,
    "lowPeriod": "1個月",
+   "is_surge": false
+  },
+  {
+   "stock_id": "1455",
+   "stock_name": "集盛",
+   "type": "twse",
+   "date": "2026-08-18",
+   "close": 10,
+   "close_yday": 9.94,
+   "change_pct": 0.6,
+   "volume_lots": 1652,
+   "volume_avg5_lots": 1467,
+   "volume_ratio": 1.13,
+   "highPeriod": "1個月",
+   "lowPeriod": null,
    "is_surge": false
   }
  ],
