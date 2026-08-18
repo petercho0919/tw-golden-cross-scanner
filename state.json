@@ -16011,7 +16011,32 @@
   "8926",
   "8927",
   "8929",
-  "8930"
+  "8930",
+  "8931",
+  "8935",
+  "8936",
+  "8481",
+  "8435",
+  "8436",
+  "8437",
+  "8442",
+  "8443",
+  "8444",
+  "8446",
+  "8450",
+  "8455",
+  "8463",
+  "8466",
+  "8937",
+  "9933",
+  "9937",
+  "9938",
+  "9939",
+  "9940",
+  "9941",
+  "9942",
+  "9931",
+  "9945"
  ],
  "results": [
   {
@@ -16313,6 +16338,21 @@
    "is_surge": true,
    "ma5": 15.04,
    "ma20": 13.25
+  },
+  {
+   "stock_id": "8463",
+   "stock_name": "潤泰材",
+   "type": "twse",
+   "date": "2026-08-18",
+   "close": 21.25,
+   "close_yday": 21.6,
+   "change_pct": -1.62,
+   "volume_lots": 32,
+   "volume_avg5_lots": 131,
+   "volume_ratio": 0.24,
+   "is_surge": false,
+   "ma5": 21.13,
+   "ma20": 21.11
   }
  ],
  "priceExtremes": [
@@ -16689,6 +16729,36 @@
    "volume_ratio": 0.34,
    "highPeriod": null,
    "lowPeriod": "1個月",
+   "is_surge": false
+  },
+  {
+   "stock_id": "8936",
+   "stock_name": "國統",
+   "type": "tpex",
+   "date": "2026-08-18",
+   "close": 50.1,
+   "close_yday": 50.5,
+   "change_pct": -0.79,
+   "volume_lots": 1633,
+   "volume_avg5_lots": 1438,
+   "volume_ratio": 1.14,
+   "highPeriod": null,
+   "lowPeriod": "1個月",
+   "is_surge": false
+  },
+  {
+   "stock_id": "9938",
+   "stock_name": "百和",
+   "type": "twse",
+   "date": "2026-08-18",
+   "close": 41.2,
+   "close_yday": 42,
+   "change_pct": -1.9,
+   "volume_lots": 1435,
+   "volume_avg5_lots": 1115,
+   "volume_ratio": 1.29,
+   "highPeriod": null,
+   "lowPeriod": "12個月",
    "is_surge": false
   }
  ],
