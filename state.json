@@ -15136,9 +15136,67 @@
    "date": "2026-08-18"
   }
  ],
- "processedIds": [],
- "results": [],
- "priceExtremes": [],
+ "processedIds": [
+  "5481",
+  "3687",
+  "5450",
+  "3629",
+  "6238",
+  "6497",
+  "5349",
+  "8934",
+  "5304",
+  "6438",
+  "6426",
+  "3092",
+  "6165",
+  "1453",
+  "2459",
+  "2614",
+  "1456",
+  "3450",
+  "3669",
+  "2429",
+  "1443",
+  "8499",
+  "2241",
+  "5345",
+  "6275"
+ ],
+ "results": [
+  {
+   "stock_id": "1443",
+   "stock_name": "立益",
+   "type": "twse",
+   "date": "2026-08-18",
+   "close": 24.65,
+   "close_yday": 25.05,
+   "change_pct": -1.6,
+   "volume_lots": 12,
+   "volume_avg5_lots": 7,
+   "volume_ratio": 1.71,
+   "is_surge": true,
+   "ma5": 25.22,
+   "ma20": 24.52
+  }
+ ],
+ "priceExtremes": [
+  {
+   "stock_id": "3450",
+   "stock_name": "聯鈞",
+   "type": "twse",
+   "date": "2026-08-18",
+   "close": 579,
+   "close_yday": 550,
+   "change_pct": 5.27,
+   "volume_lots": 22421,
+   "volume_avg5_lots": 2367,
+   "volume_ratio": 9.47,
+   "highPeriod": "1個月",
+   "lowPeriod": null,
+   "is_surge": true
+  }
+ ],
  "complete": false,
  "reported": false
 }
