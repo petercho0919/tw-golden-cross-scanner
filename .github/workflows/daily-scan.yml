@@ -12,6 +12,7 @@ jobs:
     timeout-minutes: 360
     permissions:
       contents: write
+      deployments: read
     env:
       FINMIND_TOKEN: ${{ secrets.FINMIND_TOKEN }}
     steps:
@@ -42,3 +43,45 @@ jobs:
           git add report.json reports/ index.html state.json 2>/dev/null || true
           git commit -m "daily report: $(date -u +%Y-%m-%dT%H:%M:%SZ)" || echo "nothing to commit"
           git push
+
+      # 掃描尾聲短時間內會連續push很多次checkpoint commit，Vercel的建置佇列常常
+      # 跟不上，導致較舊的checkpoint比最終報告晚完成部署、把正式版蓋掉（曾實際發生：
+      # 8/17那次差了快2小時）。這一步等佇列真正清空，再補推一次commit確保最終報告
+      # 是保證生效的最後一版，不是靠猜固定等待時間。
+      - name: Wait for Vercel deploy queue to drain, then ensure final report is live
+        if: success()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "等待 Vercel 部署佇列穩定（沒有新的部署紀錄出現）..."
+          prev_latest=""
+          stable_count=0
+          deadline=$((SECONDS + 80*60))
+          while [ $SECONDS -lt $deadline ]; do
+            latest=$(gh api "repos/${{ github.repository }}/deployments?per_page=1" --jq '.[0].sha' 2>/dev/null || echo "")
+            if [ "$latest" = "$prev_latest" ] && [ -n "$latest" ]; then
+              stable_count=$((stable_count + 1))
+            else
+              stable_count=0
+              prev_latest="$latest"
+            fi
+            echo "目前最新部署: $latest（連續穩定 $stable_count 次）"
+            if [ "$stable_count" -ge 2 ]; then
+              echo "佇列看起來已經清空"
+              break
+            fi
+            sleep 90
+          done
+
+          echo "補推一次commit，確保最終報告是保證生效的最後一版"
+          git commit --allow-empty -m "redeploy: 確保正式報告是最終生效版本" || echo "nothing to commit"
+          git push
+
+          sleep 60
+          newest=$(gh api "repos/${{ github.repository }}/deployments?per_page=1" --jq '.[0].sha' 2>/dev/null || echo "")
+          head_sha=$(git rev-parse HEAD)
+          if [ "$newest" != "$head_sha" ]; then
+            echo "::warning::部署佇列可能還沒完全穩定（最新部署 $newest 跟 HEAD $head_sha 不一致），麻煩人工確認正式網站內容"
+          else
+            echo "確認正式版已對齊最新報告 ($head_sha)"
+          fi
