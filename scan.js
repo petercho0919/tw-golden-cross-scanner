@@ -1,6 +1,6 @@
 // 台股全市場 MA5/MA20 黃金交叉掃描 — GitHub Actions 用，單一次呼叫掃完全市場。
 // 呼叫間隔照 FinMind 600次/小時的額度節流（抓 590 次/小時的安全邊際），
-// 每處理 250 檔就存檔一次並 git commit+push，避免 job 中途被取消或超時而遺失進度。
+// 每處理 100 檔就存檔一次並 git commit+push，避免 job 中途被取消或超時而遺失進度。
 // 這個數字不能設太小：每次push都會觸發一次Vercel部署，Vercel Hobby方案每天
 // 上限100次部署。原本設25會讓單次掃描就push近90次，逼近上限；8/18那天超過
 // 上限，導致當天所有後續部署（包含最終報告）都被Vercel直接拒絕build。
@@ -26,7 +26,7 @@ if (!TOKEN) {
 const STATE_FILE = path.join(__dirname, 'state.json');
 const HTML_FILE = path.join(__dirname, 'index.html');
 const INTERVAL_MS = Math.ceil((3600 * 1000) / 590); // 590次/小時的安全邊際
-const SAVE_EVERY = 250;
+const SAVE_EVERY = 100;
 
 // 掃描還沒完成時，先寫一版「進行中」的網頁，讓 Vercel 有東西可以部署
 function writeProgressPage(state) {
