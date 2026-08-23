@@ -674,21 +674,6 @@
    "is_surge": false
   },
   {
-   "stock_id": "5904",
-   "stock_name": "寶雅",
-   "type": "tpex",
-   "date": "2026-08-21",
-   "close": 74.5,
-   "close_yday": 75.9,
-   "change_pct": -1.84,
-   "volume_lots": 8025,
-   "volume_avg5_lots": 17204,
-   "volume_ratio": 0.47,
-   "highPeriod": null,
-   "lowPeriod": "12個月",
-   "is_surge": false
-  },
-  {
    "stock_id": "2723",
    "stock_name": "美食-KY",
    "type": "twse",
@@ -702,6 +687,21 @@
    "highPeriod": "3個月",
    "lowPeriod": null,
    "is_surge": true
+  },
+  {
+   "stock_id": "5904",
+   "stock_name": "寶雅",
+   "type": "tpex",
+   "date": "2026-08-21",
+   "close": 74.5,
+   "close_yday": 75.9,
+   "change_pct": -1.84,
+   "volume_lots": 8025,
+   "volume_avg5_lots": 17204,
+   "volume_ratio": 0.47,
+   "highPeriod": null,
+   "lowPeriod": "12個月",
+   "is_surge": false
   },
   {
    "stock_id": "2442",
@@ -809,6 +809,21 @@
    "is_surge": true
   },
   {
+   "stock_id": "6550",
+   "stock_name": "北極星藥業-KY",
+   "type": "twse",
+   "date": "2026-08-21",
+   "close": 12.25,
+   "close_yday": 11.15,
+   "change_pct": 9.87,
+   "volume_lots": 1418,
+   "volume_avg5_lots": 1315,
+   "volume_ratio": 1.08,
+   "highPeriod": "1個月",
+   "lowPeriod": null,
+   "is_surge": false
+  },
+  {
    "stock_id": "6492",
    "stock_name": "生華科",
    "type": "tpex",
@@ -852,21 +867,6 @@
    "highPeriod": "3個月",
    "lowPeriod": null,
    "is_surge": true
-  },
-  {
-   "stock_id": "6550",
-   "stock_name": "北極星藥業-KY",
-   "type": "twse",
-   "date": "2026-08-21",
-   "close": 12.25,
-   "close_yday": 11.15,
-   "change_pct": 9.87,
-   "volume_lots": 1418,
-   "volume_avg5_lots": 1315,
-   "volume_ratio": 1.08,
-   "highPeriod": "1個月",
-   "lowPeriod": null,
-   "is_surge": false
   },
   {
    "stock_id": "5388",
@@ -974,21 +974,6 @@
    "is_surge": true
   },
   {
-   "stock_id": "4979",
-   "stock_name": "華星光",
-   "type": "tpex",
-   "date": "2026-08-21",
-   "close": 577,
-   "close_yday": 570,
-   "change_pct": 1.23,
-   "volume_lots": 19155,
-   "volume_avg5_lots": 2161,
-   "volume_ratio": 8.86,
-   "highPeriod": "1個月",
-   "lowPeriod": null,
-   "is_surge": true
-  },
-  {
    "stock_id": "4956",
    "stock_name": "光鋐",
    "type": "twse",
@@ -1014,6 +999,21 @@
    "volume_lots": 5207,
    "volume_avg5_lots": 3492,
    "volume_ratio": 1.49,
+   "highPeriod": "1個月",
+   "lowPeriod": null,
+   "is_surge": true
+  },
+  {
+   "stock_id": "4979",
+   "stock_name": "華星光",
+   "type": "tpex",
+   "date": "2026-08-21",
+   "close": 577,
+   "close_yday": 570,
+   "change_pct": 1.23,
+   "volume_lots": 19155,
+   "volume_avg5_lots": 2161,
+   "volume_ratio": 8.86,
    "highPeriod": "1個月",
    "lowPeriod": null,
    "is_surge": true
@@ -2344,28 +2344,6 @@
   "count": 87,
   "results": [
    {
-    "stock_id": "4416",
-    "stock_name": "三圓",
-    "type": "tpex",
-    "is_surge": false,
-    "signal_type": "1個月新高",
-    "signal_date": "2026-08-20",
-    "signal_close": 12.5,
-    "today_close": 13.75,
-    "forward_return_pct": 10
-   },
-   {
-    "stock_id": "3441",
-    "stock_name": "聯一光",
-    "type": "tpex",
-    "is_surge": true,
-    "signal_type": "12個月新高",
-    "signal_date": "2026-08-20",
-    "signal_close": 97.3,
-    "today_close": 107,
-    "forward_return_pct": 9.97
-   },
-   {
     "stock_id": "2426",
     "stock_name": "鼎元",
     "type": "twse",
@@ -2397,17 +2375,6 @@
     "signal_close": 34.5,
     "today_close": 37,
     "forward_return_pct": 7.25
-   },
-   {
-    "stock_id": "2851",
-    "stock_name": "中再保",
-    "type": "twse",
-    "is_surge": true,
-    "signal_type": "12個月新高",
-    "signal_date": "2026-08-20",
-    "signal_close": 44.2,
-    "today_close": 47.1,
-    "forward_return_pct": 6.56
    },
    {
     "stock_id": "6588",
@@ -2487,28 +2454,6 @@
     "forward_return_pct": 3.89
    },
    {
-    "stock_id": "2816",
-    "stock_name": "旺旺保",
-    "type": "twse",
-    "is_surge": true,
-    "signal_type": "12個月新高",
-    "signal_date": "2026-08-20",
-    "signal_close": 36.5,
-    "today_close": 37.9,
-    "forward_return_pct": 3.84
-   },
-   {
-    "stock_id": "4743",
-    "stock_name": "合一",
-    "type": "tpex",
-    "is_surge": true,
-    "signal_type": "1個月新高",
-    "signal_date": "2026-08-20",
-    "signal_close": 48.3,
-    "today_close": 50,
-    "forward_return_pct": 3.52
-   },
-   {
     "stock_id": "5009",
     "stock_name": "榮剛",
     "type": "tpex",
@@ -2518,28 +2463,6 @@
     "signal_close": 34.25,
     "today_close": 35.2,
     "forward_return_pct": 2.77
-   },
-   {
-    "stock_id": "4931",
-    "stock_name": "新盛力",
-    "type": "tpex",
-    "is_surge": false,
-    "signal_type": "1個月新高",
-    "signal_date": "2026-08-20",
-    "signal_close": 273,
-    "today_close": 280,
-    "forward_return_pct": 2.56
-   },
-   {
-    "stock_id": "4303",
-    "stock_name": "信立",
-    "type": "tpex",
-    "is_surge": true,
-    "signal_type": "3個月新高",
-    "signal_date": "2026-08-20",
-    "signal_close": 50,
-    "today_close": 51.2,
-    "forward_return_pct": 2.4
    },
    {
     "stock_id": "8103",
@@ -2696,17 +2619,6 @@
     "forward_return_pct": 0.59
    },
    {
-    "stock_id": "2845",
-    "stock_name": "遠東銀",
-    "type": "twse",
-    "is_surge": true,
-    "signal_type": "6個月新高",
-    "signal_date": "2026-08-20",
-    "signal_close": 13.6,
-    "today_close": 13.65,
-    "forward_return_pct": 0.37
-   },
-   {
     "stock_id": "2201",
     "stock_name": "裕隆",
     "type": "twse",
@@ -2716,17 +2628,6 @@
     "signal_close": 29.2,
     "today_close": 29.3,
     "forward_return_pct": 0.34
-   },
-   {
-    "stock_id": "4142",
-    "stock_name": "國光生",
-    "type": "twse",
-    "is_surge": true,
-    "signal_type": "3個月新高",
-    "signal_date": "2026-08-20",
-    "signal_close": 18.1,
-    "today_close": 18.15,
-    "forward_return_pct": 0.28
    },
    {
     "stock_id": "1101",
@@ -2872,17 +2773,6 @@
     "forward_return_pct": -0.92
    },
    {
-    "stock_id": "3533",
-    "stock_name": "嘉澤",
-    "type": "twse",
-    "is_surge": false,
-    "signal_type": "3個月新低",
-    "signal_date": "2026-08-20",
-    "signal_close": 1610,
-    "today_close": 1595,
-    "forward_return_pct": -0.93
-   },
-   {
     "stock_id": "1504",
     "stock_name": "東元",
     "type": "twse",
@@ -3004,17 +2894,6 @@
     "forward_return_pct": -5.53
    },
    {
-    "stock_id": "3508",
-    "stock_name": "位速",
-    "type": "tpex",
-    "is_surge": true,
-    "signal_type": "3個月新高",
-    "signal_date": "2026-08-20",
-    "signal_close": 25,
-    "today_close": 23.2,
-    "forward_return_pct": -7.2
-   },
-   {
     "stock_id": "4991",
     "stock_name": "環宇-KY",
     "type": "tpex",
@@ -3068,6 +2947,138 @@
     "signal_type": "3個月新低",
     "signal_date": "2026-08-18",
     "signal_close": 13.8,
+    "today_close": null,
+    "forward_return_pct": null,
+    "note": "查無今日收盤資料（可能停牌或當天非交易日）"
+   },
+   {
+    "stock_id": "3508",
+    "stock_name": "位速",
+    "type": "tpex",
+    "is_surge": true,
+    "signal_type": "3個月新高",
+    "signal_date": "2026-08-20",
+    "signal_close": 25,
+    "today_close": null,
+    "forward_return_pct": null,
+    "note": "查無今日收盤資料（可能停牌或當天非交易日）"
+   },
+   {
+    "stock_id": "3441",
+    "stock_name": "聯一光",
+    "type": "tpex",
+    "is_surge": true,
+    "signal_type": "12個月新高",
+    "signal_date": "2026-08-20",
+    "signal_close": 97.3,
+    "today_close": null,
+    "forward_return_pct": null,
+    "note": "查無今日收盤資料（可能停牌或當天非交易日）"
+   },
+   {
+    "stock_id": "3533",
+    "stock_name": "嘉澤",
+    "type": "twse",
+    "is_surge": false,
+    "signal_type": "3個月新低",
+    "signal_date": "2026-08-20",
+    "signal_close": 1610,
+    "today_close": null,
+    "forward_return_pct": null,
+    "note": "查無今日收盤資料（可能停牌或當天非交易日）"
+   },
+   {
+    "stock_id": "4743",
+    "stock_name": "合一",
+    "type": "tpex",
+    "is_surge": true,
+    "signal_type": "1個月新高",
+    "signal_date": "2026-08-20",
+    "signal_close": 48.3,
+    "today_close": null,
+    "forward_return_pct": null,
+    "note": "查無今日收盤資料（可能停牌或當天非交易日）"
+   },
+   {
+    "stock_id": "4931",
+    "stock_name": "新盛力",
+    "type": "tpex",
+    "is_surge": false,
+    "signal_type": "1個月新高",
+    "signal_date": "2026-08-20",
+    "signal_close": 273,
+    "today_close": null,
+    "forward_return_pct": null,
+    "note": "查無今日收盤資料（可能停牌或當天非交易日）"
+   },
+   {
+    "stock_id": "4303",
+    "stock_name": "信立",
+    "type": "tpex",
+    "is_surge": true,
+    "signal_type": "3個月新高",
+    "signal_date": "2026-08-20",
+    "signal_close": 50,
+    "today_close": null,
+    "forward_return_pct": null,
+    "note": "查無今日收盤資料（可能停牌或當天非交易日）"
+   },
+   {
+    "stock_id": "4142",
+    "stock_name": "國光生",
+    "type": "twse",
+    "is_surge": true,
+    "signal_type": "3個月新高",
+    "signal_date": "2026-08-20",
+    "signal_close": 18.1,
+    "today_close": null,
+    "forward_return_pct": null,
+    "note": "查無今日收盤資料（可能停牌或當天非交易日）"
+   },
+   {
+    "stock_id": "4416",
+    "stock_name": "三圓",
+    "type": "tpex",
+    "is_surge": false,
+    "signal_type": "1個月新高",
+    "signal_date": "2026-08-20",
+    "signal_close": 12.5,
+    "today_close": null,
+    "forward_return_pct": null,
+    "note": "查無今日收盤資料（可能停牌或當天非交易日）"
+   },
+   {
+    "stock_id": "2816",
+    "stock_name": "旺旺保",
+    "type": "twse",
+    "is_surge": true,
+    "signal_type": "12個月新高",
+    "signal_date": "2026-08-20",
+    "signal_close": 36.5,
+    "today_close": null,
+    "forward_return_pct": null,
+    "note": "查無今日收盤資料（可能停牌或當天非交易日）"
+   },
+   {
+    "stock_id": "2845",
+    "stock_name": "遠東銀",
+    "type": "twse",
+    "is_surge": true,
+    "signal_type": "6個月新高",
+    "signal_date": "2026-08-20",
+    "signal_close": 13.6,
+    "today_close": null,
+    "forward_return_pct": null,
+    "note": "查無今日收盤資料（可能停牌或當天非交易日）"
+   },
+   {
+    "stock_id": "2851",
+    "stock_name": "中再保",
+    "type": "twse",
+    "is_surge": true,
+    "signal_type": "12個月新高",
+    "signal_date": "2026-08-20",
+    "signal_close": 44.2,
     "today_close": null,
     "forward_return_pct": null,
     "note": "查無今日收盤資料（可能停牌或當天非交易日）"
