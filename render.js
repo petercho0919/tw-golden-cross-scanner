@@ -30,20 +30,20 @@ function yahooUrl(type, stockId) {
   return `https://tw.stock.yahoo.com/quote/${stockId}.${suffix}/technical-analysis`;
 }
 
-// TradingView的股票代號格式，用來做滑鼠移過去的K線圖預覽。實際widget是用官方的
-// script+JSON設定方式動態建立（見頁尾script），不是直接連去內部網址——直接打內部
-// 網址會被判定成未授權嵌入，跳出「此商品僅在TradingView上可用」的擋牆
-function tradingViewSymbol(type, stockId) {
-  const exchange = type === 'twse' ? 'TWSE' : 'TPEX';
-  return `${exchange}:${stockId}`;
+// CMoney（股市爆料同學會）不用分上市/上櫃，同一個網址格式。用來做滑鼠移過去的
+// K線圖預覽——CMoney的K線區塊在DOM裡是獨立乾淨的區塊（跟工具列分開），用iframe
+// 裁切+縮放只顯示那個區塊（見頁尾script的CROP設定），比Yahoo(直接擋iframe)、
+// HiStock/TradingView widgetembed(工具列黏在圖表裡)都更乾淨穩定
+function cmoneyUrl(stockId) {
+  return `https://www.cmoney.tw/forum/stock/${stockId}?s=technical-analysis`;
 }
 
 // 代號: 點了另開視窗到Yahoo奇摩股市的技術線圖頁
-// 名稱: 一樣可以點開Yahoo，另外滑鼠移過去會彈出TradingView的K線圖預覽（見頁尾script）
+// 名稱: 一樣可以點開Yahoo，另外滑鼠移過去會彈出CMoney的K線圖裁切預覽（見頁尾script）
 function stockLinkCells(type, stockId, stockName) {
   const yahoo = yahooUrl(type, stockId);
-  const symbol = tradingViewSymbol(type, stockId);
-  return `<td class="num"><a class="stock-link" href="${yahoo}" target="_blank" rel="noopener noreferrer">${esc(stockId)}</a></td><td class="name"><a class="stock-link chart-hover" href="${yahoo}" target="_blank" rel="noopener noreferrer" data-chart-symbol="${esc(symbol)}">${esc(stockName)}</a></td>`;
+  const chart = cmoneyUrl(stockId);
+  return `<td class="num"><a class="stock-link" href="${yahoo}" target="_blank" rel="noopener noreferrer">${esc(stockId)}</a></td><td class="name"><a class="stock-link chart-hover" href="${yahoo}" target="_blank" rel="noopener noreferrer" data-chart-url="${esc(chart)}">${esc(stockName)}</a></td>`;
 }
 
 // r.volume_ratio 是倍數（例如1.35），畫面上換算成百分比顯示（+35.0%）
@@ -254,8 +254,8 @@ tbody tr.surge td:first-child { box-shadow: inset 3px 0 0 var(--surge-border); }
 .name { font-weight: 500; }
 .stock-link { color: inherit; text-decoration: none; border-bottom: 1px dotted var(--muted); }
 .stock-link:hover { color: var(--accent); border-bottom-color: var(--accent); }
-.chart-preview { position: fixed; z-index: 1000; width: 360px; height: 260px; border: 1px solid var(--faint); border-radius: 8px; box-shadow: 0 8px 24px rgba(0,0,0,0.3); background: var(--paper-raised); overflow: hidden; }
-.chart-preview iframe { width: 100%; height: 100%; border: none; display: block; }
+.chart-preview { position: fixed; z-index: 1000; width: 440px; height: 232px; border: 1px solid var(--faint); border-radius: 8px; box-shadow: 0 8px 24px rgba(0,0,0,0.3); background: #fff; overflow: hidden; }
+.chart-preview iframe { border: none; display: block; }
 .market { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--muted); }
 .num { font-family: 'IBM Plex Mono', monospace; }
 .pos { color: var(--up); font-family: 'IBM Plex Mono', monospace; }
@@ -374,58 +374,38 @@ function switchTab(name) {
     }
   }
 
-  function isDark() {
-    var explicit = document.documentElement.getAttribute('data-theme');
-    if (explicit === 'dark') return true;
-    if (explicit === 'light') return false;
-    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-  }
+  // CMoney技術分析頁在瀏覽器寬度1280px時，K線區塊(圖例+OHLC資訊+K線+成交量)
+  // 固定落在 left:232 top:513 寬1008 高532 這個位置（實測得出）。做法是把iframe
+  // 設成1280寬去載入CMoney的頁面（讓它的版面跟實測時一致），再用CSS transform
+  // 縮放+位移，只把這個區塊裁切顯示在小預覽框裡，上面的搜尋列、下面的其他內容
+  // 都被裁掉看不到。這是用固定座標對齊別人網站版面，CMoney以後改版有機會跑掉。
+  var CROP = { sourceW: 1280, sourceH: 1080, left: 232, top: 513, w: 1008, h: 532 };
+  var PREVIEW_W = 440, PREVIEW_H = 232;
+  var SCALE = PREVIEW_W / CROP.w;
 
-  // 用TradingView官方的script+JSON設定方式動態建立widget，不是直接組iframe網址
-  function showPreview(target, symbol) {
+  function showPreview(target, url) {
     hidePreview();
     previewEl = document.createElement('div');
     previewEl.className = 'chart-preview';
 
-    var container = document.createElement('div');
-    container.className = 'tradingview-widget-container';
-    container.style.height = '100%';
-    container.style.width = '100%';
-    var widgetDiv = document.createElement('div');
-    widgetDiv.className = 'tradingview-widget-container__widget';
-    widgetDiv.style.height = '100%';
-    widgetDiv.style.width = '100%';
-    container.appendChild(widgetDiv);
+    var iframe = document.createElement('iframe');
+    iframe.src = url;
+    iframe.loading = 'lazy';
+    iframe.style.width = CROP.sourceW + 'px';
+    iframe.style.height = CROP.sourceH + 'px';
+    iframe.style.position = 'absolute';
+    iframe.style.left = -Math.round(CROP.left * SCALE) + 'px';
+    iframe.style.top = -Math.round(CROP.top * SCALE) + 'px';
+    iframe.style.transform = 'scale(' + SCALE + ')';
+    iframe.style.transformOrigin = '0 0';
 
-    var script = document.createElement('script');
-    script.type = 'text/javascript';
-    script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js';
-    script.async = true;
-    script.text = JSON.stringify({
-      autosize: true,
-      symbol: symbol,
-      interval: 'D',
-      timezone: 'Asia/Taipei',
-      theme: isDark() ? 'dark' : 'light',
-      style: '1',
-      locale: 'zh_TW',
-      hide_top_toolbar: true,
-      hide_side_toolbar: true,
-      allow_symbol_change: false,
-      save_image: false,
-      calendar: false,
-      support_host: 'https://www.tradingview.com',
-    });
-    container.appendChild(script);
-
-    previewEl.appendChild(container);
+    previewEl.appendChild(iframe);
     document.body.appendChild(previewEl);
 
     var rect = target.getBoundingClientRect();
-    var w = 360, h = 260;
-    var left = Math.min(rect.left, window.innerWidth - w - 8);
+    var left = Math.min(rect.left, window.innerWidth - PREVIEW_W - 8);
     var top = rect.bottom + 6;
-    if (top + h > window.innerHeight) top = rect.top - h - 6;
+    if (top + PREVIEW_H > window.innerHeight) top = rect.top - PREVIEW_H - 6;
     previewEl.style.left = Math.max(8, left) + 'px';
     previewEl.style.top = Math.max(8, top) + 'px';
   }
@@ -433,9 +413,9 @@ function switchTab(name) {
   document.querySelectorAll('.chart-hover').forEach(function (el) {
     el.addEventListener('mouseenter', function () {
       clearTimeout(hoverTimer);
-      var symbol = el.getAttribute('data-chart-symbol');
+      var url = el.getAttribute('data-chart-url');
       hoverTimer = setTimeout(function () {
-        showPreview(el, symbol);
+        showPreview(el, url);
       }, 250);
     });
     el.addEventListener('mouseleave', function () {
