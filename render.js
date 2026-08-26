@@ -254,7 +254,7 @@ tbody tr.surge td:first-child { box-shadow: inset 3px 0 0 var(--surge-border); }
 .name { font-weight: 500; }
 .stock-link { color: inherit; text-decoration: none; border-bottom: 1px dotted var(--muted); }
 .stock-link:hover { color: var(--accent); border-bottom-color: var(--accent); }
-.chart-preview { position: fixed; z-index: 1000; width: 440px; height: 232px; border: 1px solid var(--faint); border-radius: 8px; box-shadow: 0 8px 24px rgba(0,0,0,0.3); background: #fff; overflow: hidden; }
+.chart-preview { position: fixed; z-index: 1000; width: 660px; height: 348px; border: 1px solid var(--faint); border-radius: 8px; box-shadow: 0 8px 24px rgba(0,0,0,0.3); background: #fff; overflow: hidden; }
 .chart-preview iframe { border: none; display: block; }
 .market { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--muted); }
 .num { font-family: 'IBM Plex Mono', monospace; }
@@ -380,7 +380,7 @@ function switchTab(name) {
   // 縮放+位移，只把這個區塊裁切顯示在小預覽框裡，上面的搜尋列、下面的其他內容
   // 都被裁掉看不到。這是用固定座標對齊別人網站版面，CMoney以後改版有機會跑掉。
   var CROP = { sourceW: 1280, sourceH: 1080, left: 232, top: 513, w: 1008, h: 532 };
-  var PREVIEW_W = 440, PREVIEW_H = 232;
+  var PREVIEW_W = 660, PREVIEW_H = 348;
   var SCALE = PREVIEW_W / CROP.w;
 
   function showPreview(target, url) {
