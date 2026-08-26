@@ -293,7 +293,7 @@ tbody tr.surge td:first-child { box-shadow: inset 3px 0 0 var(--surge-border); }
   <header class="masthead">
     <p class="kicker">TW Daily Scanner</p>
     <h1>台股每日掃描</h1>
-    <p class="sub">資料日期 ${esc(report.date)}${hasValidation ? `／驗證對照前一交易日 ${esc(validationDate)}` : ''}</p>
+    <p class="sub">資料日期 ${esc(report.date)}${hasValidation ? `／驗證對照前一交易日 ${esc(validationDate)}` : ''}${report.generated_at ? `／執行完成 ${esc(report.generated_at)}` : ''}</p>
   </header>
 
   <div class="tabs" role="tablist">

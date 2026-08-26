@@ -22,6 +22,21 @@ const INTERVAL_MS = 200;
 const VOLUME_THRESHOLD_LOTS = 1000;
 const MIN_AVG5_VOLUME_LOTS = 100; // 跟 scan.js 的創新高/創新低篩選共用同一個門檻
 
+// 格式化成「YYYY-MM-DD HH:mm」的台北時間，用來標記報告實際產生的時間點
+function nowTaipeiString() {
+  const parts = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'Asia/Taipei',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false,
+  }).formatToParts(new Date());
+  const get = (type) => parts.find((p) => p.type === type).value;
+  return `${get('year')}-${get('month')}-${get('day')} ${get('hour')}:${get('minute')}`;
+}
+
 // 找出今天以前，最近一份存檔的報告（也就是「前一個交易日」的報告）
 function findPreviousReport(todayDateStr) {
   if (!fs.existsSync(REPORTS_DIR)) return null;
@@ -179,6 +194,7 @@ async function main() {
     validation_of_previous_signals: validation, // 驗證前一交易日 base_list 全部標的在今天的表現，含 is_surge 標記可對照
     price_extremes: state.priceExtremes || [], // scan.js 已經算好的創新高/創新低清單（共用同一次資料抓取，這裡不用再補查）
     price_extreme_validation: priceExtremeValidation, // 驗證前一交易日創新高/創新低全部標的在今天的表現
+    generated_at: nowTaipeiString(), // 這份報告實際產生的時間點（台北時間），不是交易日期
   };
 
   if (!fs.existsSync(REPORTS_DIR)) fs.mkdirSync(REPORTS_DIR);
