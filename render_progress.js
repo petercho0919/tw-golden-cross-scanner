@@ -94,6 +94,15 @@ ${extremeRows(list)}
 </div>`;
 }
 
+function breakoutRows(list) {
+  if (list.length === 0) return '<tr class="empty-row"><td colspan="11">目前還沒掃到符合的標的</td></tr>';
+  return list
+    .map((r) => {
+      return `<tr><td class="market">${marketLabel(r.type)}</td>${stockLinkCells(r.type, r.stock_id, r.stock_name)}<td class="num">${r.close_yday}</td><td class="num">${r.close}</td><td class="${pctClass(r.change_pct)}">${fmtPct(r.change_pct)}</td><td class="num">${fmtNum(r.volume_lots)}</td><td class="num">${fmtNum(r.volume_avg5_lots)}</td><td class="${pctClass(volChangePct(r))}">${fmtPct1(volChangePct(r))}</td><td class="num">${r.consolidation_high}</td><td class="${pctClass(r.breakout_pct)}">${fmtPct(r.breakout_pct)}</td></tr>`;
+    })
+    .join('\n');
+}
+
 function extremeGroup(heading, priceExtremes, key) {
   const byPeriod = {};
   PERIODS.forEach((p) => (byPeriod[p] = []));
@@ -130,6 +139,7 @@ function renderProgressHTML(state, intervalMs) {
     .join('\n');
 
   const priceExtremes = state.priceExtremes || [];
+  const breakouts = state.breakouts || [];
 
   return `<title>台股每日掃描 — 進行中</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -211,6 +221,7 @@ tbody tr.surge td:first-child { box-shadow: inset 3px 0 0 var(--surge-border); }
   <div class="tabs" role="tablist">
     <button class="tab" role="tab" id="tab-cross" aria-selected="true" aria-controls="panel-cross" onclick="switchTab('cross')">黃金交叉（目前${state.results.length}檔）</button>
     <button class="tab" role="tab" id="tab-extreme" aria-selected="false" aria-controls="panel-extreme" onclick="switchTab('extreme')">創新高 / 創新低</button>
+    <button class="tab" role="tab" id="tab-breakout" aria-selected="false" aria-controls="panel-breakout" onclick="switchTab('breakout')">突破盤整（目前${breakouts.length}檔）</button>
   </div>
 
   <div class="panel active" id="panel-cross" role="tabpanel" aria-labelledby="tab-cross">
@@ -233,6 +244,18 @@ ${crossRows || '<tr class="empty-row"><td colspan="10">目前還沒掃到黃金�
   <div class="panel" id="panel-extreme" role="tabpanel" aria-labelledby="tab-extreme">
 ${extremeGroup('創新高（目前為止）', priceExtremes, 'highPeriod')}
 ${extremeGroup('創新低（目前為止）', priceExtremes, 'lowPeriod')}
+  </div>
+
+  <div class="panel" id="panel-breakout" role="tabpanel" aria-labelledby="tab-breakout">
+    <p class="legend">前20個交易日收盤高低差 &le; 10%，今日收盤站上盤整高點 &ge; 3%，且量增 &gt; 前5日均量 1.3倍</p>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>市場</th><th>代號</th><th>名稱</th><th>前日收盤</th><th>今日收盤</th><th>漲跌幅</th><th>今日成交量</th><th>5日均量</th><th>成交量漲幅</th><th>盤整期間最高</th><th>突破幅度</th></tr></thead>
+        <tbody>
+${breakoutRows(breakouts)}
+        </tbody>
+      </table>
+    </div>
   </div>
 
   <p class="note">這是掃描過程中的即時進度頁，完成後會自動換成含 base 清單篩選與隔日驗證的完整報告。</p>

@@ -68,7 +68,7 @@ function checkpointCommit(message) {
 }
 
 function freshState(date) {
-  return { date, universe: null, processedIds: [], results: [], priceExtremes: [], complete: false, reported: false };
+  return { date, universe: null, processedIds: [], results: [], priceExtremes: [], breakouts: [], complete: false, reported: false };
 }
 
 // FinMind 偶爾會回傳非 JSON 的錯誤頁（例如上游 502 Bad Gateway），直接 res.json() 會丟出
@@ -202,6 +202,52 @@ function computePriceExtreme(rows) {
   };
 }
 
+const CONSOLIDATION_DAYS = 20; // 盤整期間長度（不含今天）
+const CONSOLIDATION_MAX_RANGE_PCT = 10; // 盤整期間最高收盤跟最低收盤的漲幅上限，超過就不算橫盤整理
+const BREAKOUT_MIN_PCT = 3; // 今日收盤要超過盤整期間最高收盤至少這個百分比，才算有效突破
+
+// 判斷是否「突破盤整」：今天以前20個交易日的收盤價要先落在一個緊密區間內（真正橫盤），
+// 今天收盤才有意義地站上那個區間高點之上，並且需要量增確認（沒有量增不算數，直接濾掉）。
+// 用同一批已經抓到的歷史資料算，不用再查一次 FinMind。
+function computeBreakout(rows) {
+  if (rows.length < CONSOLIDATION_DAYS + 1) return null;
+  const n = rows.length;
+  const today = rows[n - 1];
+  const yday = rows[n - 2];
+  const consolidation = rows.slice(n - 1 - CONSOLIDATION_DAYS, n - 1); // 今天以前的20個交易日
+
+  const maxClose = Math.max(...consolidation.map((r) => r.close));
+  const minClose = Math.min(...consolidation.map((r) => r.close));
+  const rangePct = ((maxClose - minClose) / minClose) * 100;
+  if (rangePct > CONSOLIDATION_MAX_RANGE_PCT) return null; // 盤整期間波動太大，不算橫盤整理
+
+  const breakoutPct = ((today.close - maxClose) / maxClose) * 100;
+  if (breakoutPct < BREAKOUT_MIN_PCT) return null; // 沒有站穩盤整區間高點之上3%以上
+
+  const prior5 = rows.slice(n - 6, n - 1);
+  const volumeLots = Math.round(today.Trading_Volume / 1000);
+  const volumeAvg5Lots = Math.round(prior5.reduce((s, r) => s + r.Trading_Volume, 0) / 5 / 1000);
+  const volumeRatio = volumeAvg5Lots > 0 ? +(volumeLots / volumeAvg5Lots).toFixed(2) : null;
+  const isSurge = volumeRatio !== null && volumeRatio > SURGE_RATIO;
+  if (!isSurge) return null; // 量增是必要條件，沒有量增不算有效突破
+
+  const changePct = +(((today.close - yday.close) / yday.close) * 100).toFixed(2);
+
+  return {
+    date: today.date,
+    close: today.close,
+    close_yday: yday.close,
+    change_pct: changePct,
+    volume_lots: volumeLots,
+    volume_avg5_lots: volumeAvg5Lots,
+    volume_ratio: volumeRatio,
+    is_surge: isSurge,
+    consolidation_high: +maxClose.toFixed(2),
+    consolidation_low: +minClose.toFixed(2),
+    breakout_pct: +breakoutPct.toFixed(2),
+  };
+}
+
 async function main() {
   const today = todayTaipei();
   let state = loadState();
@@ -272,6 +318,12 @@ async function main() {
       console.log(`${tags}: ${s.type} ${s.stock_id} ${s.stock_name} close=${extreme.close} 5日均量=${extreme.volume_avg5_lots}張`);
     }
 
+    const breakout = computeBreakout(rows);
+    if (breakout && breakout.close > 0) {
+      state.breakouts.push({ stock_id: s.stock_id, stock_name: s.stock_name, type: s.type, ...breakout });
+      console.log(`突破盤整: ${s.type} ${s.stock_id} ${s.stock_name} close=${breakout.close} 突破幅度=+${breakout.breakout_pct}%`);
+    }
+
     if (calls % SAVE_EVERY === 0) {
       saveState(state);
       writeProgressPage(state);
@@ -287,7 +339,7 @@ async function main() {
   writeProgressPage(state);
   checkpointCommit(`scan: complete (${state.results.length} 檔黃金交叉)`);
 
-  console.log(`全市場掃描完成: 共處理 ${state.processedIds.length} 檔，發現 ${state.results.length} 檔黃金交叉、${state.priceExtremes.length} 檔創新高/新低`);
+  console.log(`全市場掃描完成: 共處理 ${state.processedIds.length} 檔，發現 ${state.results.length} 檔黃金交叉、${state.priceExtremes.length} 檔創新高/新低、${state.breakouts.length} 檔突破盤整`);
   console.log('STATUS: COMPLETE');
 }
 

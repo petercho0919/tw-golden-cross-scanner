@@ -101,6 +101,7 @@ tbody tr.surge td:first-child { box-shadow: inset 3px 0 0 var(--surge-border); }
   <div class="tabs" role="tablist">
     <button class="tab" role="tab" id="tab-cross" aria-selected="true" aria-controls="panel-cross" onclick="switchTab('cross')">黃金交叉</button>
     <button class="tab" role="tab" id="tab-extreme" aria-selected="false" aria-controls="panel-extreme" onclick="switchTab('extreme')">創新高 / 創新低</button>
+    <button class="tab" role="tab" id="tab-breakout" aria-selected="false" aria-controls="panel-breakout" onclick="switchTab('breakout')">突破盤整</button>
   </div>
 
   <div class="panel active" id="panel-cross" role="tabpanel" aria-labelledby="tab-cross">
@@ -608,6 +609,31 @@ tbody tr.surge td:first-child { box-shadow: inset 3px 0 0 var(--surge-border); }
         </tbody>
       </table>
     </div>
+  </section>
+  </div>
+
+  <div class="panel" id="panel-breakout" role="tabpanel" aria-labelledby="tab-breakout">
+    <section>
+      <div class="section-head">
+        <h2>今日訊號 — 突破盤整</h2>
+        <p>前20個交易日收盤高低差 &le; 10%，今日收盤站上盤整高點 &ge; 3%，且量增 &gt; 前5日均量 1.3倍</p>
+      </div>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>市場</th><th>代號</th><th>名稱</th><th>前日收盤</th><th>今日收盤</th><th>漲跌幅</th><th>今日成交量</th><th>5日均量</th><th>成交量漲幅</th><th>盤整期間最高</th><th>突破幅度</th></tr></thead>
+          <tbody>
+<tr class="empty-row"><td colspan="11">今天沒有符合的標的</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    
+  <section>
+    <div class="section-head">
+      <h2>前一交易日突破盤整驗證</h2>
+      <p>無前一交易日存檔資料</p>
+    </div>
+    <p style="color:var(--muted);font-size:13px;">找不到前一個交易日的報告存檔（可能是第一次執行，或該日突破盤整清單為空），明天開始會自動累積。</p>
   </section>
   </div>
 

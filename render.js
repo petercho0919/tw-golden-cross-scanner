@@ -85,6 +85,23 @@ function priceExtremeValidationRows(results) {
     .join('\n');
 }
 
+function breakoutRows(list) {
+  if (list.length === 0) return '<tr class="empty-row"><td colspan="11">今天沒有符合的標的</td></tr>';
+  return list
+    .map((r) => {
+      return `<tr><td class="market">${marketLabel(r.type)}</td>${stockLinkCells(r.type, r.stock_id, r.stock_name)}<td class="num">${fmtNum(r.close_yday, 2)}</td><td class="num">${fmtNum(r.close, 2)}</td><td class="${pctClass(r.change_pct)}">${fmtPct(r.change_pct)}</td><td class="num">${fmtNum(r.volume_lots, 0)}</td><td class="num">${fmtNum(r.volume_avg5_lots, 0)}</td><td class="${pctClass(volChangePct(r))}">${fmtPct1(volChangePct(r))}</td><td class="num">${fmtNum(r.consolidation_high, 2)}</td><td class="${pctClass(r.breakout_pct)}">${fmtPct(r.breakout_pct)}</td></tr>`;
+    })
+    .join('\n');
+}
+
+function breakoutValidationRows(results) {
+  return results
+    .map((r) => {
+      return `<tr><td class="market">${marketLabel(r.type)}</td>${stockLinkCells(r.type, r.stock_id, r.stock_name)}<td class="num">${fmtNum(r.signal_close, 2)}</td><td class="num">${fmtNum(r.today_close, 2)}</td><td class="${pctClass(r.forward_return_pct)}">${fmtPct(r.forward_return_pct)}</td></tr>`;
+    })
+    .join('\n');
+}
+
 const PERIODS = ['12個月', '6個月', '3個月', '1個月'];
 
 function extremeRows(list) {
@@ -196,6 +213,34 @@ ${priceExtremeValidationRows(priceExtremeValidation.results)}
     <p style="color:var(--muted);font-size:13px;">找不到前一個交易日的報告存檔（可能是第一次執行，或該日創新高/創新低清單為空），明天開始會自動累積。</p>
   </section>`;
 
+  const breakoutValidation = report.breakout_validation || { count: 0, based_on_date: null, results: [] };
+  const hasBreakoutValidation = breakoutValidation.count > 0;
+
+  const breakoutValidationSection = hasBreakoutValidation
+    ? `
+  <section>
+    <div class="section-head">
+      <h2>前一交易日突破盤整驗證</h2>
+      <p>${esc(breakoutValidation.based_on_date)} 突破盤整全部標的，對照 ${esc(report.date)} 收盤的隔日報酬</p>
+    </div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>市場</th><th>代號</th><th>名稱</th><th>訊號日收盤</th><th>今收盤</th><th>隔日報酬</th></tr></thead>
+        <tbody>
+${breakoutValidationRows(breakoutValidation.results)}
+        </tbody>
+      </table>
+    </div>
+  </section>`
+    : `
+  <section>
+    <div class="section-head">
+      <h2>前一交易日突破盤整驗證</h2>
+      <p>無前一交易日存檔資料</p>
+    </div>
+    <p style="color:var(--muted);font-size:13px;">找不到前一個交易日的報告存檔（可能是第一次執行，或該日突破盤整清單為空），明天開始會自動累積。</p>
+  </section>`;
+
   return `<title>台股每日掃描 — ${esc(report.date)}</title>
 <style>
 :root {
@@ -299,6 +344,7 @@ tbody tr.surge td:first-child { box-shadow: inset 3px 0 0 var(--surge-border); }
   <div class="tabs" role="tablist">
     <button class="tab" role="tab" id="tab-cross" aria-selected="true" aria-controls="panel-cross" onclick="switchTab('cross')">黃金交叉</button>
     <button class="tab" role="tab" id="tab-extreme" aria-selected="false" aria-controls="panel-extreme" onclick="switchTab('extreme')">創新高 / 創新低</button>
+    <button class="tab" role="tab" id="tab-breakout" aria-selected="false" aria-controls="panel-breakout" onclick="switchTab('breakout')">突破盤整</button>
   </div>
 
   <div class="panel active" id="panel-cross" role="tabpanel" aria-labelledby="tab-cross">
@@ -349,6 +395,24 @@ ${baseListRows(report.all_results)}
 ${extremeGroup('創新高', '今日收盤價創各區間新高，5日均量 ≥ 100張 且 本日成交量 > 1000張，只標最長符合區間', priceExtremes, 'highPeriod', '高')}
 ${extremeGroup('創新低', '今日收盤價創各區間新低，5日均量 ≥ 100張 且 本日成交量 > 1000張，只標最長符合區間', priceExtremes, 'lowPeriod', '低')}
     ${priceExtremeValidationSection}
+  </div>
+
+  <div class="panel" id="panel-breakout" role="tabpanel" aria-labelledby="tab-breakout">
+    <section>
+      <div class="section-head">
+        <h2>今日訊號 — 突破盤整</h2>
+        <p>前20個交易日收盤高低差 &le; 10%，今日收盤站上盤整高點 &ge; 3%，且量增 &gt; 前5日均量 1.3倍</p>
+      </div>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>市場</th><th>代號</th><th>名稱</th><th>前日收盤</th><th>今日收盤</th><th>漲跌幅</th><th>今日成交量</th><th>5日均量</th><th>成交量漲幅</th><th>盤整期間最高</th><th>突破幅度</th></tr></thead>
+          <tbody>
+${breakoutRows(report.breakouts || [])}
+          </tbody>
+        </table>
+      </div>
+    </section>
+    ${breakoutValidationSection}
   </div>
 
   <p class="note">tw-golden-cross-scanner · 自動產生 · 最後更新 ${esc(report.date)} · 資料來源 FinMind</p>
