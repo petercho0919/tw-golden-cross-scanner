@@ -3910,6 +3910,17 @@
     "forward_return_pct": 10
    },
    {
+    "stock_id": "4956",
+    "stock_name": "光鋐",
+    "type": "twse",
+    "is_surge": true,
+    "signal_type": "1個月新高",
+    "signal_date": "2026-09-17",
+    "signal_close": 38.75,
+    "today_close": 42.6,
+    "forward_return_pct": 9.94
+   },
+   {
     "stock_id": "6668",
     "stock_name": "中揚光",
     "type": "twse",
@@ -3965,6 +3976,17 @@
     "forward_return_pct": 7.62
    },
    {
+    "stock_id": "6885",
+    "stock_name": "全福生技",
+    "type": "twse",
+    "is_surge": true,
+    "signal_type": "6個月新高",
+    "signal_date": "2026-09-17",
+    "signal_close": 29.5,
+    "today_close": 31.6,
+    "forward_return_pct": 7.12
+   },
+   {
     "stock_id": "6742",
     "stock_name": "澤米",
     "type": "twse",
@@ -3974,6 +3996,17 @@
     "signal_close": 51.2,
     "today_close": 54.7,
     "forward_return_pct": 6.84
+   },
+   {
+    "stock_id": "6945",
+    "stock_name": "圓祥生技",
+    "type": "tpex",
+    "is_surge": true,
+    "signal_type": "3個月新高",
+    "signal_date": "2026-09-17",
+    "signal_close": 124,
+    "today_close": 132,
+    "forward_return_pct": 6.45
    },
    {
     "stock_id": "6840",
@@ -4062,6 +4095,17 @@
     "signal_close": 1320,
     "today_close": 1370,
     "forward_return_pct": 3.79
+   },
+   {
+    "stock_id": "7717",
+    "stock_name": "萊德光電-KY",
+    "type": "tpex",
+    "is_surge": true,
+    "signal_type": "3個月新高",
+    "signal_date": "2026-09-17",
+    "signal_close": 579,
+    "today_close": 600,
+    "forward_return_pct": 3.63
    },
    {
     "stock_id": "6426",
@@ -4295,6 +4339,17 @@
     "forward_return_pct": -1
    },
    {
+    "stock_id": "6933",
+    "stock_name": "AMAX-KY",
+    "type": "twse",
+    "is_surge": true,
+    "signal_type": "12個月新高",
+    "signal_date": "2026-09-17",
+    "signal_close": 345.5,
+    "today_close": 342,
+    "forward_return_pct": -1.01
+   },
+   {
     "stock_id": "8103",
     "stock_name": "瀚荃",
     "type": "twse",
@@ -4335,66 +4390,6 @@
     "signal_type": "12個月新低",
     "signal_date": "2026-04-02",
     "signal_close": 5.54,
-    "today_close": null,
-    "forward_return_pct": null,
-    "note": "查無今日收盤資料（可能停牌或當天非交易日）"
-   },
-   {
-    "stock_id": "7717",
-    "stock_name": "萊德光電-KY",
-    "type": "tpex",
-    "is_surge": true,
-    "signal_type": "3個月新高",
-    "signal_date": "2026-09-17",
-    "signal_close": 579,
-    "today_close": null,
-    "forward_return_pct": null,
-    "note": "查無今日收盤資料（可能停牌或當天非交易日）"
-   },
-   {
-    "stock_id": "6885",
-    "stock_name": "全福生技",
-    "type": "twse",
-    "is_surge": true,
-    "signal_type": "6個月新高",
-    "signal_date": "2026-09-17",
-    "signal_close": 29.5,
-    "today_close": null,
-    "forward_return_pct": null,
-    "note": "查無今日收盤資料（可能停牌或當天非交易日）"
-   },
-   {
-    "stock_id": "6945",
-    "stock_name": "圓祥生技",
-    "type": "tpex",
-    "is_surge": true,
-    "signal_type": "3個月新高",
-    "signal_date": "2026-09-17",
-    "signal_close": 124,
-    "today_close": null,
-    "forward_return_pct": null,
-    "note": "查無今日收盤資料（可能停牌或當天非交易日）"
-   },
-   {
-    "stock_id": "6933",
-    "stock_name": "AMAX-KY",
-    "type": "twse",
-    "is_surge": true,
-    "signal_type": "12個月新高",
-    "signal_date": "2026-09-17",
-    "signal_close": 345.5,
-    "today_close": null,
-    "forward_return_pct": null,
-    "note": "查無今日收盤資料（可能停牌或當天非交易日）"
-   },
-   {
-    "stock_id": "4956",
-    "stock_name": "光鋐",
-    "type": "twse",
-    "is_surge": true,
-    "signal_type": "1個月新高",
-    "signal_date": "2026-09-17",
-    "signal_close": 38.75,
     "today_close": null,
     "forward_return_pct": null,
     "note": "查無今日收盤資料（可能停牌或當天非交易日）"
@@ -5605,5 +5600,5 @@
    }
   ]
  },
- "generated_at": "2026-09-20 01:22"
+ "generated_at": "2026-09-21 01:43"
 }
