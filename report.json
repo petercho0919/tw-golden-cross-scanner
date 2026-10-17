@@ -2567,6 +2567,28 @@
   "count": 152,
   "results": [
    {
+    "stock_id": "6925",
+    "stock_name": "意藍",
+    "type": "tpex",
+    "is_surge": true,
+    "signal_type": "6個月新高",
+    "signal_date": "2026-10-15",
+    "signal_close": 82.3,
+    "today_close": 90.5,
+    "forward_return_pct": 9.96
+   },
+   {
+    "stock_id": "2033",
+    "stock_name": "佳大",
+    "type": "twse",
+    "is_surge": true,
+    "signal_type": "12個月新高",
+    "signal_date": "2026-10-15",
+    "signal_close": 54.4,
+    "today_close": 59.8,
+    "forward_return_pct": 9.93
+   },
+   {
     "stock_id": "6269",
     "stock_name": "台郡",
     "type": "twse",
@@ -2677,6 +2699,17 @@
     "forward_return_pct": 3.28
    },
    {
+    "stock_id": "2023",
+    "stock_name": "燁輝",
+    "type": "twse",
+    "is_surge": true,
+    "signal_type": "6個月新高",
+    "signal_date": "2026-10-15",
+    "signal_close": 14.6,
+    "today_close": 15.05,
+    "forward_return_pct": 3.08
+   },
+   {
     "stock_id": "5351",
     "stock_name": "鈺創",
     "type": "tpex",
@@ -2732,6 +2765,28 @@
     "forward_return_pct": 2.28
    },
    {
+    "stock_id": "2006",
+    "stock_name": "東和鋼鐵",
+    "type": "twse",
+    "is_surge": true,
+    "signal_type": "12個月新高",
+    "signal_date": "2026-10-15",
+    "signal_close": 90.1,
+    "today_close": 92.1,
+    "forward_return_pct": 2.22
+   },
+   {
+    "stock_id": "2105",
+    "stock_name": "正新",
+    "type": "twse",
+    "is_surge": true,
+    "signal_type": "1個月新高",
+    "signal_date": "2026-10-15",
+    "signal_close": 31.8,
+    "today_close": 32.5,
+    "forward_return_pct": 2.2
+   },
+   {
     "stock_id": "6919",
     "stock_name": "康霈*",
     "type": "twse",
@@ -2785,6 +2840,17 @@
     "signal_close": 183.5,
     "today_close": 187,
     "forward_return_pct": 1.91
+   },
+   {
+    "stock_id": "4961",
+    "stock_name": "天鈺",
+    "type": "twse",
+    "is_surge": true,
+    "signal_type": "12個月新高",
+    "signal_date": "2026-10-15",
+    "signal_close": 186.5,
+    "today_close": 190,
+    "forward_return_pct": 1.88
    },
    {
     "stock_id": "6547",
@@ -2851,6 +2917,17 @@
     "signal_close": 68,
     "today_close": 69,
     "forward_return_pct": 1.47
+   },
+   {
+    "stock_id": "1810",
+    "stock_name": "和成",
+    "type": "twse",
+    "is_surge": false,
+    "signal_type": "3個月新低",
+    "signal_date": "2026-10-15",
+    "signal_close": 23.1,
+    "today_close": 23.4,
+    "forward_return_pct": 1.3
    },
    {
     "stock_id": "7769",
@@ -2952,6 +3029,17 @@
     "forward_return_pct": 0.43
    },
    {
+    "stock_id": "6885",
+    "stock_name": "全福生技",
+    "type": "twse",
+    "is_surge": true,
+    "signal_type": "12個月新高",
+    "signal_date": "2026-10-15",
+    "signal_close": 33.5,
+    "today_close": 33.6,
+    "forward_return_pct": 0.3
+   },
+   {
     "stock_id": "6214",
     "stock_name": "精誠",
     "type": "twse",
@@ -2993,6 +3081,28 @@
     "signal_date": "2026-10-15",
     "signal_close": 160,
     "today_close": 160,
+    "forward_return_pct": 0
+   },
+   {
+    "stock_id": "2049",
+    "stock_name": "上銀",
+    "type": "twse",
+    "is_surge": true,
+    "signal_type": "1個月新低",
+    "signal_date": "2026-10-15",
+    "signal_close": 311,
+    "today_close": 311,
+    "forward_return_pct": 0
+   },
+   {
+    "stock_id": "1907",
+    "stock_name": "永豐餘",
+    "type": "twse",
+    "is_surge": false,
+    "signal_type": "1個月新高",
+    "signal_date": "2026-10-15",
+    "signal_close": 29.55,
+    "today_close": 29.55,
     "forward_return_pct": 0
    },
    {
@@ -3191,126 +3301,6 @@
     "signal_type": "12個月新低",
     "signal_date": "2026-04-02",
     "signal_close": 5.54,
-    "today_close": null,
-    "forward_return_pct": null,
-    "note": "查無今日收盤資料（可能停牌或當天非交易日）"
-   },
-   {
-    "stock_id": "6925",
-    "stock_name": "意藍",
-    "type": "tpex",
-    "is_surge": true,
-    "signal_type": "6個月新高",
-    "signal_date": "2026-10-15",
-    "signal_close": 82.3,
-    "today_close": null,
-    "forward_return_pct": null,
-    "note": "查無今日收盤資料（可能停牌或當天非交易日）"
-   },
-   {
-    "stock_id": "6885",
-    "stock_name": "全福生技",
-    "type": "twse",
-    "is_surge": true,
-    "signal_type": "12個月新高",
-    "signal_date": "2026-10-15",
-    "signal_close": 33.5,
-    "today_close": null,
-    "forward_return_pct": null,
-    "note": "查無今日收盤資料（可能停牌或當天非交易日）"
-   },
-   {
-    "stock_id": "4961",
-    "stock_name": "天鈺",
-    "type": "twse",
-    "is_surge": true,
-    "signal_type": "12個月新高",
-    "signal_date": "2026-10-15",
-    "signal_close": 186.5,
-    "today_close": null,
-    "forward_return_pct": null,
-    "note": "查無今日收盤資料（可能停牌或當天非交易日）"
-   },
-   {
-    "stock_id": "1810",
-    "stock_name": "和成",
-    "type": "twse",
-    "is_surge": false,
-    "signal_type": "3個月新低",
-    "signal_date": "2026-10-15",
-    "signal_close": 23.1,
-    "today_close": null,
-    "forward_return_pct": null,
-    "note": "查無今日收盤資料（可能停牌或當天非交易日）"
-   },
-   {
-    "stock_id": "2049",
-    "stock_name": "上銀",
-    "type": "twse",
-    "is_surge": true,
-    "signal_type": "1個月新低",
-    "signal_date": "2026-10-15",
-    "signal_close": 311,
-    "today_close": null,
-    "forward_return_pct": null,
-    "note": "查無今日收盤資料（可能停牌或當天非交易日）"
-   },
-   {
-    "stock_id": "2105",
-    "stock_name": "正新",
-    "type": "twse",
-    "is_surge": true,
-    "signal_type": "1個月新高",
-    "signal_date": "2026-10-15",
-    "signal_close": 31.8,
-    "today_close": null,
-    "forward_return_pct": null,
-    "note": "查無今日收盤資料（可能停牌或當天非交易日）"
-   },
-   {
-    "stock_id": "2033",
-    "stock_name": "佳大",
-    "type": "twse",
-    "is_surge": true,
-    "signal_type": "12個月新高",
-    "signal_date": "2026-10-15",
-    "signal_close": 54.4,
-    "today_close": null,
-    "forward_return_pct": null,
-    "note": "查無今日收盤資料（可能停牌或當天非交易日）"
-   },
-   {
-    "stock_id": "1907",
-    "stock_name": "永豐餘",
-    "type": "twse",
-    "is_surge": false,
-    "signal_type": "1個月新高",
-    "signal_date": "2026-10-15",
-    "signal_close": 29.55,
-    "today_close": null,
-    "forward_return_pct": null,
-    "note": "查無今日收盤資料（可能停牌或當天非交易日）"
-   },
-   {
-    "stock_id": "2006",
-    "stock_name": "東和鋼鐵",
-    "type": "twse",
-    "is_surge": true,
-    "signal_type": "12個月新高",
-    "signal_date": "2026-10-15",
-    "signal_close": 90.1,
-    "today_close": null,
-    "forward_return_pct": null,
-    "note": "查無今日收盤資料（可能停牌或當天非交易日）"
-   },
-   {
-    "stock_id": "2023",
-    "stock_name": "燁輝",
-    "type": "twse",
-    "is_surge": true,
-    "signal_type": "6個月新高",
-    "signal_date": "2026-10-15",
-    "signal_close": 14.6,
     "today_close": null,
     "forward_return_pct": null,
     "note": "查無今日收盤資料（可能停牌或當天非交易日）"
@@ -4533,5 +4523,5 @@
    }
   ]
  },
- "generated_at": "2026-10-17 02:16"
+ "generated_at": "2026-10-18 01:29"
 }
