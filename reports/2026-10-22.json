@@ -3610,6 +3610,17 @@
   "count": 82,
   "results": [
    {
+    "stock_id": "4577",
+    "stock_name": "達航科技",
+    "type": "tpex",
+    "is_surge": true,
+    "signal_type": "3個月新高",
+    "signal_date": "2026-10-21",
+    "signal_close": 115.5,
+    "today_close": 127,
+    "forward_return_pct": 9.96
+   },
+   {
     "stock_id": "6467",
     "stock_name": "泰合",
     "type": "twse",
@@ -3619,6 +3630,17 @@
     "signal_close": 187,
     "today_close": 202.5,
     "forward_return_pct": 8.29
+   },
+   {
+    "stock_id": "4526",
+    "stock_name": "東台",
+    "type": "twse",
+    "is_surge": true,
+    "signal_type": "3個月新高",
+    "signal_date": "2026-10-21",
+    "signal_close": 38.05,
+    "today_close": 41.05,
+    "forward_return_pct": 7.88
    },
    {
     "stock_id": "2069",
@@ -3687,6 +3709,39 @@
     "forward_return_pct": 1.16
    },
    {
+    "stock_id": "2801",
+    "stock_name": "彰銀",
+    "type": "twse",
+    "is_surge": false,
+    "signal_type": "12個月新高",
+    "signal_date": "2026-10-21",
+    "signal_close": 29.6,
+    "today_close": 29.9,
+    "forward_return_pct": 1.01
+   },
+   {
+    "stock_id": "2880",
+    "stock_name": "華南金",
+    "type": "twse",
+    "is_surge": false,
+    "signal_type": "12個月新高",
+    "signal_date": "2026-10-21",
+    "signal_close": 49.8,
+    "today_close": 50.3,
+    "forward_return_pct": 1
+   },
+   {
+    "stock_id": "3005",
+    "stock_name": "神基",
+    "type": "twse",
+    "is_surge": false,
+    "signal_type": "6個月新高",
+    "signal_date": "2026-10-21",
+    "signal_close": 124.5,
+    "today_close": 125.5,
+    "forward_return_pct": 0.8
+   },
+   {
     "stock_id": "6547",
     "stock_name": "高端疫苗",
     "type": "tpex",
@@ -3740,6 +3795,17 @@
     "signal_close": 51.1,
     "today_close": 51.3,
     "forward_return_pct": 0.39
+   },
+   {
+    "stock_id": "2891",
+    "stock_name": "中信金",
+    "type": "twse",
+    "is_surge": false,
+    "signal_type": "12個月新高",
+    "signal_date": "2026-10-21",
+    "signal_close": 74.8,
+    "today_close": 74.9,
+    "forward_return_pct": 0.13
    },
    {
     "stock_id": "6245",
@@ -3850,6 +3916,17 @@
     "signal_close": 17.9,
     "today_close": 17.75,
     "forward_return_pct": -0.84
+   },
+   {
+    "stock_id": "4533",
+    "stock_name": "協易機",
+    "type": "tpex",
+    "is_surge": true,
+    "signal_type": "3個月新高",
+    "signal_date": "2026-10-21",
+    "signal_close": 28.9,
+    "today_close": 28.65,
+    "forward_return_pct": -0.87
    },
    {
     "stock_id": "2324",
@@ -4250,90 +4327,6 @@
     "note": "查無今日收盤資料（可能停牌或當天非交易日）"
    },
    {
-    "stock_id": "4577",
-    "stock_name": "達航科技",
-    "type": "tpex",
-    "is_surge": true,
-    "signal_type": "3個月新高",
-    "signal_date": "2026-10-21",
-    "signal_close": 115.5,
-    "today_close": null,
-    "forward_return_pct": null,
-    "note": "查無今日收盤資料（可能停牌或當天非交易日）"
-   },
-   {
-    "stock_id": "4526",
-    "stock_name": "東台",
-    "type": "twse",
-    "is_surge": true,
-    "signal_type": "3個月新高",
-    "signal_date": "2026-10-21",
-    "signal_close": 38.05,
-    "today_close": null,
-    "forward_return_pct": null,
-    "note": "查無今日收盤資料（可能停牌或當天非交易日）"
-   },
-   {
-    "stock_id": "4533",
-    "stock_name": "協易機",
-    "type": "tpex",
-    "is_surge": true,
-    "signal_type": "3個月新高",
-    "signal_date": "2026-10-21",
-    "signal_close": 28.9,
-    "today_close": null,
-    "forward_return_pct": null,
-    "note": "查無今日收盤資料（可能停牌或當天非交易日）"
-   },
-   {
-    "stock_id": "2801",
-    "stock_name": "彰銀",
-    "type": "twse",
-    "is_surge": false,
-    "signal_type": "12個月新高",
-    "signal_date": "2026-10-21",
-    "signal_close": 29.6,
-    "today_close": null,
-    "forward_return_pct": null,
-    "note": "查無今日收盤資料（可能停牌或當天非交易日）"
-   },
-   {
-    "stock_id": "2880",
-    "stock_name": "華南金",
-    "type": "twse",
-    "is_surge": false,
-    "signal_type": "12個月新高",
-    "signal_date": "2026-10-21",
-    "signal_close": 49.8,
-    "today_close": null,
-    "forward_return_pct": null,
-    "note": "查無今日收盤資料（可能停牌或當天非交易日）"
-   },
-   {
-    "stock_id": "3005",
-    "stock_name": "神基",
-    "type": "twse",
-    "is_surge": false,
-    "signal_type": "6個月新高",
-    "signal_date": "2026-10-21",
-    "signal_close": 124.5,
-    "today_close": null,
-    "forward_return_pct": null,
-    "note": "查無今日收盤資料（可能停牌或當天非交易日）"
-   },
-   {
-    "stock_id": "2891",
-    "stock_name": "中信金",
-    "type": "twse",
-    "is_surge": false,
-    "signal_type": "12個月新高",
-    "signal_date": "2026-10-21",
-    "signal_close": 74.8,
-    "today_close": null,
-    "forward_return_pct": null,
-    "note": "查無今日收盤資料（可能停牌或當天非交易日）"
-   },
-   {
     "stock_id": "2464",
     "stock_name": "盟立",
     "type": "twse",
@@ -4693,5 +4686,5 @@
    }
   ]
  },
- "generated_at": "2026-10-25 01:32"
+ "generated_at": "2026-10-26 01:58"
 }
