@@ -3973,6 +3973,17 @@
     "forward_return_pct": -0.85
    },
    {
+    "stock_id": "3049",
+    "stock_name": "精金",
+    "type": "twse",
+    "is_surge": false,
+    "signal_type": "1個月新低",
+    "signal_date": "2026-10-21",
+    "signal_close": 11.6,
+    "today_close": 11.5,
+    "forward_return_pct": -0.86
+   },
+   {
     "stock_id": "4533",
     "stock_name": "協易機",
     "type": "tpex",
@@ -3993,6 +4004,28 @@
     "signal_close": 37.7,
     "today_close": 37.3,
     "forward_return_pct": -1.06
+   },
+   {
+    "stock_id": "3324",
+    "stock_name": "雙鴻",
+    "type": "tpex",
+    "is_surge": true,
+    "signal_type": "1個月新低",
+    "signal_date": "2026-10-21",
+    "signal_close": 1375,
+    "today_close": 1360,
+    "forward_return_pct": -1.09
+   },
+   {
+    "stock_id": "3034",
+    "stock_name": "聯詠",
+    "type": "twse",
+    "is_surge": false,
+    "signal_type": "12個月新高",
+    "signal_date": "2026-10-21",
+    "signal_close": 590,
+    "today_close": 583,
+    "forward_return_pct": -1.19
    },
    {
     "stock_id": "2377",
@@ -4270,6 +4303,17 @@
     "forward_return_pct": -3.67
    },
    {
+    "stock_id": "3362",
+    "stock_name": "先進光",
+    "type": "tpex",
+    "is_surge": false,
+    "signal_type": "1個月新低",
+    "signal_date": "2026-10-21",
+    "signal_close": 167,
+    "today_close": 160.5,
+    "forward_return_pct": -3.89
+   },
+   {
     "stock_id": "8383",
     "stock_name": "千附",
     "type": "tpex",
@@ -4345,6 +4389,17 @@
     "signal_close": 338,
     "today_close": 320,
     "forward_return_pct": -5.33
+   },
+   {
+    "stock_id": "3376",
+    "stock_name": "新日興",
+    "type": "twse",
+    "is_surge": false,
+    "signal_type": "1個月新高",
+    "signal_date": "2026-10-21",
+    "signal_close": 182.5,
+    "today_close": 172.5,
+    "forward_return_pct": -5.48
    },
    {
     "stock_id": "4949",
@@ -4424,6 +4479,17 @@
     "forward_return_pct": -9.67
    },
    {
+    "stock_id": "3354",
+    "stock_name": "律勝",
+    "type": "tpex",
+    "is_surge": false,
+    "signal_type": "12個月新高",
+    "signal_date": "2026-10-21",
+    "signal_close": 55.5,
+    "today_close": 49.95,
+    "forward_return_pct": -10
+   },
+   {
     "stock_id": "1589",
     "stock_name": "永冠-KY",
     "type": "twse",
@@ -4443,78 +4509,6 @@
     "signal_type": "3個月新高",
     "signal_date": "2026-10-14",
     "signal_close": 18.55,
-    "today_close": null,
-    "forward_return_pct": null,
-    "note": "查無今日收盤資料（可能停牌或當天非交易日）"
-   },
-   {
-    "stock_id": "3324",
-    "stock_name": "雙鴻",
-    "type": "tpex",
-    "is_surge": true,
-    "signal_type": "1個月新低",
-    "signal_date": "2026-10-21",
-    "signal_close": 1375,
-    "today_close": null,
-    "forward_return_pct": null,
-    "note": "查無今日收盤資料（可能停牌或當天非交易日）"
-   },
-   {
-    "stock_id": "3354",
-    "stock_name": "律勝",
-    "type": "tpex",
-    "is_surge": false,
-    "signal_type": "12個月新高",
-    "signal_date": "2026-10-21",
-    "signal_close": 55.5,
-    "today_close": null,
-    "forward_return_pct": null,
-    "note": "查無今日收盤資料（可能停牌或當天非交易日）"
-   },
-   {
-    "stock_id": "3362",
-    "stock_name": "先進光",
-    "type": "tpex",
-    "is_surge": false,
-    "signal_type": "1個月新低",
-    "signal_date": "2026-10-21",
-    "signal_close": 167,
-    "today_close": null,
-    "forward_return_pct": null,
-    "note": "查無今日收盤資料（可能停牌或當天非交易日）"
-   },
-   {
-    "stock_id": "3376",
-    "stock_name": "新日興",
-    "type": "twse",
-    "is_surge": false,
-    "signal_type": "1個月新高",
-    "signal_date": "2026-10-21",
-    "signal_close": 182.5,
-    "today_close": null,
-    "forward_return_pct": null,
-    "note": "查無今日收盤資料（可能停牌或當天非交易日）"
-   },
-   {
-    "stock_id": "3034",
-    "stock_name": "聯詠",
-    "type": "twse",
-    "is_surge": false,
-    "signal_type": "12個月新高",
-    "signal_date": "2026-10-21",
-    "signal_close": 590,
-    "today_close": null,
-    "forward_return_pct": null,
-    "note": "查無今日收盤資料（可能停牌或當天非交易日）"
-   },
-   {
-    "stock_id": "3049",
-    "stock_name": "精金",
-    "type": "twse",
-    "is_surge": false,
-    "signal_type": "1個月新低",
-    "signal_date": "2026-10-21",
-    "signal_close": 11.6,
     "today_close": null,
     "forward_return_pct": null,
     "note": "查無今日收盤資料（可能停牌或當天非交易日）"
@@ -4624,24 +4618,22 @@
   "count": 5,
   "results": [
    {
+    "stock_id": "4909",
+    "stock_name": "新復興",
+    "type": "tpex",
+    "signal_date": "2026-10-21",
+    "signal_close": 38.75,
+    "today_close": 39.2,
+    "forward_return_pct": 1.16
+   },
+   {
     "stock_id": "5487",
     "stock_name": "通泰",
     "type": "tpex",
     "signal_date": "2026-10-21",
     "signal_close": 32.05,
-    "today_close": null,
-    "forward_return_pct": null,
-    "note": "查無今日收盤資料（可能停牌或當天非交易日）"
-   },
-   {
-    "stock_id": "2328",
-    "stock_name": "廣宇",
-    "type": "twse",
-    "signal_date": "2026-10-21",
-    "signal_close": 54.3,
-    "today_close": null,
-    "forward_return_pct": null,
-    "note": "查無今日收盤資料（可能停牌或當天非交易日）"
+    "today_close": 32.1,
+    "forward_return_pct": 0.16
    },
    {
     "stock_id": "3545",
@@ -4649,19 +4641,8 @@
     "type": "twse",
     "signal_date": "2026-10-21",
     "signal_close": 53.7,
-    "today_close": null,
-    "forward_return_pct": null,
-    "note": "查無今日收盤資料（可能停牌或當天非交易日）"
-   },
-   {
-    "stock_id": "4909",
-    "stock_name": "新復興",
-    "type": "tpex",
-    "signal_date": "2026-10-21",
-    "signal_close": 38.75,
-    "today_close": null,
-    "forward_return_pct": null,
-    "note": "查無今日收盤資料（可能停牌或當天非交易日）"
+    "today_close": 53.3,
+    "forward_return_pct": -0.74
    },
    {
     "stock_id": "4533",
@@ -4669,11 +4650,19 @@
     "type": "tpex",
     "signal_date": "2026-10-21",
     "signal_close": 28.9,
-    "today_close": null,
-    "forward_return_pct": null,
-    "note": "查無今日收盤資料（可能停牌或當天非交易日）"
+    "today_close": 28.65,
+    "forward_return_pct": -0.87
+   },
+   {
+    "stock_id": "2328",
+    "stock_name": "廣宇",
+    "type": "twse",
+    "signal_date": "2026-10-21",
+    "signal_close": 54.3,
+    "today_close": 53.6,
+    "forward_return_pct": -1.29
    }
   ]
  },
- "generated_at": "2026-10-27 04:19"
+ "generated_at": "2026-10-27 23:33"
 }
