@@ -2190,28 +2190,6 @@
     "forward_return_pct": 9.88
    },
    {
-    "stock_id": "4747",
-    "stock_name": "強生*",
-    "type": "tpex",
-    "is_surge": true,
-    "signal_type": "6個月新低",
-    "signal_date": "2026-11-12",
-    "signal_close": 14.35,
-    "today_close": 15.75,
-    "forward_return_pct": 9.76
-   },
-   {
-    "stock_id": "2355",
-    "stock_name": "敬鵬",
-    "type": "twse",
-    "is_surge": true,
-    "signal_type": "3個月新高",
-    "signal_date": "2026-11-12",
-    "signal_close": 60.7,
-    "today_close": 65.9,
-    "forward_return_pct": 8.57
-   },
-   {
     "stock_id": "6617",
     "stock_name": "共信-KY",
     "type": "tpex",
@@ -2344,17 +2322,6 @@
     "forward_return_pct": 3.3
    },
    {
-    "stock_id": "2305",
-    "stock_name": "全友",
-    "type": "twse",
-    "is_surge": false,
-    "signal_type": "1個月新低",
-    "signal_date": "2026-11-12",
-    "signal_close": 40.2,
-    "today_close": 41.4,
-    "forward_return_pct": 2.99
-   },
-   {
     "stock_id": "6589",
     "stock_name": "台康生技",
     "type": "tpex",
@@ -2410,17 +2377,6 @@
     "forward_return_pct": 1.96
    },
    {
-    "stock_id": "3706",
-    "stock_name": "神達",
-    "type": "twse",
-    "is_surge": true,
-    "signal_type": "12個月新低",
-    "signal_date": "2026-11-12",
-    "signal_close": 65.3,
-    "today_close": 66.5,
-    "forward_return_pct": 1.84
-   },
-   {
     "stock_id": "8926",
     "stock_name": "台汽電",
     "type": "twse",
@@ -2430,17 +2386,6 @@
     "signal_close": 48.5,
     "today_close": 49.3,
     "forward_return_pct": 1.65
-   },
-   {
-    "stock_id": "2354",
-    "stock_name": "鴻準",
-    "type": "twse",
-    "is_surge": true,
-    "signal_type": "6個月新低",
-    "signal_date": "2026-11-12",
-    "signal_close": 51.6,
-    "today_close": 52.4,
-    "forward_return_pct": 1.55
    },
    {
     "stock_id": "9914",
@@ -2463,39 +2408,6 @@
     "signal_close": 102,
     "today_close": 103.5,
     "forward_return_pct": 1.47
-   },
-   {
-    "stock_id": "1310",
-    "stock_name": "台苯",
-    "type": "twse",
-    "is_surge": false,
-    "signal_type": "3個月新低",
-    "signal_date": "2026-11-12",
-    "signal_close": 8.01,
-    "today_close": 8.12,
-    "forward_return_pct": 1.37
-   },
-   {
-    "stock_id": "1312",
-    "stock_name": "國喬",
-    "type": "twse",
-    "is_surge": false,
-    "signal_type": "1個月新低",
-    "signal_date": "2026-11-12",
-    "signal_close": 12.1,
-    "today_close": 12.25,
-    "forward_return_pct": 1.24
-   },
-   {
-    "stock_id": "3596",
-    "stock_name": "智易",
-    "type": "twse",
-    "is_surge": true,
-    "signal_type": "12個月新低",
-    "signal_date": "2026-11-12",
-    "signal_close": 133,
-    "today_close": 134.5,
-    "forward_return_pct": 1.13
    },
    {
     "stock_id": "6196",
@@ -2564,39 +2476,6 @@
     "forward_return_pct": 0.65
    },
    {
-    "stock_id": "4949",
-    "stock_name": "有成精密",
-    "type": "twse",
-    "is_surge": false,
-    "signal_type": "3個月新低",
-    "signal_date": "2026-11-12",
-    "signal_close": 64.1,
-    "today_close": 64.5,
-    "forward_return_pct": 0.62
-   },
-   {
-    "stock_id": "4105",
-    "stock_name": "東洋",
-    "type": "tpex",
-    "is_surge": true,
-    "signal_type": "6個月新高",
-    "signal_date": "2026-11-12",
-    "signal_close": 83.7,
-    "today_close": 84.1,
-    "forward_return_pct": 0.48
-   },
-   {
-    "stock_id": "1440",
-    "stock_name": "南紡",
-    "type": "twse",
-    "is_surge": false,
-    "signal_type": "3個月新低",
-    "signal_date": "2026-11-12",
-    "signal_close": 12.55,
-    "today_close": 12.6,
-    "forward_return_pct": 0.4
-   },
-   {
     "stock_id": "2201",
     "stock_name": "裕隆",
     "type": "twse",
@@ -2608,17 +2487,6 @@
     "forward_return_pct": 0.38
    },
    {
-    "stock_id": "2324",
-    "stock_name": "仁寶",
-    "type": "twse",
-    "is_surge": false,
-    "signal_type": "3個月新低",
-    "signal_date": "2026-11-12",
-    "signal_close": 30,
-    "today_close": 30.1,
-    "forward_return_pct": 0.33
-   },
-   {
     "stock_id": "9958",
     "stock_name": "世紀鋼",
     "type": "twse",
@@ -2628,17 +2496,6 @@
     "signal_close": 71.2,
     "today_close": 71.4,
     "forward_return_pct": 0.28
-   },
-   {
-    "stock_id": "1229",
-    "stock_name": "聯華",
-    "type": "twse",
-    "is_surge": false,
-    "signal_type": "12個月新低",
-    "signal_date": "2026-11-12",
-    "signal_close": 37.7,
-    "today_close": 37.75,
-    "forward_return_pct": 0.13
    },
    {
     "stock_id": "6152",
@@ -2663,17 +2520,6 @@
     "forward_return_pct": 0
    },
    {
-    "stock_id": "4416",
-    "stock_name": "三圓",
-    "type": "tpex",
-    "is_surge": true,
-    "signal_type": "3個月新低",
-    "signal_date": "2026-11-12",
-    "signal_close": 10,
-    "today_close": 9.99,
-    "forward_return_pct": -0.1
-   },
-   {
     "stock_id": "1722",
     "stock_name": "台肥",
     "type": "twse",
@@ -2683,39 +2529,6 @@
     "signal_close": 38.8,
     "today_close": 38.7,
     "forward_return_pct": -0.26
-   },
-   {
-    "stock_id": "3717",
-    "stock_name": "聯嘉投控",
-    "type": "twse",
-    "is_surge": false,
-    "signal_type": "1個月新低",
-    "signal_date": "2026-11-12",
-    "signal_close": 22.7,
-    "today_close": 22.6,
-    "forward_return_pct": -0.44
-   },
-   {
-    "stock_id": "3702",
-    "stock_name": "大聯大",
-    "type": "twse",
-    "is_surge": false,
-    "signal_type": "6個月新低",
-    "signal_date": "2026-11-12",
-    "signal_close": 86.9,
-    "today_close": 86.4,
-    "forward_return_pct": -0.58
-   },
-   {
-    "stock_id": "4915",
-    "stock_name": "致伸",
-    "type": "twse",
-    "is_surge": false,
-    "signal_type": "12個月新低",
-    "signal_date": "2026-11-12",
-    "signal_close": 50.1,
-    "today_close": 49.8,
-    "forward_return_pct": -0.6
    },
    {
     "stock_id": "2382",
@@ -2729,50 +2542,6 @@
     "forward_return_pct": -0.72
    },
    {
-    "stock_id": "2347",
-    "stock_name": "聯強",
-    "type": "twse",
-    "is_surge": false,
-    "signal_type": "6個月新低",
-    "signal_date": "2026-11-12",
-    "signal_close": 76.6,
-    "today_close": 76,
-    "forward_return_pct": -0.78
-   },
-   {
-    "stock_id": "2356",
-    "stock_name": "英業達",
-    "type": "twse",
-    "is_surge": true,
-    "signal_type": "6個月新低",
-    "signal_date": "2026-11-12",
-    "signal_close": 46.6,
-    "today_close": 46.05,
-    "forward_return_pct": -1.18
-   },
-   {
-    "stock_id": "3715",
-    "stock_name": "定穎投控",
-    "type": "twse",
-    "is_surge": true,
-    "signal_type": "3個月新高",
-    "signal_date": "2026-11-12",
-    "signal_close": 143.5,
-    "today_close": 141.5,
-    "forward_return_pct": -1.39
-   },
-   {
-    "stock_id": "3701",
-    "stock_name": "大眾控",
-    "type": "twse",
-    "is_surge": true,
-    "signal_type": "6個月新高",
-    "signal_date": "2026-11-12",
-    "signal_close": 69.5,
-    "today_close": 68.5,
-    "forward_return_pct": -1.44
-   },
-   {
     "stock_id": "2614",
     "stock_name": "東森",
     "type": "twse",
@@ -2784,28 +2553,6 @@
     "forward_return_pct": -1.53
    },
    {
-    "stock_id": "3491",
-    "stock_name": "昇達科",
-    "type": "tpex",
-    "is_surge": true,
-    "signal_type": "1個月新高",
-    "signal_date": "2026-11-12",
-    "signal_close": 1455,
-    "today_close": 1430,
-    "forward_return_pct": -1.72
-   },
-   {
-    "stock_id": "1102",
-    "stock_name": "亞泥",
-    "type": "twse",
-    "is_surge": false,
-    "signal_type": "1個月新低",
-    "signal_date": "2026-11-12",
-    "signal_close": 36.4,
-    "today_close": 35.75,
-    "forward_return_pct": -1.79
-   },
-   {
     "stock_id": "2376",
     "stock_name": "技嘉",
     "type": "twse",
@@ -2815,28 +2562,6 @@
     "signal_close": 289.5,
     "today_close": 284,
     "forward_return_pct": -1.9
-   },
-   {
-    "stock_id": "3490",
-    "stock_name": "單井",
-    "type": "tpex",
-    "is_surge": true,
-    "signal_type": "3個月新低",
-    "signal_date": "2026-11-12",
-    "signal_close": 32.45,
-    "today_close": 31.8,
-    "forward_return_pct": -2
-   },
-   {
-    "stock_id": "4938",
-    "stock_name": "和碩",
-    "type": "twse",
-    "is_surge": false,
-    "signal_type": "1個月新低",
-    "signal_date": "2026-11-12",
-    "signal_close": 92.2,
-    "today_close": 89.1,
-    "forward_return_pct": -3.36
    },
    {
     "stock_id": "6229",
@@ -2924,6 +2649,306 @@
     "signal_type": "1個月新低",
     "signal_date": "2026-11-04",
     "signal_close": 56.7,
+    "today_close": null,
+    "forward_return_pct": null,
+    "note": "查無今日收盤資料（可能停牌或當天非交易日）"
+   },
+   {
+    "stock_id": "2305",
+    "stock_name": "全友",
+    "type": "twse",
+    "is_surge": false,
+    "signal_type": "1個月新低",
+    "signal_date": "2026-11-12",
+    "signal_close": 40.2,
+    "today_close": null,
+    "forward_return_pct": null,
+    "note": "查無今日收盤資料（可能停牌或當天非交易日）"
+   },
+   {
+    "stock_id": "2324",
+    "stock_name": "仁寶",
+    "type": "twse",
+    "is_surge": false,
+    "signal_type": "3個月新低",
+    "signal_date": "2026-11-12",
+    "signal_close": 30,
+    "today_close": null,
+    "forward_return_pct": null,
+    "note": "查無今日收盤資料（可能停牌或當天非交易日）"
+   },
+   {
+    "stock_id": "2354",
+    "stock_name": "鴻準",
+    "type": "twse",
+    "is_surge": true,
+    "signal_type": "6個月新低",
+    "signal_date": "2026-11-12",
+    "signal_close": 51.6,
+    "today_close": null,
+    "forward_return_pct": null,
+    "note": "查無今日收盤資料（可能停牌或當天非交易日）"
+   },
+   {
+    "stock_id": "2355",
+    "stock_name": "敬鵬",
+    "type": "twse",
+    "is_surge": true,
+    "signal_type": "3個月新高",
+    "signal_date": "2026-11-12",
+    "signal_close": 60.7,
+    "today_close": null,
+    "forward_return_pct": null,
+    "note": "查無今日收盤資料（可能停牌或當天非交易日）"
+   },
+   {
+    "stock_id": "2356",
+    "stock_name": "英業達",
+    "type": "twse",
+    "is_surge": true,
+    "signal_type": "6個月新低",
+    "signal_date": "2026-11-12",
+    "signal_close": 46.6,
+    "today_close": null,
+    "forward_return_pct": null,
+    "note": "查無今日收盤資料（可能停牌或當天非交易日）"
+   },
+   {
+    "stock_id": "2347",
+    "stock_name": "聯強",
+    "type": "twse",
+    "is_surge": false,
+    "signal_type": "6個月新低",
+    "signal_date": "2026-11-12",
+    "signal_close": 76.6,
+    "today_close": null,
+    "forward_return_pct": null,
+    "note": "查無今日收盤資料（可能停牌或當天非交易日）"
+   },
+   {
+    "stock_id": "1102",
+    "stock_name": "亞泥",
+    "type": "twse",
+    "is_surge": false,
+    "signal_type": "1個月新低",
+    "signal_date": "2026-11-12",
+    "signal_close": 36.4,
+    "today_close": null,
+    "forward_return_pct": null,
+    "note": "查無今日收盤資料（可能停牌或當天非交易日）"
+   },
+   {
+    "stock_id": "1229",
+    "stock_name": "聯華",
+    "type": "twse",
+    "is_surge": false,
+    "signal_type": "12個月新低",
+    "signal_date": "2026-11-12",
+    "signal_close": 37.7,
+    "today_close": null,
+    "forward_return_pct": null,
+    "note": "查無今日收盤資料（可能停牌或當天非交易日）"
+   },
+   {
+    "stock_id": "1440",
+    "stock_name": "南紡",
+    "type": "twse",
+    "is_surge": false,
+    "signal_type": "3個月新低",
+    "signal_date": "2026-11-12",
+    "signal_close": 12.55,
+    "today_close": null,
+    "forward_return_pct": null,
+    "note": "查無今日收盤資料（可能停牌或當天非交易日）"
+   },
+   {
+    "stock_id": "1310",
+    "stock_name": "台苯",
+    "type": "twse",
+    "is_surge": false,
+    "signal_type": "3個月新低",
+    "signal_date": "2026-11-12",
+    "signal_close": 8.01,
+    "today_close": null,
+    "forward_return_pct": null,
+    "note": "查無今日收盤資料（可能停牌或當天非交易日）"
+   },
+   {
+    "stock_id": "1312",
+    "stock_name": "國喬",
+    "type": "twse",
+    "is_surge": false,
+    "signal_type": "1個月新低",
+    "signal_date": "2026-11-12",
+    "signal_close": 12.1,
+    "today_close": null,
+    "forward_return_pct": null,
+    "note": "查無今日收盤資料（可能停牌或當天非交易日）"
+   },
+   {
+    "stock_id": "3701",
+    "stock_name": "大眾控",
+    "type": "twse",
+    "is_surge": true,
+    "signal_type": "6個月新高",
+    "signal_date": "2026-11-12",
+    "signal_close": 69.5,
+    "today_close": null,
+    "forward_return_pct": null,
+    "note": "查無今日收盤資料（可能停牌或當天非交易日）"
+   },
+   {
+    "stock_id": "3702",
+    "stock_name": "大聯大",
+    "type": "twse",
+    "is_surge": false,
+    "signal_type": "6個月新低",
+    "signal_date": "2026-11-12",
+    "signal_close": 86.9,
+    "today_close": null,
+    "forward_return_pct": null,
+    "note": "查無今日收盤資料（可能停牌或當天非交易日）"
+   },
+   {
+    "stock_id": "3706",
+    "stock_name": "神達",
+    "type": "twse",
+    "is_surge": true,
+    "signal_type": "12個月新低",
+    "signal_date": "2026-11-12",
+    "signal_close": 65.3,
+    "today_close": null,
+    "forward_return_pct": null,
+    "note": "查無今日收盤資料（可能停牌或當天非交易日）"
+   },
+   {
+    "stock_id": "3715",
+    "stock_name": "定穎投控",
+    "type": "twse",
+    "is_surge": true,
+    "signal_type": "3個月新高",
+    "signal_date": "2026-11-12",
+    "signal_close": 143.5,
+    "today_close": null,
+    "forward_return_pct": null,
+    "note": "查無今日收盤資料（可能停牌或當天非交易日）"
+   },
+   {
+    "stock_id": "3717",
+    "stock_name": "聯嘉投控",
+    "type": "twse",
+    "is_surge": false,
+    "signal_type": "1個月新低",
+    "signal_date": "2026-11-12",
+    "signal_close": 22.7,
+    "today_close": null,
+    "forward_return_pct": null,
+    "note": "查無今日收盤資料（可能停牌或當天非交易日）"
+   },
+   {
+    "stock_id": "4105",
+    "stock_name": "東洋",
+    "type": "tpex",
+    "is_surge": true,
+    "signal_type": "6個月新高",
+    "signal_date": "2026-11-12",
+    "signal_close": 83.7,
+    "today_close": null,
+    "forward_return_pct": null,
+    "note": "查無今日收盤資料（可能停牌或當天非交易日）"
+   },
+   {
+    "stock_id": "3490",
+    "stock_name": "單井",
+    "type": "tpex",
+    "is_surge": true,
+    "signal_type": "3個月新低",
+    "signal_date": "2026-11-12",
+    "signal_close": 32.45,
+    "today_close": null,
+    "forward_return_pct": null,
+    "note": "查無今日收盤資料（可能停牌或當天非交易日）"
+   },
+   {
+    "stock_id": "3491",
+    "stock_name": "昇達科",
+    "type": "tpex",
+    "is_surge": true,
+    "signal_type": "1個月新高",
+    "signal_date": "2026-11-12",
+    "signal_close": 1455,
+    "today_close": null,
+    "forward_return_pct": null,
+    "note": "查無今日收盤資料（可能停牌或當天非交易日）"
+   },
+   {
+    "stock_id": "3596",
+    "stock_name": "智易",
+    "type": "twse",
+    "is_surge": true,
+    "signal_type": "12個月新低",
+    "signal_date": "2026-11-12",
+    "signal_close": 133,
+    "today_close": null,
+    "forward_return_pct": null,
+    "note": "查無今日收盤資料（可能停牌或當天非交易日）"
+   },
+   {
+    "stock_id": "4747",
+    "stock_name": "強生*",
+    "type": "tpex",
+    "is_surge": true,
+    "signal_type": "6個月新低",
+    "signal_date": "2026-11-12",
+    "signal_close": 14.35,
+    "today_close": null,
+    "forward_return_pct": null,
+    "note": "查無今日收盤資料（可能停牌或當天非交易日）"
+   },
+   {
+    "stock_id": "4949",
+    "stock_name": "有成精密",
+    "type": "twse",
+    "is_surge": false,
+    "signal_type": "3個月新低",
+    "signal_date": "2026-11-12",
+    "signal_close": 64.1,
+    "today_close": null,
+    "forward_return_pct": null,
+    "note": "查無今日收盤資料（可能停牌或當天非交易日）"
+   },
+   {
+    "stock_id": "4915",
+    "stock_name": "致伸",
+    "type": "twse",
+    "is_surge": false,
+    "signal_type": "12個月新低",
+    "signal_date": "2026-11-12",
+    "signal_close": 50.1,
+    "today_close": null,
+    "forward_return_pct": null,
+    "note": "查無今日收盤資料（可能停牌或當天非交易日）"
+   },
+   {
+    "stock_id": "4938",
+    "stock_name": "和碩",
+    "type": "twse",
+    "is_surge": false,
+    "signal_type": "1個月新低",
+    "signal_date": "2026-11-12",
+    "signal_close": 92.2,
+    "today_close": null,
+    "forward_return_pct": null,
+    "note": "查無今日收盤資料（可能停牌或當天非交易日）"
+   },
+   {
+    "stock_id": "4416",
+    "stock_name": "三圓",
+    "type": "tpex",
+    "is_surge": true,
+    "signal_type": "3個月新低",
+    "signal_date": "2026-11-12",
+    "signal_close": 10,
     "today_close": null,
     "forward_return_pct": null,
     "note": "查無今日收盤資料（可能停牌或當天非交易日）"
@@ -3318,5 +3343,5 @@
    }
   ]
  },
- "generated_at": "2026-11-14 05:26"
+ "generated_at": "2026-11-15 04:05"
 }
